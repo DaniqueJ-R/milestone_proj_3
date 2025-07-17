@@ -128,7 +128,9 @@
     <main class="container my-5">
       <section>
         <!-- Filter dropdown -->
-        <div id="notes-filter">
+        <div id="writing-notes-filter">
+          <p>Choose a topic:</p>
+          <div id="notes-filter">
             <button onclick="myFunction()" class="dropbtn">All</button>
             <div id="myDropdown" class="dropdown-content">
               <a href="#">All</a>
@@ -138,26 +140,38 @@
               <a href="#">Depression</a>
             </div>
           </div>
+        </div>
 
         <!-- Main display for quotes -->
         <div>
-          <div class="note-board">
-            <div class="note">
-              <p>"You’ve survived 100% of your worst days."</p>
-              <p class="author">– Anonymous</p>
-            </div>
-            <div class="note">
-              <!-- to be hidden until next selected -->
-              <p>"Take a breath. You're doing enough."</p>
-              <p class="author">– Jordan</p>
-            </div>
-          </div>
-        </div>
+          <form method="POST">
+            <textarea
+              name="message"
+              placeholder="Write something kind..."
+              maxlength="200"
+            ></textarea>
+            <input
+              type="text"
+              name="author"
+              placeholder="Your name (optional)"
+            />
 
-        <!-- Next and Back buttons for notes above -->
-        <div>
-          <button class="btn btn-primary">One Sec</button>
-          <button class="btn btn-primary">One More</button>
+            <!-- Drag & drop stickers section -->
+            <div class="sticker-panel">
+              <p>Add a sticker:</p>
+              <img
+                src="assets/images/heart.png"
+                class="sticker"
+                draggable="true"
+                alt="heart sticker"
+              />
+              <!-- Add JS interactivity later -->
+            </div>
+
+            <!-- Submit and reset buttom -->
+            <button type="reset" class="btn btn-success">Reset</button>
+            <button type="submit" class="btn btn-success">Send Message</button>
+          </form>
         </div>
       </section>
 
