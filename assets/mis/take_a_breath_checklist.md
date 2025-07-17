@@ -150,8 +150,8 @@ To enhance user experience and work toward distinction-level criteria, Take A Br
 - [x] Add collaborators
 
 ### Step 4: Project Board
-- [ ] Create GitHub Project board (To Do, In Progress, Done)
-- [ ] Add user stories as cards
+- [x] Create GitHub Project board (To Do, In Progress, Done)
+- [x] Add user stories as cards
 
 ---
 
