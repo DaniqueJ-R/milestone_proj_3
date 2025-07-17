@@ -121,28 +121,129 @@
 
     <!-- Header with user options to write or read notes -->
     <header>
-      <div id="read-notes"><a href="index.html">Pick</a></div>
-      <div id="write-notes"><a href="write-a-note.html">Write</a></div>
+      <h1>Take A Breath</h1>
+      <h2>Learn More About Us</h2>
     </header>
 
     <main class="container my-5">
       <section>
-        <!-- Filter dropdown -->
+        <!-- about us questions -->
         <div id="writing-notes-filter">
-          <p>Choose a topic:</p>
-          <div id="notes-filter">
-            <button onclick="myFunction()" class="dropbtn">All</button>
-            <div id="myDropdown" class="dropdown-content">
-              <a href="#">All</a>
-              <a href="#">Stressed</a>
-              <a href="#">Overwhelmed</a>
-              <a href="#">Greif</a>
-              <a href="#">Depression</a>
+          <div class="accordion accordion-flush" id="sec1">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#Sec1-one"
+                  aria-expanded="false"
+                  aria-controls="Sec1-one"
+                >
+                  Can I join a class without signing up online?
+                </button>
+              </h2>
+              <div
+                id="Sec1-one"
+                class="accordion-collapse collapse"
+                data-bs-parent="#Sec1"
+              >
+                <div class="accordion-body">
+                  Online registration is mandatory! <br />
+                  Each class has a size (participation) limit to encourage
+                  adequate spacing and to ensure you leave with a fulfilling
+                  workout experience. <br />
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#sec1-two"
+                  aria-expanded="false"
+                  aria-controls="sec1-two"
+                >
+                  Something came up and I can't make it to the class I
+                  registered for. Can I get a refund/reschedule?
+                </button>
+              </h2>
+              <div
+                id="sec1-two"
+                class="accordion-collapse collapse"
+                data-bs-parent="#sec1"
+              >
+                <div class="accordion-body">
+                  We have a strict 24-hour cancellation policy for all classes.
+                  If you can no longer make a class, even if it's within the 24
+                  hours, please do let us know as there is always a chance that
+                  someone on the waitlist can take your spot. In that case your
+                  class would be credited back to your account.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#sec1-three"
+                  aria-expanded="false"
+                  aria-controls="sec1-three"
+                >
+                  Is there a age limit to participating in the sessions or
+                  becoming a member?
+                </button>
+              </h2>
+              <div
+                id="sec1-three"
+                class="accordion-collapse collapse"
+                data-bs-parent="#sec1"
+              >
+                <div class="accordion-body">
+                  We do not have a age limit. <br />
+                  <br />
+                  So feel free to join and be the best you. <br />
+                  <br />
+                  We do however ask that you should you have any ailments or
+                  medical conditions (whether or not you think its concerning)
+                  that you declare these on your registration form wholly. This
+                  helps our instructors to modify their lesson plans and ensure
+                  your experience is comfortably challenging. <br />
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#sec1-four"
+                  aria-expanded="false"
+                  aria-controls="sec1-four"
+                >
+                  Can men join classes?
+                </button>
+              </h2>
+              <div
+                id="sec1-four"
+                class="accordion-collapse collapse"
+                data-bs-parent="#sec1"
+              >
+                <div class="accordion-body">
+                  Of course! Our studio is open to EVERYONE no matter your
+                  gender or how you identify.
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Main display for quotes -->
+        <!-- Contact us -->
         <div>
           <form method="POST">
             <textarea
