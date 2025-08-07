@@ -3,19 +3,20 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
+
+class Notes(models.Model):
     CATEGORY = (
         (0, "Uncategorized"),
         (1, "Stress"),
         (2, "Depression"),
         (3, "Anxiety"),
     )
-
-class Notes(models.Model):
     content = models.CharField(max_length=100)
     name = models.CharField(max_length=100, default='anonymous')
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
-    category = models.IntegerField(choices=CATEGORY, default=0)
+    category = models.IntegerField(choices = CATEGORY, default=0)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notes')
 
     class Meta:
