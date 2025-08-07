@@ -6,9 +6,8 @@ from django.contrib.auth.models import User
     CATEGORY = (
         (0, "Uncategorized"),
         (1, "Stress"),
-        (2, "Shame"),
-        (3, "Grief"),
-        (4, "Self-worth"),
+        (2, "Depression"),
+        (3, "Anxiety"),
     )
 
 class Notes(models.Model):
@@ -21,3 +20,40 @@ class Notes(models.Model):
 
     # def __str__(self):
     #     return self.name
+
+
+class Sticker(models.Model):
+    sticker_type = models.ForeignKey('StickerTypeModel', on_delete=models.CASCADE)
+    notes = models.ForeignKey(Notes, on_delete=models.CASCADE, related_name='stickers')
+    x_position = models.IntegerField(default=0)
+    y_position = models.IntegerField(default=0)
+    rotation = models.FloatField(default=0.0)
+
+    # def __str__(self):
+    #     return f"{self.sticker_type} at ({self.x_position}, {self.y_position})"
+
+
+THEME_CHOICES = (
+    (0, "Sunset"),
+    (1, "Ocean"),
+    (2, "Forest"),
+)
+
+class StickerTypeModel(models.Model):
+    sticker_name = models.CharField(max_length=100)
+    image = models.FileField(upload_to='stickers/')
+    category = models.IntegerField(choices=THEME_CHOICES, default='0')
+
+    # def __str__(self):
+    #     return self.sticker_name
+
+
+class Background(models.Model):
+    theme = models.IntegerField(choices=THEME_CHOICES, default=0)
+    background_colour = models.CharField(max_length=100)
+    note_color = models.CharField(max_length=100)
+    font = models.CharField(max_length=100)
+    audio = models.FileField(upload_to='audio/', blank=True, null=True)
+
+    # def __str__(self):
+    #     return self.theme
