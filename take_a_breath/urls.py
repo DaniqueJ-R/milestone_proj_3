@@ -17,8 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from quote import views as quote_views
+from report import views as report_views
+from contact_us import views as contact_views
 
 urlpatterns = [
-    path('home/', quote_views.index, name='index'),
+    path('home/', quote_views.intro, name='quote_intro'),
+    path('report/', report_views.intro, name='report_intro'),
+    path('contact/', contact_views.intro, name='contact_intro'),
     path('admin/', admin.site.urls),
 ]
