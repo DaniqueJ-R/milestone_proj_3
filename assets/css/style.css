@@ -42,12 +42,21 @@ main {
   margin-bottom: 1rem;
 }
 
+.slogan {
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+    margin-top: 0.5rem;
+    padding-bottom: 1.3rem;
+}
+
 .controls {
     position: relative;
     display: flex;
     gap: 1rem;
     margin-bottom: -10rem;
-    bottom: -4.5rem;
+    bottom: -1.5rem;
+    left: 3rem;
 }
 
 /* Sticky note base */
@@ -94,4 +103,50 @@ main {
   background-color: rgba(254, 240, 138, 0.6);
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Sticky note colors & text colors based on theme */
+.theme-space {
+  background: linear-gradient(to bottom right, #d8b4fe, #c4b5fd);
+  color: #3730a3;
+}
+.theme-sea {
+  background: linear-gradient(to bottom right, #67e8f9, #60a5fa);
+  color: #1e40af;
+}
+.theme-forest {
+  background: linear-gradient(to bottom right, #bbf7d0, #34d399);
+  color: #065f46;
+}
+.theme-sunset {
+  background: linear-gradient(to bottom right, #fed7aa, #f9a8d4);
+  color: #c2410c;
+}
+.theme-mountains {
+  background: linear-gradient(to bottom right, #e2e8f0, #94a3b8);
+  color: #1e293b;
+}
+.theme-garden {
+  background: linear-gradient(to bottom right, #fbcfe8, #f43f5e);
+  color: #831843;
+}
+
+/* Body background themes (unchanged) */
+body.theme-space {
+  background: linear-gradient(to bottom right, indigo, purple, black);
+}
+body.theme-sea {
+  background: linear-gradient(to bottom right, #60a5fa, #06b6d4, #0d9488);
+}
+body.theme-forest {
+  background: linear-gradient(to bottom right, #065f46, #047857, #064e3b);
+}
+body.theme-sunset {
+  background: linear-gradient(to bottom right, #fb923c, #ec4899, #7c3aed);
+}
+body.theme-mountains {
+  background: linear-gradient(to bottom right, #475569, #334155, #1e293b);
+}
+body.theme-garden {
+  background: linear-gradient(to bottom right, #f472b6, #e11d48, #be123c);
 }
