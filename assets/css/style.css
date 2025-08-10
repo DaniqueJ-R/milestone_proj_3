@@ -1,3 +1,22 @@
+/*Google Font Link*/
+@import url('https://fonts.googleapis.com/css2?family=Allison&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CSS Variables */
+:root {
+  --background-color: #d8c29c;
+  /*Baige*/
+  --Nav-color: #2e231d;
+  /*dark brown*/
+  --primary-font: "Noto Sans", serif;
+  --notes-font: "Allison", sans-serif;
+  --primary-color: #3d231d;
+  /* deep brown */
+  --secondary-color: #664d31;
+  /*tan*/
+  --highlight-color: #cc7c40;
+  /* Orange */
+}
+
 body {
   margin: 0;
   font-family: sans-serif;
@@ -28,11 +47,16 @@ main {
   display: none;
 }
 
+
 .sidebar {
   /* background: rgba(255, 255, 255, 0.1); */
   background: black;
   padding: 1rem;
   width: 200px;
+}
+
+.heading-section{
+    font-size: 2.5rem;
 }
 
 .notes-container {
