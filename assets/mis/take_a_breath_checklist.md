@@ -161,15 +161,15 @@ To enhance user experience and work toward distinction-level criteria, Take A Br
 - [x] Design pages (home, book, shelf, forms)
 
 ### Step 6: Database Schema
-- [ ] Identify models & relationships
-- [ ] Draw ERD
+- [x] Identify models & relationships
+- [x] Draw ERD
 
 ---
 
 ## 💻 PHASE 4: FRONT-END
 
 ### Step 7: Static Front-End
-- [ ] Build HTML structure
+- [x] Build HTML structure
 - [ ] Add Bootstrap layout
 - [ ] Add custom CSS
 
@@ -182,8 +182,8 @@ To enhance user experience and work toward distinction-level criteria, Take A Br
 ## 🔧 PHASE 5: BACK-END (DJANGO)
 
 ### Step 9: Django Setup
-- [ ] Start Django project and app
-- [ ] Add to INSTALLED_APPS
+- [x] Start Django project and app
+- [x] Add to INSTALLED_APPS
 
 ### Step 10: Models
 - [ ] Create models for Book, Shelf, Review, Progress
@@ -210,7 +210,7 @@ To enhance user experience and work toward distinction-level criteria, Take A Br
 - [ ] Remove test data
 
 ### Step 15: Deployment
-- [ ] Deploy to Heroku/Render
+- [x] Deploy to Heroku/Render
 - [ ] Add environment variables
 - [ ] Hide secrets
 

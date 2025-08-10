@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,12 +35,16 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
   </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mindful Moments</title>
+  <link rel="stylesheet" href="test.css" />
+</head>
+<body class="theme-space">
     <!-- Side Nav Bar -->
-    <!-- Replace with nav bootstraps DELETE -->
-    <div>
-      <div class="nav-links">
-        <ul>
+  <div class="sidebar" id="sidebar">
+            <ul>
           <img
             id="logo"
             src="assets/images/logo.png"
@@ -57,12 +62,14 @@
           <li>
             <a href="#"><i class="fas fa-envelope"></i> Atmosphere</a>
             <ul>
-              <select name="theme" id="theme-select">
-                <li><option value="ocean">Ocean</option></li>
-                <li><option value="forest">Forest</option></li>
-                <li><option value="space">Space</option></li>
-                <li><option value="mountains">Mountains</option></li>
-              </select>
+    <select id="themeSelector">
+      <option value="space">Space</option>
+      <option value="sea">Sea</option>
+      <option value="forest">Forest</option>
+      <option value="sunset">Sunset</option>
+      <option value="mountains">Mountains</option>
+      <option value="garden">Garden</option>
+    </select>
             </ul>
           </li>
           <li>
@@ -72,24 +79,11 @@
               <li>Contact us</li>
             </ul>
           </li>
-          <li>
-            <audio id="ambience" loop autoplay>
-              <source src="assets/audio/ocean.mp3" type="audio/mp3" />
-            </audio>
-            <label for="volume-control" class="visually-hidden">Volume</label>
-            <input
-              type="range"
-              id="volume-control"
-              name="volume"
-              min="0"
-              max="1"
-              step="0.1"
-              value="0.5"
-            />
-          </li>
-        </ul>
+              <button id="toggleAudio"><i class="fa-solid fa-volume-high"></i></button>
 
-        <div id="social-links-nav">
+        </ul>
+        <!-- Social Media -->
+                  <div id="social-links-nav">
           <a
             href="https://www.facebook.com/"
             target="_blank"
@@ -115,18 +109,19 @@
             <i class="fa-brands fa-instagram"></i>
           </a>
         </div>
-      </div>
-    </div>
+        </ul>
+
+  </div>
+<!-- End of Side Nav -->
 
     <!-- Header with user options to write or read notes -->
     <header>
-
       <div id="read-notes"><a href="index.html">Pick</a></div>
       <div id="write-notes"><a href="write-a-note.html">Write</a></div>
     </header>
 
-    <main class="container my-5">
-      <section>
+  <main>
+          <section>
         <!-- Filter dropdown -->
         <div id="notes-filter">
             <button onclick="myFunction()" class="dropbtn">All</button>
@@ -138,37 +133,30 @@
               <a href="#">Depression</a>
             </div>
           </div>
+    <p>Daily affirmations for your inner peace</p>
 
-        <!-- Main display for quotes -->
-        <div>
-          <div class="note-board">
-            <div class="note">
-              <p>"You’ve survived 100% of your worst days."</p>
-              <p class="author">– Anonymous</p>
-            </div>
-            <div class="note">
-              <!-- to be hidden until next selected -->
-              <p>"Take a breath. You're doing enough."</p>
-              <p class="author">– Jordan</p>
-            </div>
-          </div>
-        </div>
+    <!-- Container for sticky notes -->
+    <div id="notes-container" class="notes-container"></div>
 
-        <!-- Next and Back buttons for notes above -->
-        <div>
-          <button class="btn btn-primary">One Sec</button>
-          <button class="btn btn-primary">One More</button>
-        </div>
-      </section>
+    <!-- Controls below notes -->
+    <div class="controls">
+      <button id="backAffirmation">One Sec</button>
+      <button id="addAffirmation">One More</button>
+    </div>
+    </section>
 
-      <!-- Footer -->
+    <p id="emptyMessage" class="hidden">No affirmations yet. Add some to get started!</p>
+
+          <!-- Footer -->
       <footer>
         <div class="container">
           <p>&copy; 2023 Take A Breath. All rights reserved.</p>
         </div>
       </footer>
-    </main>
+  </main>
 
+  <audio id="themeAudio" loop></audio>
+  
     <!-- Bootstraps Javascript Link -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -176,11 +164,12 @@
       crossorigin="anonymous"
     ></script>
     <!-- My JS -->
-    <script src="assets/js/script.js"></script>
+    <!-- <script src="assets/js/script.js"></script> -->
     <!-- FontAwesom link -->
     <script
       src="https://kit.fontawesome.com/9e540e0242.js"
       crossorigin="anonymous"
     ></script>
-  </body>
+  <script src="test.js"></script>
+</body>
 </html>
