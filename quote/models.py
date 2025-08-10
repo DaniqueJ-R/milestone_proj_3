@@ -38,9 +38,10 @@ class Sticker(models.Model):
 
 
 THEME_CHOICES = (
-    (0, "Sunset"),
+    (0, "Cosmic"),
     (1, "Ocean"),
     (2, "Forest"),
+    (3, "Sunset"),
 )
 
 class StickerTypeModel(models.Model):

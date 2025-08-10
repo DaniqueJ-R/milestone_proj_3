@@ -3,13 +3,11 @@
 
 /* CSS Variables */
 :root {
-  --background-color: #d8c29c;
-  /*Baige*/
   --Nav-color: #2e231d;
   /*dark brown*/
   --primary-font: "Noto Sans", serif;
   --notes-font: "Allison", sans-serif;
-  --primary-color: #3d231d;
+  --primary-color: white;
   /* deep brown */
   --secondary-color: #664d31;
   /*tan*/
@@ -29,7 +27,12 @@ body {
 h1 {
     color: white;
     text-align: center;
+    font-family: var(--primary-font);
 }
+
+p, a {
+  font-family: var(--primary-font);
+  color: var(--primary-color);}
 
 main {
   flex: 1;
@@ -49,8 +52,7 @@ main {
 
 
 .sidebar {
-  /* background: rgba(255, 255, 255, 0.1); */
-  background: black;
+  background: rgba(255, 255, 255, 0.1);
   padding: 1rem;
   width: 200px;
 }
@@ -146,14 +148,7 @@ main {
   background: linear-gradient(to bottom right, #fed7aa, #f9a8d4);
   color: #c2410c;
 }
-.theme-mountains {
-  background: linear-gradient(to bottom right, #e2e8f0, #94a3b8);
-  color: #1e293b;
-}
-.theme-garden {
-  background: linear-gradient(to bottom right, #fbcfe8, #f43f5e);
-  color: #831843;
-}
+
 
 /* Body background themes (unchanged) */
 body.theme-space {
@@ -168,12 +163,7 @@ body.theme-forest {
 body.theme-sunset {
   background: linear-gradient(to bottom right, #fb923c, #ec4899, #7c3aed);
 }
-body.theme-mountains {
-  background: linear-gradient(to bottom right, #475569, #334155, #1e293b);
-}
-body.theme-garden {
-  background: linear-gradient(to bottom right, #f472b6, #e11d48, #be123c);
-}
+
 
 #footer {
     bottom: -5rem
