@@ -116,13 +116,17 @@
           <section>
         <!-- Filter dropdown -->
         <div id="notes-filter">
-            <button onclick="myFunction()" class="dropbtn">All</button>
-            <div id="myDropdown" class="dropdown-content">
-              <a href="#">All</a>
-              <a href="#">Stressed</a>
-              <a href="#">Overwhelmed</a>
-              <a href="#">Greif</a>
-              <a href="#">Depression</a>
+  <div id="myDropdown" class="dropdown-content">
+                      <span> Select a mood:</span>
+    <select id="themeSelector">
+      <option value="space">All</option>
+      <option value="sea">Stress</option>
+      <option value="forest">Overwhelmed</option>
+      <option value="sunset">Greif</option>
+      <option value="mountains">Depression</option>
+    </select>
+
+
             </div>
           </div>
     <p class="slogan">Daily affirmations for your inner peace</p>
@@ -140,7 +144,7 @@
     <p id="emptyMessage" class="hidden">No affirmations yet. Add some to get started!</p>
 
           <!-- Footer -->
-      <footer class="mt-auto">
+      <footer class="mt-auto" id="footer">
         <div class="container">
           <p>&copy; 2023 Take A Breath. All rights reserved.</p>
         </div>
