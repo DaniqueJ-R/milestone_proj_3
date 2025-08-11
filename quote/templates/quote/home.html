@@ -32,7 +32,9 @@
     <!-- Container for sticky notes -->
     <div id="notes-container" class="notes-container">
       {% if notes_list %}
+        <!-- Loop through notes and display them -->
         {% for note in notes_list %}
+          <!-- Display each note as a sticky note -->
           <div class="sticky-note theme-{{ note.category }}">
             <p>{{ note.content }}</p>
             <small>— {{ note.name }}, {{ note.created_on|date:"M d, Y" }}</small>

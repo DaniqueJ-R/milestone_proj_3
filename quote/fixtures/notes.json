@@ -1,6 +1,6 @@
 [
   {
-    "model": "quote.notes",
+    "model": "quote.note",
     "pk": 4,
     "fields": {
       "content": "Stress is temporary, your strength is permanent.",
@@ -12,7 +12,7 @@
     }
   },
   {
-    "model": "quote.notes",
+    "model": "quote.note",
     "pk": 5,
     "fields": {
       "content": "Healing is a journey, not a destination.",
@@ -24,7 +24,7 @@
     }
   },
   {
-    "model": "quote.notes",
+    "model": "quote.note",
     "pk": 6,
     "fields": {
       "content": "Anxiety doesn’t define you, courage does.",
@@ -36,7 +36,7 @@
     }
   },
   {
-    "model": "quote.notes",
+    "model": "quote.note",
     "pk": 7,
     "fields": {
       "content": "Pause, breathe, and find your calm.",
@@ -48,7 +48,7 @@
     }
   },
   {
-    "model": "quote.notes",
+    "model": "quote.note",
     "pk": 8,
     "fields": {
       "content": "Every step forward is progress, no matter how small.",
@@ -60,7 +60,7 @@
     }
   },
   {
-    "model": "quote.notes",
+    "model": "quote.note",
     "pk": 9,
     "fields": {
       "content": "Let your worries melt away like clouds in the sky.",
@@ -72,7 +72,7 @@
     }
   },
   {
-    "model": "quote.notes",
+    "model": "quote.note",
     "pk": 10,
     "fields": {
       "content": "You’re capable of amazing things.",
@@ -84,7 +84,7 @@
     }
   },
   {
-    "model": "quote.notes",
+    "model": "quote.note",
     "pk": 1,
     "fields": {
       "content": "Take a deep breath, you are doing great.",
@@ -96,7 +96,7 @@
     }
   },
   {
-    "model": "quote.notes",
+    "model": "quote.note",
     "pk": 2,
     "fields": {
       "content": "You are stronger than your anxiety.",
@@ -108,7 +108,7 @@
     }
   },
   {
-    "model": "quote.notes",
+    "model": "quote.note",
     "pk": 3,
     "fields": {
       "content": "Every day is a new chance to heal.",
