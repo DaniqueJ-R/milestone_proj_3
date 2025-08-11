@@ -1,6 +1,9 @@
+{% load static %}
+{% url 'home' as home_url %}
+
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Header IN BASE TEMPLATE -->
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,7 +35,10 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+    
+    <!-- Custom CSS -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
   </head>
 <body class="theme-space">
     <!-- Side Nav Bar -->
@@ -107,49 +113,18 @@
     <!-- Header with user options to write or read notes -->
     <header class="hidden">
       <h1>Take A Breath</h1></header>
-    <!-- Header IN BASE TEMPLATE -->
+
   <main>
-          <section>
- 
-<div id="heading-area">
-      <span id="read-notes" ><a href="index.html" class="heading-section">
-        Pick</a></span>
-      <span id="write-notes"><a href="write-a-note.html" class="heading-section">Write</a></span>
-      </div>
-    
-    
-        <!-- Filter dropdown -->
-        <div id="notes-filter">
-  <div id="myDropdown" class="dropdown-content">
-                      <span> Select a mood:</span>
-    <select id="themeSelector">
-      <option value="space">All</option>
-      <option value="sea">Stress</option>
-      <option value="forest">Overwhelmed</option>
-      <option value="sunset">Greif</option>
-      <option value="mountains">Depression</option>
-    </select>
 
+          <main class="flex-shrink-0 main-bg">
 
-            </div>
-          </div>
-    <p class="slogan">Daily affirmations for your inner peace</p>
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
 
-    <!-- Container for sticky notes -->
-    <div id="notes-container" class="notes-container"></div>
+    </main>
 
-    <!-- Controls below notes -->
-    <div class="controls">
-      <button id="backAffirmation">One Sec</button>
-      <button id="addAffirmation">One More</button>
-    </div>
-    </section>
-
-    <p id="emptyMessage" class="hidden">No affirmations yet. Add some to get started!</p>
-
-
-    <!-- FOOTER IN BASE TEMPLATE -->
-          <!-- Footer -->
+              <!-- Footer -->
       <footer class="mt-auto" id="footer">
         <div class="container">
           <p>&copy; 2023 Take A Breath. All rights reserved.</p>
@@ -175,4 +150,3 @@
 
 </body>
 </html>
-    <!-- FOOTER IN BASE TEMPLATE -->
