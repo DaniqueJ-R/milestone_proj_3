@@ -1,9 +1,16 @@
 from django.contrib import admin
 from .models import Notes, Sticker, StickerTypeModel, Background
+from django_summernote.admin import SummernoteModelAdmin
+
+@admin.register(Notes)
+class NotesAdmin(SummernoteModelAdmin):
+    list_display = ('content', 'name', 'created_on', 'approved', 'category', 'author')
+    list_filter = ('approved', 'created_on', 'category')
+    search_fields = ('content', 'name')
+    summernote_fields = ('content',)
 
 # Register your models here.
 
-admin.site.register(Notes)
 admin.site.register(Sticker)
 admin.site.register(StickerTypeModel)
 admin.site.register(Background)
