@@ -14,7 +14,7 @@ class Report(models.Model):
         (6, "Other"),
     )
 
-    notes = models.ForeignKey('quote.Notes', on_delete=models.CASCADE, related_name='reports')
+    note = models.ForeignKey('quote.Note', on_delete=models.CASCADE, related_name='reports')
     report_reason = models.IntegerField(default=0)
     reason = models.CharField(max_length=255, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -23,5 +23,6 @@ class Report(models.Model):
         ordering = ["-created_on"]  # Order by creation date in descending order
 
     def __str__(self):
-        return f"Report for {self.notes.content} - Reason: {self.report_reason}"
+        return f"Report for {self.note.content} - Reason: {self.report_reason}"
+    
 # The Report model is used to track reports made on quotes, including the reason for the report and the associated quote.

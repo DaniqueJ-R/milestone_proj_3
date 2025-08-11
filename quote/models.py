@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 
-class Notes(models.Model):
+class Note(models.Model):
     CATEGORY = (
         (0, "Uncategorized"),
         (1, "Stress"),
@@ -17,7 +17,7 @@ class Notes(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     category = models.IntegerField(choices = CATEGORY, default=0)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notes')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='note')
 
     class Meta:
         ordering = ["created_on"] # Order by creation date in ascending order
@@ -28,7 +28,7 @@ class Notes(models.Model):
 
 class Sticker(models.Model):
     sticker_type = models.ForeignKey('StickerTypeModel', on_delete=models.CASCADE)
-    notes = models.ForeignKey(Notes, on_delete=models.CASCADE, related_name='stickers')
+    note = models.ForeignKey(Note, on_delete=models.CASCADE, related_name='stickers')
     x_position = models.IntegerField(default=0)
     y_position = models.IntegerField(default=0)
     rotation = models.FloatField(default=0.0)

@@ -3,50 +3,55 @@
 {% block content %}
 
 <!-- index.html content starts here -->
-<div class="container-fluid">
-    <div class="row">
 
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for post in post_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
-                                </div>
-                            </div>
-                            <a href="#" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                            </a>
+<main>
+  <section>
 
-                            <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-
-            </div>
-        </div>
+    <div id="heading-area">
+      <span id="read-notes"><a href="{% url 'home' %}" class="heading-section">Pick</a></span>
+      <!-- <span id="write-notes"><a href="" class="heading-section">Write</a></span> -->
     </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
-</div>
+
+    <!-- Filter dropdown -->
+    <div id="notes-filter">
+      <div id="myDropdown" class="dropdown-content">
+        <span>Select a mood:</span>
+        <form method="get" action="{% url 'home' %}">
+          <select name="category" id="themeSelector" onchange="this.form.submit()">
+            <option value="0" {% if request.GET.category == "0" or not request.GET.category %}selected{% endif %}>All</option>
+            <option value="1" {% if request.GET.category == "1" %}selected{% endif %}>Stress</option>
+            <option value="2" {% if request.GET.category == "2" %}selected{% endif %}>Depression</option>
+            <option value="3" {% if request.GET.category == "3" %}selected{% endif %}>Anxiety</option>
+          </select>
+        </form>
+      </div>
+    </div>
+
+    <p class="slogan">Daily affirmations for your inner peace</p>
+
+    <!-- Container for sticky notes -->
+    <div id="notes-container" class="notes-container">
+      {% if notes_list %}
+        {% for note in notes_list %}
+          <div class="sticky-note theme-{{ note.category }}">
+            <p>{{ note.content }}</p>
+            <small>— {{ note.name }}, {{ note.created_on|date:"M d, Y" }}</small>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p id="emptyMessage">No affirmations yet. Add some to get started!</p>
+      {% endif %}
+    </div>
+
+    <!-- Controls below notes -->
+    <div class="controls">
+      <!-- You can add your JS buttons or Django pagination here -->
+      <button id="backAffirmation">One Sec</button>
+      <button id="addAffirmation">One More</button>
+    </div>
+  </section>
+</main>
+
 
 <!-- index.html content ends here -->
 {% endblock %}

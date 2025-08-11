@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Notes, Sticker, StickerTypeModel, Background
+from .models import Note, Sticker, StickerTypeModel, Background
 from django_summernote.admin import SummernoteModelAdmin
 
-@admin.register(Notes)
-class NotesAdmin(SummernoteModelAdmin):
+@admin.register(Note)
+class NoteAdmin(SummernoteModelAdmin):
     list_display = ('content', 'name', 'created_on', 'approved', 'category', 'author')
     list_filter = ('approved', 'created_on', 'category')
     search_fields = ('content', 'name')

@@ -1,0 +1,122 @@
+[
+  {
+    "model": "quote.notes",
+    "pk": 4,
+    "fields": {
+      "content": "Stress is temporary, your strength is permanent.",
+      "name": "anonymous",
+      "created_on": "2025-08-08T09:00:00Z",
+      "approved": true,
+      "category": 1,
+      "author": 1
+    }
+  },
+  {
+    "model": "quote.notes",
+    "pk": 5,
+    "fields": {
+      "content": "Healing is a journey, not a destination.",
+      "name": "alex99",
+      "created_on": "2025-08-07T10:45:00Z",
+      "approved": true,
+      "category": 2,
+      "author": 1
+    }
+  },
+  {
+    "model": "quote.notes",
+    "pk": 6,
+    "fields": {
+      "content": "Anxiety doesn’t define you, courage does.",
+      "name": "anonymous",
+      "created_on": "2025-08-06T14:20:00Z",
+      "approved": true,
+      "category": 3,
+      "author": 1
+    }
+  },
+  {
+    "model": "quote.notes",
+    "pk": 7,
+    "fields": {
+      "content": "Pause, breathe, and find your calm.",
+      "name": "lisa_m",
+      "created_on": "2025-08-05T08:30:00Z",
+      "approved": true,
+      "category": 0,
+      "author": 1
+    }
+  },
+  {
+    "model": "quote.notes",
+    "pk": 8,
+    "fields": {
+      "content": "Every step forward is progress, no matter how small.",
+      "name": "anonymous",
+      "created_on": "2025-08-04T16:00:00Z",
+      "approved": true,
+      "category": 1,
+      "author": 1
+    }
+  },
+  {
+    "model": "quote.notes",
+    "pk": 9,
+    "fields": {
+      "content": "Let your worries melt away like clouds in the sky.",
+      "name": "sam_writer",
+      "created_on": "2025-08-03T11:15:00Z",
+      "approved": false,
+      "category": 3,
+      "author": 1
+    }
+  },
+  {
+    "model": "quote.notes",
+    "pk": 10,
+    "fields": {
+      "content": "You’re capable of amazing things.",
+      "name": "anonymous",
+      "created_on": "2025-08-02T07:50:00Z",
+      "approved": true,
+      "category": 0,
+      "author": 1
+    }
+  },
+  {
+    "model": "quote.notes",
+    "pk": 1,
+    "fields": {
+      "content": "Take a deep breath, you are doing great.",
+      "name": "anonymous",
+      "created_on": "2025-08-11T18:00:00Z",
+      "approved": true,
+      "category": 1,
+      "author": 1
+    }
+  },
+  {
+    "model": "quote.notes",
+    "pk": 2,
+    "fields": {
+      "content": "You are stronger than your anxiety.",
+      "name": "jane_doe",
+      "created_on": "2025-08-10T15:30:00Z",
+      "approved": true,
+      "category": 3,
+      "author": 1
+    }
+  },
+  {
+    "model": "quote.notes",
+    "pk": 3,
+    "fields": {
+      "content": "Every day is a new chance to heal.",
+      "name": "anonymous",
+      "created_on": "2025-08-09T12:15:00Z",
+      "approved": false,
+      "category": 2,
+      "author": 1
+    }
+  }
+]
