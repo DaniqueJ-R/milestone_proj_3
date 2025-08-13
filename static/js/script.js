@@ -1,11 +1,13 @@
+console.log("Script loaded");
+
 document.addEventListener("DOMContentLoaded", () => {
-  const affirmations = [
-    "You are enough.",
-    "You are strong.",
-    "This too shall pass.",
-    "Peace begins with you.",
-    "Your potential is endless."
-  ];
+  // const affirmations = [
+  //   "You are enough.",
+  //   "You are strong.",
+  //   "This too shall pass.",
+  //   "Peace begins with you.",
+  //   "Your potential is endless."
+  // ];
 
   const themes = ["space", "sea", "forest", "sunset", "mountains", "garden"];
 
@@ -45,12 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderNotes() {
     container.innerHTML = "";
 
-    if (displayedNotes.length === 0) {
-      emptyMsg.classList.remove("hidden");
-      return;
-    } else {
-      emptyMsg.classList.add("hidden");
-    }
+  if (emptyMsg) {
+  if (displayedNotes.length === 0) {
+    emptyMsg.classList.remove("hidden");
+  } else {
+    emptyMsg.classList.add("hidden");
+  }
+}
 
     const theme = themeSelector.value || "space";
 
@@ -61,27 +64,51 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Add a new random affirmation to stack, max 5 notes
+  
+  //might delete this - all affirmations
+  // addBtn.addEventListener("click", () => {
+  //   // Pick a random affirmation that isn't currently displayed if possible
+  //   let available = affirmations.filter(a => !displayedNotes.includes(a));
+  //   let nextAffirmation;
+
+  //   if (available.length === 0) {
+  //     // All displayed, just pick random from all
+  //     nextAffirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
+  //   } else {
+  //     nextAffirmation = available[Math.floor(Math.random() * available.length)];
+  //   }
+  // displayedNotes.unshift(nextAffirmation); // new note on top
+
+
   addBtn.addEventListener("click", () => {
-    // Pick a random affirmation that isn't currently displayed if possible
-    let available = affirmations.filter(a => !displayedNotes.includes(a));
-    let nextAffirmation;
+  let available = notes.filter(a => !displayedNotes.includes(a));
+  let nextNote;
 
-    if (available.length === 0) {
-      // All displayed, just pick random from all
-      nextAffirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
-    } else {
-      nextAffirmation = available[Math.floor(Math.random() * available.length)];
-    }
+  if (available.length === 0) {
+    nextNote = notes[Math.floor(Math.random() * notes.length)];
+  } else {
+    nextNote = available[Math.floor(Math.random() * available.length)];
+  }
 
-    displayedNotes.unshift(nextAffirmation); // new note on top
-
+    displayedNotes.unshift(nextNote);
+   
     // Limit stack to 5
     if (displayedNotes.length > 5) {
       displayedNotes.pop();
     }
 
     renderNotes();
-  });
+
+  // Animation for new note
+  // Add animation class to top note
+  const topNote = container.firstElementChild;
+  if (topNote) {
+    topNote.classList.add("new-note");
+    setTimeout(() => topNote.classList.remove("new-note"), 300);
+  }
+});
+
+
 
   // Remove top note on Back button
   backBtn.addEventListener("click", () => {
@@ -117,33 +144,35 @@ document.addEventListener("DOMContentLoaded", () => {
   renderNotes();
 });
 
-addBtn.addEventListener("click", () => {
-  // Pick a random affirmation that isn't currently displayed if possible
-  let available = affirmations.filter(a => !displayedNotes.includes(a));
-  let nextAffirmation;
+// addBtn.addEventListener("click", () => {
+//   // Pick a random affirmation that isn't currently displayed if possible
+//   let available = affirmations.filter(a => !displayedNotes.includes(a));
+//   let nextAffirmation;
 
-  if (available.length === 0) {
-    nextAffirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
-  } else {
-    nextAffirmation = available[Math.floor(Math.random() * available.length)];
-  }
+//   if (available.length === 0) {
+//     nextAffirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
+//   } else {
+//     nextAffirmation = available[Math.floor(Math.random() * available.length)];
+//   }
 
-  displayedNotes.unshift(nextAffirmation); // new note on top
+//   displayedNotes.unshift(nextAffirmation); // new note on top
 
-  if (displayedNotes.length > 5) {
-    displayedNotes.pop();
-  }
+//   if (displayedNotes.length > 5) {
+//     displayedNotes.pop();
+//   }
 
-  renderNotes();
+//   renderNotes();
 
-  // Add animation class to top note
-  const topNote = container.firstElementChild;
-  if (topNote) {
-    topNote.classList.add("new-note");
+//   // Add animation class to top note
+//   const topNote = container.firstElementChild;
+//   if (topNote) {
+//     topNote.classList.add("new-note");
 
-    // Remove class after animation completes (300ms)
-    setTimeout(() => {
-      topNote.classList.remove("new-note");
-    }, 300);
-  }
-});
+//     // Remove class after animation completes (300ms)
+//     setTimeout(() => {
+//       topNote.classList.remove("new-note");
+//     }, 300);
+//   }
+// });
+
+

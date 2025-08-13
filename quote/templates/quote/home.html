@@ -41,7 +41,7 @@
           </div>
         {% endfor %}
       {% else %}
-        <p id="emptyMessage">No affirmations yet. Add some to get started!</p>
+        <p id="emptyMessage" >No affirmations yet. Add some to get started!</p>
       {% endif %}
     </div>
 
@@ -52,6 +52,15 @@
       <button id="addAffirmation">One More</button>
     </div>
   </section>
+
+  <script>
+  // Convert Django notes to a JS array
+  const notes = [
+    {% for note in notes %}
+      "{{ note.content|escapejs }}{% if note.name %} - {{ note.name|escapejs }}{% endif %}",
+    {% endfor %}
+  ];
+</script>
 </main>
 
 

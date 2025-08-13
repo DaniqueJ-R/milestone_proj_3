@@ -12,6 +12,11 @@ class NotesList(generic.ListView):
 
     def get_queryset(self):
         return Note.objects.filter(approved=True).order_by('?') # Random order for the home page
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['notes'] = Note.objects.filter(approved=True).order_by('-created_on')
+        return context
 
 
 # This view handles the creation of a new note    
