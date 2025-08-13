@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from .models import Note
 from django import forms
+from django.contrib import messages
 
 # Create your views here.
 # This view handles the home page displaying a list of notes

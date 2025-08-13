@@ -17,7 +17,9 @@ class Note(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     category = models.IntegerField(choices = CATEGORY, default=0, blank=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='note')
+    author = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, blank=True, related_name='note'
+    )
 
     class Meta:
         ordering = ["created_on"] # Order by creation date in ascending order
