@@ -4,19 +4,16 @@ from .models import Note
 from django import forms
 
 # Create your views here.
+# This view handles the home page displaying a list of notes
 class NotesList(generic.ListView):
     model = Note
     template_name = 'quote/home.html'
     context_object_name = 'notes_list'
 
     def get_queryset(self):
-        return Note.objects.filter(approved=True).order_by('-created_on')
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = "Take a Breath - Home"
-        return context
-    
+        return Note.objects.filter(approved=True).order_by('?') # Random order for the home page
+
+
 # This view handles the creation of a new note    
 class NoteForm(forms.ModelForm):
     class Meta:
@@ -47,9 +44,27 @@ class WriteANoteView(generic.CreateView):
     success_url = '/'
 
     def form_valid(self, form):
-        # Optional: set author if user is authenticated
-        if self.request.user.is_authenticated:
-            form.instance.author = self.request.user
-        # Optional: mark as not approved yet
-        form.instance.approved = False
+        # List of banned words (lowercase for easier matching)
+        banned_words = ["badword1", "badword2", "badword3"]
+
+        # Convert content to lowercase for checking
+        content_lower = form.cleaned_data['content'].lower()
+        # Check if the content is empty
+        if not content_lower.strip():
+            form.add_error('content', 'Content cannot be empty.')
+            return self.form_invalid(form)
+        # Check for banned words
+        if any(bad_word in content_lower for bad_word in banned_words):
+            form.instance.approved = False
+            messages.warning(
+                self.request,
+                "Your quote contains language that requires manual approval before it appears."
+            )
+        else:
+            form.instance.approved = True
+            messages.success(
+                self.request,
+                "Your quote was submitted successfully and is now live!"
+            )
+
         return super().form_valid(form)

@@ -10,6 +10,15 @@
 
     <div id="submit-note">
       <h2>Share your quote</h2>
+      <p>Write a quote that inspires you. It will be reviewed before being published.</p>
+      <p>Once approved, it will appear on the home page.</p>
+      {% if messages %}
+<div class="messages">
+    {% for message in messages %}
+        <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
       <form method="post">
         {% csrf_token %}
         {{ form.non_field_errors }}

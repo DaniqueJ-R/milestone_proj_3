@@ -37,7 +37,7 @@
           <!-- Display each note as a sticky note -->
           <div class="sticky-note theme-{{ note.category }}">
             <p>{{ note.content }}</p>
-            <small>— {{ note.name }}, {{ note.created_on|date:"M d, Y" }}</small>
+            <small>— {{ note.name }}</small>
           </div>
         {% endfor %}
       {% else %}
