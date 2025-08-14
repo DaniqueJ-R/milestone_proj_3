@@ -3,16 +3,11 @@
 
 /* CSS Variables */
 :root {
-  --Nav-color: #2e231d;
-  /*dark brown*/
   --primary-font: "Noto Sans", serif;
   --notes-font: "Allison", sans-serif;
-  --primary-color: white;
-  /* deep brown */
-  --secondary-color: #664d31;
-  /*tan*/
-  --highlight-color: #cc7c40;
-  /* Orange */
+  --white: white;
+  --primary-color: #f0f0f0;
+  --black: black;
 }
 
 body {
@@ -108,13 +103,24 @@ main {
   line-height: 1.5rem;
 }
 
-/* Hover scale + z-index */
-.sticky-note:hover {
-  transform: scale(1.05) rotate(var(--rotation)) translate(var(--offsetX), var(--offsetY));
-  z-index: 50;
-  box-shadow:
-    0 8px 20px rgba(0,0,0,0.25),
-    0 4px 10px rgba(0,0,0,0.15);
+/* Quote content */
+.sticky-note .note-content {
+    font-family: var(--notes-font);
+    font-size: 2.5rem; 
+    line-height: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+    text-align: center;
+}
+
+/* Author text */
+.sticky-note .note-author {
+    font-family: var(--notes-font);
+    font-size: .875rem; 
+    font-style: italic;
+    text-align: right;
+    margin-top: 0.25rem;
+    color: var(--black);
 }
 
 /* Tape effect on top */
