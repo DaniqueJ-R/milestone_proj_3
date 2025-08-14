@@ -4,7 +4,6 @@
 
 <!-- index.html content starts here -->
 
-<main>
   <section>
 
     <div id="heading-area">
@@ -15,8 +14,8 @@
     <!-- Filter dropdown -->
     <div id="notes-filter">
       <div id="myDropdown" class="dropdown-content">
-        <span>Select a mood:</span>
         <form method="get" action="{% url 'home' %}">
+          <label id="select-mood">Select a mood:</label>
           <select name="category" id="themeSelector" onchange="this.form.submit()">
             <option value="0" {% if request.GET.category == "0" or not request.GET.category %}selected{% endif %}>All</option>
             <option value="1" {% if request.GET.category == "1" %}selected{% endif %}>Stress</option>
@@ -52,10 +51,6 @@
       <button id="addAffirmation">One More</button>
     </div>
   </section>
-
-
-</main>
-
 
 <!-- index.html content ends here -->
 {% endblock %}

@@ -1,5 +1,5 @@
 /*Google Font Link*/
-@import url('https://fonts.googleapis.com/css2?family=Allison&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Allison&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 /* CSS Variables */
 :root {
@@ -20,31 +20,35 @@ body {
 }
 
 h1 {
-    color: white;
-    text-align: center;
-    font-family: var(--primary-font);
+  color: white;
+  text-align: center;
+  font-family: var(--primary-font);
 }
 
-p, a {
+h2,
+label,
+p,
+a,
+li,
+i {
   font-family: var(--primary-font);
-  color: var(--primary-color);}
+  color: var(--primary-color);
+}
 
 main {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* top align */
-  padding: 2rem 1rem;
+  justify-content: flex-start;
+  padding: 0.25rem;
   position: relative;
   overflow: visible;
-  min-height: 100vh;
 }
 
 .hidden {
   display: none;
 }
-
 
 .sidebar {
   background: rgba(255, 255, 255, 0.1);
@@ -52,8 +56,8 @@ main {
   width: 200px;
 }
 
-.heading-section{
-    font-size: 2.5rem;
+.heading-section {
+  font-size: 2.5rem;
 }
 
 .notes-container {
@@ -63,21 +67,12 @@ main {
   margin-bottom: 1rem;
 }
 
-.slogan {
-    font-size: 1rem;
-    color: white;
-    text-align: center;
-    margin-top: 0.5rem;
-    padding-bottom: 1.3rem;
-}
-
 .controls {
-    position: relative;
-    display: flex;
-    gap: 1rem;
-    margin-bottom: -10rem;
-    bottom: -.5rem;
-    left: 3rem;
+  position: relative;
+  display: flex;
+  gap: 1.5rem;
+  bottom: -0.75rem;
+  left: 3rem;
 }
 
 /* Sticky note base */
@@ -88,9 +83,7 @@ main {
   padding: 1.5rem;
   cursor: pointer;
   border-radius: 4px;
-  box-shadow:
-    0 4px 12px rgba(0,0,0,0.15),
-    0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.1);
   transform-origin: center;
   user-select: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -105,22 +98,22 @@ main {
 
 /* Quote content */
 .sticky-note .note-content {
-    font-family: var(--notes-font);
-    font-size: 2.5rem; 
-    line-height: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--black);
-    text-align: center;
+  font-family: var(--notes-font);
+  font-size: 2.5rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--black);
+  text-align: center;
 }
 
 /* Author text */
 .sticky-note .note-author {
-    font-family: var(--notes-font);
-    font-size: .875rem; 
-    font-style: italic;
-    text-align: right;
-    margin-top: 0.25rem;
-    color: var(--black);
+  font-family: var(--notes-font);
+  font-size: 1.875rem;
+  font-style: italic;
+  text-align: right;
+  margin-top: 0.25rem;
+  color: var(--black);
 }
 
 /* Tape effect on top */
@@ -134,24 +127,23 @@ main {
   height: 1.5rem;
   background-color: rgba(254, 240, 138, 0.6);
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .popup {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #fffae6;
-    padding: 10px 20px;
-    border: 1px solid #ffd700;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    z-index: 1000;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #fffae6;
+  padding: 10px 20px;
+  border: 1px solid #ffd700;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 .popup.hidden {
-    display: none;
+  display: none;
 }
-
 
 /* Sticky note colors & text colors based on theme */
 .theme-space {
@@ -171,7 +163,6 @@ main {
   color: #c2410c;
 }
 
-
 /* Body background themes (unchanged) */
 body.theme-space {
   background: linear-gradient(to bottom right, indigo, purple, black);
@@ -186,7 +177,25 @@ body.theme-sunset {
   background: linear-gradient(to bottom right, #fb923c, #ec4899, #7c3aed);
 }
 
+/* Dropdown styles */
+
+#heading-area {
+  padding-top: 0.5rem;
+}
+
+#myDropdown {
+  padding: 0.25rem 3rem;
+  padding-right: 0rem;
+}
+
+#select-mood {
+  padding-top: 0.25rem;
+}
+
+#read-notes {
+  padding-right: 7rem;
+}
 
 #footer {
-    bottom: -5rem
+  bottom: -5rem;
 }
