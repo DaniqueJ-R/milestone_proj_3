@@ -110,8 +110,14 @@ toggleAudioBtn?.addEventListener("click", () => {
 });
 
 // Buttons
-addBtn?.addEventListener("click", showRandomNote);
-backBtn?.addEventListener("click", goBack);
+addBtn?.addEventListener("click", () => {
+    console.log("Add button clicked");
+    showRandomNote();
+});
+backBtn?.addEventListener("click", () => {
+    console.log("Back button clicked");
+    goBack();
+});
 
 // Initial page load
 document.addEventListener("DOMContentLoaded", () => {
