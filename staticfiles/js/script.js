@@ -1,0 +1,212 @@
+console.log("Script loaded");
+
+const themes = ["space", "sea", "forest", "sunset"];
+
+let audioEnabled = false;
+let displayedNotes = []; // Array of current notes shown (max 5)
+let history = [];
+let notes = []; // Global notes array
+
+const container = document.getElementById("notes-container");
+const addBtn = document.getElementById("addAffirmation");
+const backBtn = document.getElementById("backAffirmation");
+const themeSelector = document.getElementById("themeSelector");
+const toggleAudioBtn = document.getElementById("toggleAudio");
+const themeAudio = document.getElementById("themeAudio");
+const emptyMsg = document.getElementById("emptyMessage");
+
+// Load notes from server
+async function loadNotes() {
+    try {
+        const response = await fetch('/notes-json/');
+        notes = await response.json(); // Assign to global notes array
+        console.log("Notes loaded:", notes);
+
+        // Initialize first displayed note
+        if (notes.length > 0) {
+            const randomIndex = Math.floor(Math.random() * notes.length);
+            displayedNotes.push(notes[randomIndex]);
+            renderNotes();
+        }
+    } catch (error) {
+        console.error('Error fetching notes:', error);
+        notes = [];
+    }
+}
+
+// Initial page load
+document.addEventListener("DOMContentLoaded", () => {
+    loadNotes();
+});
+
+// Render all displayed notes
+function renderNotes() {
+    container.innerHTML = "";
+
+    if (emptyMsg) {
+        if (displayedNotes.length === 0) {
+            emptyMsg.classList.remove("hidden");
+        } else {
+            emptyMsg.classList.add("hidden");
+        }
+    }
+
+  const selectedLink = document.querySelector(".dropdown-content a.selected");
+    const theme = selectedLink ? selectedLink.getAttribute("data-value") : "space"; // default
+
+    displayedNotes.forEach((noteText, i) => {
+        const note = createStickyNote(noteText, i, theme);
+        container.appendChild(note);
+    });
+}
+
+// Create sticky note element
+function createStickyNote(noteObj, index, theme) {
+    const noteDiv = document.createElement("div");
+    noteDiv.className = `sticky-note theme-${theme}`;
+      noteDiv.innerHTML = `
+        <p class="note-content">${noteObj.content}</p>
+        <p class="note-author">— ${noteObj.name}</p>
+    `;
+
+    const rotation = Math.random() * 12 - 6;
+    const offsetX = Math.random() * 10 - 5;
+    const offsetY = Math.random() * 10 - 5;
+
+    noteDiv.style.transform = `rotate(${rotation}deg) translate(${offsetX}px, ${offsetY}px)`;
+    noteDiv.style.zIndex = 40 - index;
+
+    return noteDiv;
+}
+
+// Show a random note
+function showRandomNote() {
+    console.log("Showing random note now");
+    if (notes.length === 0) return;
+
+    const available = notes.filter(a => !displayedNotes.includes(a));
+    const nextNote = available.length > 0 
+        ? available[Math.floor(Math.random() * available.length)]
+        : notes[Math.floor(Math.random() * notes.length)];
+
+    if (displayedNotes.length > 0) {
+        history.push([...displayedNotes]);
+    }
+
+    displayedNotes.unshift(nextNote);
+
+    if (displayedNotes.length > 5) displayedNotes.pop();
+    renderNotes();
+
+    const topNote = container.firstElementChild;
+    if (topNote) {
+        topNote.classList.add("new-note");
+        setTimeout(() => topNote.classList.remove("new-note"), 300);
+    }
+    console.log("Random note shown:", nextNote);
+}
+
+// Go back to previous note
+function goBack() {
+    if (history.length === 0) return;
+
+    displayedNotes = history.pop();
+    renderNotes();
+}
+
+// Theme & audio handling
+document.querySelectorAll("#themeSelector a").forEach(a => {
+    a.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Remove 'selected' from any other link
+        document.querySelectorAll("#themeSelector a").forEach(link => link.classList.remove("selected"));
+
+        // Add 'selected' to the clicked link
+        a.classList.add("selected");
+
+        const value = a.getAttribute("data-value");
+        document.body.className = `theme-${value}`;
+
+        // Update notes
+        renderNotes();
+
+        if (audioEnabled) {
+            themeAudio.src = `audio/${value}.mp3`;
+            themeAudio.play();
+        }
+    });
+});
+
+
+toggleAudioBtn?.addEventListener("click", () => {
+    audioEnabled = !audioEnabled;
+
+    if (audioEnabled) {
+        themeAudio.src = `audio/${themeSelector.value}.mp3`;
+        themeAudio.play();
+    } else {
+        themeAudio.pause();
+    }
+});
+
+// Buttons
+addBtn?.addEventListener("click", () => {
+    console.log("Add button clicked");
+    showRandomNote();
+});
+backBtn?.addEventListener("click", () => {
+    console.log("Back button clicked");
+    goBack();
+});
+
+// Form submission handling
+if (document.getElementById('quoteForm')) {
+    const form = document.getElementById('quoteForm');
+    const popup = document.getElementById('popup');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                showPopup(data.message);
+                form.reset();
+            } else {
+                showPopup(Object.values(data.errors).join(' '), true);
+            }
+
+        } catch (error) {
+            console.error('Error submitting quote:', error);
+            showPopup('An unexpected error occurred.', true);
+        }
+    });
+}
+
+// Function to show popup
+function showPopup(message, isError = false) {
+    popup.textContent = message;
+    popup.style.background = isError ? '#ffcccc' : '#fffae6';
+    popup.style.borderColor = isError ? '#ff0000' : '#ffd700';
+    popup.classList.remove('hidden');
+
+    setTimeout(() => popup.classList.add('hidden'), 3000);
+}
+
+// Dropdown functionality
+document.querySelectorAll(".dropdown-header").forEach(header => {
+  header.addEventListener("click", () => {
+    const content = header.nextElementSibling;
+    content.classList.toggle("open");
+  });
+});

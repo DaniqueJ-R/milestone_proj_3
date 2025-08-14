@@ -46,6 +46,15 @@ ul {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+i {
+  padding-right: 0.25rem;
+  font-size: 1rem;
+}
+
 .hidden {
   display: none;
 }
@@ -70,8 +79,10 @@ ul {
 #social-links-nav {
   display: flex;
   gap: 1rem;
-  margin-top: 11rem;
-  margin-left: 2.5rem;
+  bottom: 1rem;   /* stick to bottom */
+  left: 2.5rem;   /* horizontal placement */
+  position: fixed;
+  z-index: 1000;
 }
 
 .heading-section {
@@ -200,8 +211,6 @@ body.theme-sunset {
 #heading-area {
   padding-top: 0.5rem;
 }
-
-
 
 #myDropdown {
   padding: 0.25rem 3rem;
