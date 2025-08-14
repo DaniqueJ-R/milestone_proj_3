@@ -14,9 +14,7 @@ const toggleAudioBtn = document.getElementById("toggleAudio");
 const themeAudio = document.getElementById("themeAudio");
 const emptyMsg = document.getElementById("emptyMessage");
 
-// ---------------------------
 // Render all displayed notes
-// ---------------------------
 function renderNotes() {
   container.innerHTML = "";
 
@@ -36,9 +34,8 @@ function renderNotes() {
   });
 }
 
-// ---------------------------
+
 // Create sticky note element
-// ---------------------------
 function createStickyNote(content, index, theme) {
   const noteDiv = document.createElement("div");
   noteDiv.className = `sticky-note theme-${theme}`;
@@ -55,9 +52,7 @@ function createStickyNote(content, index, theme) {
   return noteDiv;
 }
 
-// ---------------------------
 // Show a random note
-// ---------------------------
 function showRandomNote() {
   if (notes.length === 0) return;
 
@@ -84,9 +79,7 @@ function showRandomNote() {
   }
 }
 
-// ---------------------------
 // Go back to previous note
-// ---------------------------
 function goBack() {
   if (history.length === 0) return;
 
@@ -94,9 +87,7 @@ function goBack() {
   renderNotes();
 }
 
-// ---------------------------
 // Theme & audio handling
-// ---------------------------
 themeSelector?.addEventListener("change", () => {
   document.body.className = `theme-${themeSelector.value}`;
   renderNotes();
@@ -118,15 +109,11 @@ toggleAudioBtn?.addEventListener("click", () => {
   }
 });
 
-// ---------------------------
 // Buttons
-// ---------------------------
 addBtn?.addEventListener("click", showRandomNote);
 backBtn?.addEventListener("click", goBack);
 
-// ---------------------------
 // Initial page load
-// ---------------------------
 document.addEventListener("DOMContentLoaded", () => {
   if (notes.length > 0) {
     const randomIndex = Math.floor(Math.random() * notes.length);
@@ -134,3 +121,47 @@ document.addEventListener("DOMContentLoaded", () => {
     renderNotes();
   }
 });
+
+
+// Form submission handling
+const form = document.getElementById('quoteForm');
+const popup = document.getElementById('popup');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // prevent normal submission
+
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            showPopup(data.message);
+            form.reset(); // ready for next quote
+        } else {
+            showPopup(Object.values(data.errors).join(' '), true);
+        }
+
+    } catch (error) {
+        console.error('Error submitting quote:', error);
+        showPopup('An unexpected error occurred.', true);
+    }
+});
+
+// Function to show popup
+function showPopup(message, isError = false) {
+    popup.textContent = message;
+    popup.style.background = isError ? '#ffcccc' : '#fffae6';
+    popup.style.borderColor = isError ? '#ff0000' : '#ffd700';
+    popup.classList.remove('hidden');
+
+    setTimeout(() => popup.classList.add('hidden'), 3000);
+}

@@ -19,32 +19,50 @@
     {% endfor %}
 </div>
 {% endif %}
-      <form method="post">
-        {% csrf_token %}
-        {{ form.non_field_errors }}
+      <form id="quoteForm" method="post" action="{% url 'write_note' %}">
+    {% csrf_token %}
+    <label for="content">Quote:</label>
+    <textarea name="content" id="content" maxlength="100" required></textarea>
 
-        <div>
-          {{ form.content.label_tag }}<br>
-          {{ form.content }}
-          {{ form.content.errors }}
-        </div>
+    <label for="name">Your Name (optional):</label>
+    <input type="text" name="name" id="name" placeholder="Anonymous">
 
-        <div>
-          {{ form.name.label_tag }}<br>
-          {{ form.name }}
-          {{ form.name.errors }}
-        </div>
+    <label for="category">Category:</label>
+    <select name="category" id="category">
+        <option value="0">Uncategorized</option>
+        <option value="1">Stress</option>
+        <option value="2">Depression</option>
+        <option value="3">Anxiety</option>
+    </select>
 
-        <div>
-          {{ form.category.label_tag }}<br>
-          {{ form.category }}
-          {{ form.category.errors }}
-        </div>
+    <button type="submit">Submit Quote</button>
+</form>
 
-        <button type="submit">Publish</button>
-      </form>
-      <p><small>Your quote will appear here once approved.</small></p>
+<div id="popup" class="popup hidden"></div>
+
     </div>
   </section>
 </main>
 {% endblock %}
+
+
+<form id="quoteForm" method="post" action="{% url 'write_note' %}">
+    {% csrf_token %}
+    <label for="content">Quote:</label>
+    <textarea name="content" id="content" maxlength="100" required></textarea>
+
+    <label for="name">Your Name (optional):</label>
+    <input type="text" name="name" id="name" placeholder="Anonymous">
+
+    <label for="category">Category:</label>
+    <select name="category" id="category">
+        <option value="0">Uncategorized</option>
+        <option value="1">Stress</option>
+        <option value="2">Depression</option>
+        <option value="3">Anxiety</option>
+    </select>
+
+    <button type="submit">Submit Quote</button>
+</form>
+
+<div id="popup" class="popup hidden"></div>
