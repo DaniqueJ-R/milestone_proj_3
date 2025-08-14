@@ -19,12 +19,6 @@ body {
   background-repeat: no-repeat;
 }
 
-h1 {
-  color: white;
-  text-align: center;
-  font-family: var(--primary-font);
-}
-
 h2,
 label,
 p,
@@ -46,6 +40,12 @@ main {
   overflow: visible;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .hidden {
   display: none;
 }
@@ -54,6 +54,24 @@ main {
   background: rgba(255, 255, 255, 0.1);
   padding: 1rem;
   width: 200px;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+#toggleAudio {
+  padding-left: 3rem;
+}
+
+#social-links-nav {
+  display: flex;
+  gap: 1rem;
+  margin-top: 11rem;
+  margin-left: 2.5rem;
 }
 
 .heading-section {
@@ -183,6 +201,8 @@ body.theme-sunset {
   padding-top: 0.5rem;
 }
 
+
+
 #myDropdown {
   padding: 0.25rem 3rem;
   padding-right: 0rem;
@@ -198,4 +218,45 @@ body.theme-sunset {
 
 #footer {
   bottom: -5rem;
+}
+
+.dropdown-container {
+  margin-bottom: 1rem;
+}
+
+.dropdown-header {
+  cursor: pointer;
+  user-select: none;
+}
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #eee;
+  padding: 0 1rem;
+}
+
+.dropdown-content.open {
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  max-height: 500px;
+  background-color: transparent;
+  padding: 0.5rem 1.5rem;
+  max-width: 8rem;
+  font-size: small;
+}
+
+.dropdown-content.open a {
+  text-decoration: none;
+}
+
+.dropdown-content.open a:link,
+.dropdown-content.open a:visited {
+  color: inherit; /* or pick a custom color */
+  text-decoration: none;
+}
+.dropdown-content.open a:hover {
+  color: #ff6347; /* Change to your desired hover color */
 }

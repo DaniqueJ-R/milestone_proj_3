@@ -1,6 +1,6 @@
 console.log("Script loaded");
 
-const themes = ["space", "sea", "forest", "sunset", "mountains", "garden"];
+const themes = ["space", "sea", "forest", "sunset"];
 
 let audioEnabled = false;
 let displayedNotes = []; // Array of current notes shown (max 5)
@@ -51,7 +51,8 @@ function renderNotes() {
         }
     }
 
-    const theme = themeSelector?.value || "space";
+  const selectedLink = document.querySelector(".dropdown-content a.selected");
+    const theme = selectedLink ? selectedLink.getAttribute("data-value") : "space"; // default
 
     displayedNotes.forEach((noteText, i) => {
         const note = createStickyNote(noteText, i, theme);
@@ -114,15 +115,29 @@ function goBack() {
 }
 
 // Theme & audio handling
-themeSelector?.addEventListener("change", () => {
-    document.body.className = `theme-${themeSelector.value}`;
-    renderNotes();
+document.querySelectorAll("#themeSelector a").forEach(a => {
+    a.addEventListener("click", (e) => {
+        e.preventDefault();
 
-    if (audioEnabled) {
-        themeAudio.src = `audio/${themeSelector.value}.mp3`;
-        themeAudio.play();
-    }
+        // Remove 'selected' from any other link
+        document.querySelectorAll("#themeSelector a").forEach(link => link.classList.remove("selected"));
+
+        // Add 'selected' to the clicked link
+        a.classList.add("selected");
+
+        const value = a.getAttribute("data-value");
+        document.body.className = `theme-${value}`;
+
+        // Update notes
+        renderNotes();
+
+        if (audioEnabled) {
+            themeAudio.src = `audio/${value}.mp3`;
+            themeAudio.play();
+        }
+    });
 });
+
 
 toggleAudioBtn?.addEventListener("click", () => {
     audioEnabled = !audioEnabled;
@@ -187,3 +202,11 @@ function showPopup(message, isError = false) {
 
     setTimeout(() => popup.classList.add('hidden'), 3000);
 }
+
+// Dropdown functionality
+document.querySelectorAll(".dropdown-header").forEach(header => {
+  header.addEventListener("click", () => {
+    const content = header.nextElementSibling;
+    content.classList.toggle("open");
+  });
+});

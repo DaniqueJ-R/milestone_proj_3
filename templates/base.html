@@ -48,7 +48,7 @@
             src="{% static 'images/Logoo-removebg-preview.png' %}"
             alt="Logo"
             class="img-fluid"/>
-            <ul>
+            <ul class="nav-list">
           <li>
             <a href="#"><i class="fas fa-home"></i> Notes </a>
           </li>
@@ -58,28 +58,30 @@
             >
           </li>
           <li>
-            <a href="#"><i class="fas fa-envelope"></i> Atmosphere</a>
-            <ul>
-    <select id="themeSelector">
-      <option value="space">Cosmic</option>
-      <option value="sea">Ocean</option>
-      <option value="forest">Forest</option>
-      <option value="sunset">Sunset</option>
-    </select>
-            </ul>
+            <div class="dropdown-container">
+  <div class="dropdown-header">Atmosphere ▼</div>
+  <div class="dropdown-content" id="themeSelector">
+    <a data-value="space">Cosmic</a><br>
+    <a data-value="sea">Ocean</a><br>
+    <a data-value="forest">Forest</a><br>
+    <a data-value="sunset">Sunset</a><br>
+  </div>
+</div>
           </li>
           <li>
-            <a href="#"><i class="fas fa-cog"></i>Learn more</a>
-            <ul>
-              <li>About us</li>
-              <li>Contact us</li>
-            </ul>
+<div class="dropdown-container">
+  <div class="dropdown-header"><i class="fas fa-cog"></i>Learn more</div>
+  <div class="dropdown-content">
+    <a href="#">About us</a><br>
+    <a href="#">Contact us</a><br>
+  </div>
+</div>
           </li>
               <i id="toggleAudio" class="fa-solid fa-volume-high"></i>
 
         </ul>
         <!-- Social Media -->
-                  <div id="social-links-nav" class="mt-auto">
+                  <div id="social-links-nav">
           <a
             href="https://www.facebook.com/"
             target="_blank"
