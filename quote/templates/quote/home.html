@@ -53,14 +53,7 @@
     </div>
   </section>
 
-  <script>
-  // Convert Django notes to a JS array
-  const notes = [
-    {% for note in notes %}
-      "{{ note.content|escapejs }}{% if note.name %} - {{ note.name|escapejs }}{% endif %}",
-    {% endfor %}
-  ];
-</script>
+
 </main>
 
 

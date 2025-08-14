@@ -5,6 +5,7 @@ const themes = ["space", "sea", "forest", "sunset", "mountains", "garden"];
 let audioEnabled = false;
 let displayedNotes = []; // Array of current notes shown (max 5)
 let history = [];
+let notes = []; // Global notes array
 
 const container = document.getElementById("notes-container");
 const addBtn = document.getElementById("addAffirmation");
@@ -14,99 +15,124 @@ const toggleAudioBtn = document.getElementById("toggleAudio");
 const themeAudio = document.getElementById("themeAudio");
 const emptyMsg = document.getElementById("emptyMessage");
 
-// Render all displayed notes
-function renderNotes() {
-  container.innerHTML = "";
+// Load notes from server
+async function loadNotes() {
+    try {
+        const response = await fetch('/notes-json/');
+        notes = await response.json(); // Assign to global notes array
+        console.log("Notes loaded:", notes);
 
-  if (emptyMsg) {
-    if (displayedNotes.length === 0) {
-      emptyMsg.classList.remove("hidden");
-    } else {
-      emptyMsg.classList.add("hidden");
+        // Initialize first displayed note
+        if (notes.length > 0) {
+            const randomIndex = Math.floor(Math.random() * notes.length);
+            displayedNotes.push(notes[randomIndex]);
+            renderNotes();
+        }
+    } catch (error) {
+        console.error('Error fetching notes:', error);
+        notes = [];
     }
-  }
-
-  const theme = themeSelector?.value || "space";
-
-  displayedNotes.forEach((noteText, i) => {
-    const note = createStickyNote(noteText, i, theme);
-    container.appendChild(note);
-  });
 }
 
+// Initial page load
+document.addEventListener("DOMContentLoaded", () => {
+    loadNotes();
+});
+
+// Render all displayed notes
+function renderNotes() {
+    container.innerHTML = "";
+
+    if (emptyMsg) {
+        if (displayedNotes.length === 0) {
+            emptyMsg.classList.remove("hidden");
+        } else {
+            emptyMsg.classList.add("hidden");
+        }
+    }
+
+    const theme = themeSelector?.value || "space";
+
+    displayedNotes.forEach((noteText, i) => {
+        const note = createStickyNote(noteText, i, theme);
+        container.appendChild(note);
+    });
+}
 
 // Create sticky note element
-function createStickyNote(content, index, theme) {
-  const noteDiv = document.createElement("div");
-  noteDiv.className = `sticky-note theme-${theme}`;
-  noteDiv.innerHTML = `<p>${content}</p>`;
+function createStickyNote(noteObj, index, theme) {
+    const noteDiv = document.createElement("div");
+    noteDiv.className = `sticky-note theme-${theme}`;
+      noteDiv.innerHTML = `
+        <p class="note-content">${noteObj.content}</p>
+        <p class="note-author">— ${noteObj.name}</p>
+    `;
 
-  // Random rotation and offsets for stacking effect
-  const rotation = Math.random() * 12 - 6; // -6 to +6 deg
-  const offsetX = Math.random() * 10 - 5;  // -5px to +5px
-  const offsetY = Math.random() * 10 - 5;  // -5px to +5px
+    const rotation = Math.random() * 12 - 6;
+    const offsetX = Math.random() * 10 - 5;
+    const offsetY = Math.random() * 10 - 5;
 
-  noteDiv.style.transform = `rotate(${rotation}deg) translate(${offsetX}px, ${offsetY}px)`;
-  noteDiv.style.zIndex = 40 - index; // top note on top
+    noteDiv.style.transform = `rotate(${rotation}deg) translate(${offsetX}px, ${offsetY}px)`;
+    noteDiv.style.zIndex = 40 - index;
 
-  return noteDiv;
+    return noteDiv;
 }
 
 // Show a random note
 function showRandomNote() {
-  if (notes.length === 0) return;
+    console.log("Showing random note now");
+    if (notes.length === 0) return;
 
-  const available = notes.filter(a => !displayedNotes.includes(a));
-  const nextNote = available.length > 0 
-    ? available[Math.floor(Math.random() * available.length)]
-    : notes[Math.floor(Math.random() * notes.length)];
+    const available = notes.filter(a => !displayedNotes.includes(a));
+    const nextNote = available.length > 0 
+        ? available[Math.floor(Math.random() * available.length)]
+        : notes[Math.floor(Math.random() * notes.length)];
 
-  // Add current notes to history
-  if (displayedNotes.length > 0) {
-    history.push([...displayedNotes]);
-  }
+    if (displayedNotes.length > 0) {
+        history.push([...displayedNotes]);
+    }
 
-  displayedNotes.unshift(nextNote);
+    displayedNotes.unshift(nextNote);
 
-  if (displayedNotes.length > 5) displayedNotes.pop(); // max 5
-  renderNotes();
+    if (displayedNotes.length > 5) displayedNotes.pop();
+    renderNotes();
 
-  // Animate top note
-  const topNote = container.firstElementChild;
-  if (topNote) {
-    topNote.classList.add("new-note");
-    setTimeout(() => topNote.classList.remove("new-note"), 300);
-  }
+    const topNote = container.firstElementChild;
+    if (topNote) {
+        topNote.classList.add("new-note");
+        setTimeout(() => topNote.classList.remove("new-note"), 300);
+    }
+    console.log("Random note shown:", nextNote);
 }
 
 // Go back to previous note
 function goBack() {
-  if (history.length === 0) return;
+    if (history.length === 0) return;
 
-  displayedNotes = history.pop();
-  renderNotes();
+    displayedNotes = history.pop();
+    renderNotes();
 }
 
 // Theme & audio handling
 themeSelector?.addEventListener("change", () => {
-  document.body.className = `theme-${themeSelector.value}`;
-  renderNotes();
+    document.body.className = `theme-${themeSelector.value}`;
+    renderNotes();
 
-  if (audioEnabled) {
-    themeAudio.src = `audio/${themeSelector.value}.mp3`;
-    themeAudio.play();
-  }
+    if (audioEnabled) {
+        themeAudio.src = `audio/${themeSelector.value}.mp3`;
+        themeAudio.play();
+    }
 });
 
 toggleAudioBtn?.addEventListener("click", () => {
-  audioEnabled = !audioEnabled;
+    audioEnabled = !audioEnabled;
 
-  if (audioEnabled) {
-    themeAudio.src = `audio/${themeSelector.value}.mp3`;
-    themeAudio.play();
-  } else {
-    themeAudio.pause();
-  }
+    if (audioEnabled) {
+        themeAudio.src = `audio/${themeSelector.value}.mp3`;
+        themeAudio.play();
+    } else {
+        themeAudio.pause();
+    }
 });
 
 // Buttons
@@ -119,48 +145,38 @@ backBtn?.addEventListener("click", () => {
     goBack();
 });
 
-// Initial page load
-document.addEventListener("DOMContentLoaded", () => {
-  if (notes.length > 0) {
-    const randomIndex = Math.floor(Math.random() * notes.length);
-    displayedNotes.push(notes[randomIndex]); // first note
-    renderNotes();
-  }
-});
-
-
 // Form submission handling
-const form = document.getElementById('quoteForm');
-const popup = document.getElementById('popup');
+if (document.getElementById('quoteForm')) {
+    const form = document.getElementById('quoteForm');
+    const popup = document.getElementById('popup');
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // prevent normal submission
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    const formData = new FormData(form);
+        const formData = new FormData(form);
 
-    try {
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                showPopup(data.message);
+                form.reset();
+            } else {
+                showPopup(Object.values(data.errors).join(' '), true);
             }
-        });
 
-        const data = await response.json();
-
-        if (response.ok) {
-            showPopup(data.message);
-            form.reset(); // ready for next quote
-        } else {
-            showPopup(Object.values(data.errors).join(' '), true);
+        } catch (error) {
+            console.error('Error submitting quote:', error);
+            showPopup('An unexpected error occurred.', true);
         }
-
-    } catch (error) {
-        console.error('Error submitting quote:', error);
-        showPopup('An unexpected error occurred.', true);
-    }
-});
+    });
+}
 
 // Function to show popup
 function showPopup(message, isError = false) {

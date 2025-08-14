@@ -4,7 +4,7 @@ from django.views import generic
 from django.http import JsonResponse
 from .models import Note
 from django import forms
-# from django.contrib import messages
+from django.views import View
 
 # Create your views here.
 # This view handles the home page displaying a list of notes
@@ -21,6 +21,19 @@ def get_context_data(self, **kwargs):
     context['notes'] = self.get_queryset().order_by('-created_on')
     return context
 
+# This view handles the display of a single note
+class NotesJson(View):
+    def get(self, request):
+        notes = Note.objects.filter(approved=True).order_by('-created_on')
+        data = [
+            {
+                "content": note.content,
+                "name": note.name,
+                "created_on": note.created_on.isoformat()
+            }
+            for note in notes
+        ]
+        return JsonResponse(data, safe=False)
 
 # This view handles the creation of a new note    
 class NoteForm(forms.ModelForm):
