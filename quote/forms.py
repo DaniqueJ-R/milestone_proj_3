@@ -28,7 +28,8 @@ class NoteForm(forms.ModelForm):
             return 0 # Default to "Uncategorized"
         return category
     
-
+        
+# This view handles user signup
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(required=True)
 

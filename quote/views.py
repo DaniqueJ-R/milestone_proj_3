@@ -58,6 +58,16 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
     template_name = 'quote/write-a-note.html'
 
     def form_valid(self, form):
+        # Always assign the logged-in user as the author
+        if self.request.user.is_authenticated:
+            form.instance.author = self.request.user
+        else:
+            form.instance.author = get_removed_user()
+
+        # Set default name if blank
+        if not form.cleaned_data.get('name'):
+            form.instance.name = "Anonymous"
+
         # Banned words check
         banned_words = ["badword1", "badword2", "badword3"]
         content_lower = form.cleaned_data['content'].lower()
@@ -72,10 +82,6 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
             form.instance.approved = True
             message = "Your quote was submitted successfully!"
 
-        # Set default name if blank
-        if not form.cleaned_data.get('name'):
-            form.instance.name = "Anonymous"
-
         self.object = form.save()
 
         # Return JSON response for AJAX
@@ -89,5 +95,4 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
         })
 
     def form_invalid(self, form):
-        # Return form errors as JSON
         return JsonResponse({'errors': form.errors}, status=400)
