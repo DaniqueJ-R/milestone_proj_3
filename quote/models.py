@@ -3,6 +3,14 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+# This function returns the "Removed" user, creating it if necessary
+def get_removed_user():
+    user, created = User.objects.get_or_create(
+        username="Removed",
+        defaults={"email": "removed@example.com", "password": ""}
+    )
+    return user
+
 # Model to store notes (quotes) created by users
 class Note(models.Model):
     CATEGORY = (
@@ -17,7 +25,9 @@ class Note(models.Model):
     approved = models.BooleanField(default=False)
     category = models.IntegerField(choices = CATEGORY, default=0, blank=True)
     author = models.ForeignKey(
-        User, on_delete=models.SET_NULL, null=True, blank=True, related_name='notes'
+        User,
+        on_delete=models.SET(get_removed_user),
+        related_name="notes",
     )
 
     class Meta:
@@ -25,6 +35,9 @@ class Note(models.Model):
 
     def __str__(self):
         return f"quote-'{self.content}' by {self.name}"
+
+
+
 
 
 # Background model to store theme and other settings
