@@ -1,15 +1,31 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
+from django.views.generic import CreateView
 from django.views import generic
 from django.http import JsonResponse
 from .models import Note
 from django.views import View
-from .forms import NoteForm
+from .forms import NoteForm, SignUpForm
+from django.urls import reverse_lazy
+from django.contrib.auth import login
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
+# This view handles user signup
+class SignUpView(CreateView):
+    form_class = SignUpForm
+    template_name = 'signup.html'
+    success_url = reverse_lazy('home')  # redirect after signup
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        user = form.save()
+        login(self.request, user)  # log in immediately after signup
+        return response
+
+
 # This view handles the home page displaying a list of notes
-class NotesList(generic.ListView):
+class NotesList(LoginRequiredMixin, generic.ListView):
     model = Note
     template_name = 'quote/home.html'
     context_object_name = 'notes_list'

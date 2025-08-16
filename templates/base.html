@@ -1,9 +1,7 @@
-{% load static %}
-{% url 'home' as home_url %}
+{% load static %} {% url 'home' as home_url %}
 
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,106 +33,103 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    
+
     <!-- Custom CSS -->
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
-<body class="theme-space">
+  <body class="theme-space">
     <!-- Side Nav Bar -->
-  <div class="sidebar" id="sidebar">
-              <img
-            id="logo"
-            src="{% static 'images/Logoo-removebg-preview.png' %}"
-            alt="Logo"
-            class="img-fluid"/>
-            <ul class="nav-list">
-          <li>
-            <a href="{% url 'home' %}" ><i class="fas fa-home"></i> Notes </a>
-          </li>
-          <li>
-            <a href="#"
-              ><i class="fas fa-info-circle"></i> Pictures (coming soon)</a
-            >
-          </li>
-          <li>
-            <div class="dropdown-container">
-  <div class="dropdown-header">Atmosphere ▼</div>
-  <div class="dropdown-content" id="themeSelector">
-    <a data-value="space">Cosmic</a><br>
-    <a data-value="sea">Ocean</a><br>
-    <a data-value="forest">Forest</a><br>
-    <a data-value="sunset">Sunset</a><br>
-  </div>
-</div>
-          </li>
-          <li>
-<div class="dropdown-container">
-  <div class="dropdown-header"><i class="fas fa-cog"></i>Learn more</div>
-  <div class="dropdown-content">
-    <a href="#">About us</a><br>
-    <a href="#">Contact us</a><br>
-  </div>
-</div>
-          </li>
-              <i id="toggleAudio" class="fa-solid fa-volume-high"></i>
+    <div class="sidebar" id="sidebar">
+      <img
+        id="logo"
+        src="{% static 'images/Logoo-removebg-preview.png' %}"
+        alt="Logo"
+        class="img-fluid"
+      />
 
-        </ul>
-        <!-- Social Media -->
-                  <div id="social-links-nav">
-          <a
-            href="https://www.facebook.com/"
-            target="_blank"
-            aria-label="Visit us on Facebook.(Opens in new tab)"
-            rel="noopener"
+      <ul class="nav-list">
+        <li>
+          <a href="{% url 'home' %}"><i class="fas fa-home"></i> Notes </a>
+        </li>
+        <li>
+          <a href="#"
+            ><i class="fas fa-info-circle"></i> Pictures (coming soon)</a
           >
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-          <a
-            href="https://www.twitter.com/"
-            target="_blank"
-            aria-label="Visit us on Twitter.(Opens in new tab)"
-            rel="noopener"
-          >
-            <i class="fa-brands fa-x-twitter"></i>
-          </a>
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            aria-label="Visit us on Instagram.(Opens in new tab)"
-            rel="noopener"
-          >
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-        </div>
-        </ul>
-
-  </div>
-<!-- End of Side Nav -->
+        </li>
+        <li>
+          <div class="dropdown-container">
+            <div class="dropdown-header">Atmosphere ▼</div>
+            <div class="dropdown-content" id="themeSelector">
+              <a data-value="space">Cosmic</a><br />
+              <a data-value="sea">Ocean</a><br />
+              <a data-value="forest">Forest</a><br />
+              <a data-value="sunset">Sunset</a><br />
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown-container">
+            <div class="dropdown-header">
+              <i class="fas fa-cog"></i>Learn more
+            </div>
+            <div class="dropdown-content">
+              <a href="#">About us</a><br />
+              <a href="#">Contact us</a><br />
+            </div>
+          </div>
+        </li>
+        <i id="toggleAudio" class="fa-solid fa-volume-high"></i>
+      </ul>
+      <!-- Social Media -->
+      <div id="social-links-nav">
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          aria-label="Visit us on Facebook.(Opens in new tab)"
+          rel="noopener"
+        >
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a
+          href="https://www.twitter.com/"
+          target="_blank"
+          aria-label="Visit us on Twitter.(Opens in new tab)"
+          rel="noopener"
+        >
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          aria-label="Visit us on Instagram.(Opens in new tab)"
+          rel="noopener"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+    <!-- End of Side Nav -->
 
     <!-- Header with user options to write or read notes -->
     <header class="hidden">
-      <h1>Take A Breath</h1></header>
+      <h1>Take A Breath</h1>
+    </header>
 
+    <main class="flex-shrink-0 main-bg">
+      {% block content %}
+      <!-- Content Goes here -->
+      {% endblock content %}
 
-
-          <main class="flex-shrink-0 main-bg">
-
-        {% block content %}
-        <!-- Content Goes here -->
-        {% endblock content %}
-
-
-              <!-- Footer -->
+      <!-- Footer -->
       <footer class="mt-auto" id="footer">
         <div class="container">
           <p>&copy; 2023 Take A Breath. All rights reserved.</p>
         </div>
       </footer>
-  </main>
+    </main>
 
-  <audio id="themeAudio" loop></audio>
-  
+    <audio id="themeAudio" loop></audio>
+
     <!-- Bootstraps Javascript Link -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -148,8 +143,5 @@
       src="https://kit.fontawesome.com/9e540e0242.js"
       crossorigin="anonymous"
     ></script>
-
-</body>
+  </body>
 </html>
-
-

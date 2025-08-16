@@ -13,3 +13,4 @@ class NoteAdmin(SummernoteModelAdmin):
 
 admin.site.register(Background)
 
+
