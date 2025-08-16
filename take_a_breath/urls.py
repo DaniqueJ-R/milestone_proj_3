@@ -16,13 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-# from report import views as report_views
-# from contact_us import views as contact_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('contact/', contact_views.intro, name='contact_intro'),
-    # path('report/', report_views.intro, name='report_intro'),
     path("summernote/", include('django_summernote.urls')),
     path("", include("quote.urls"), name="quote-urls"),
 ]

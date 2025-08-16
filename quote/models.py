@@ -17,7 +17,7 @@ class Note(models.Model):
     approved = models.BooleanField(default=False)
     category = models.IntegerField(choices = CATEGORY, default=0, blank=True)
     author = models.ForeignKey(
-        User, on_delete=models.SET_NULL, null=True, blank=True, related_name='note'
+        User, on_delete=models.SET_NULL, null=True, blank=True, related_name='notes'
     )
 
     class Meta:

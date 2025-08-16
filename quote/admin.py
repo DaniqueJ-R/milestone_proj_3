@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Note, Sticker, StickerTypeModel, Background
+from .models import Note, Background
 from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Note)
@@ -11,7 +11,5 @@ class NoteAdmin(SummernoteModelAdmin):
 
 # Register your models here.
 
-admin.site.register(Sticker)
-admin.site.register(StickerTypeModel)
 admin.site.register(Background)
 
