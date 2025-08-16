@@ -46,7 +46,19 @@
         alt="Logo"
         class="img-fluid"
       />
+      <!-- log in section to displpay user name -->
+      {% if user.is_authenticated %}
+      <p>
+        Welcome, {{ user.username }} | <a href="{% url 'logout' %}">Logout</a>
+      </p>
+      {% else %}
+      <p>
+        <a href="{% url 'login' %}">Login</a> |
+        <a href="{% url 'signup' %}">Sign Up</a>
+      </p>
+      {% endif %}
 
+      <!-- Navigation Links -->
       <ul class="nav-list">
         <li>
           <a href="{% url 'home' %}"><i class="fas fa-home"></i> Notes </a>
