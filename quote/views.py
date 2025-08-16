@@ -7,7 +7,7 @@ from django.views import View
 from .forms import NoteForm, SignUpForm
 from django.urls import reverse_lazy
 from django.contrib.auth import login
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 # Create your views here.
 
