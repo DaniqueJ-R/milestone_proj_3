@@ -4,6 +4,7 @@ from django.views import generic
 from django.http import JsonResponse
 from .models import Note
 from django.views import View
+from .forms import NoteForm
 
 # Create your views here.
 
