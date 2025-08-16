@@ -3,8 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-
-
+# Model to store notes (quotes) created by users
 class Note(models.Model):
     CATEGORY = (
         (0, "Uncategorized"),
@@ -28,34 +27,15 @@ class Note(models.Model):
         return f"quote-'{self.content}' by {self.name}"
 
 
-class Sticker(models.Model):
-    sticker_type = models.ForeignKey('StickerTypeModel', on_delete=models.CASCADE)
-    note = models.ForeignKey(Note, on_delete=models.CASCADE, related_name='stickers')
-    x_position = models.IntegerField(default=0)
-    y_position = models.IntegerField(default=0)
-    rotation = models.FloatField(default=0.0)
-
-    def __str__(self):
-        return self.sticker_type
-
-
-THEME_CHOICES = (
+# Background model to store theme and other settings
+class Background(models.Model):
+    THEME_CHOICES = (
     (0, "Cosmic"),
     (1, "Ocean"),
     (2, "Forest"),
     (3, "Sunset"),
 )
-
-class StickerTypeModel(models.Model):
-    sticker_name = models.CharField(max_length=100)
-    image = models.FileField(upload_to='stickers/')
-    category = models.IntegerField(choices=THEME_CHOICES, default='0')
-
-    def __str__(self):
-        return self.sticker_name
-
-
-class Background(models.Model):
+    
     theme = models.IntegerField(choices=THEME_CHOICES, default=0)
     background_colour = models.CharField(max_length=100)
     note_color = models.CharField(max_length=100)

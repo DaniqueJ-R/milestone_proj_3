@@ -3,10 +3,10 @@ from django.views.generic.edit import CreateView
 from django.views import generic
 from django.http import JsonResponse
 from .models import Note
-from django import forms
 from django.views import View
 
 # Create your views here.
+
 # This view handles the home page displaying a list of notes
 class NotesList(generic.ListView):
     model = Note
@@ -35,29 +35,6 @@ class NotesJson(View):
         ]
         return JsonResponse(data, safe=False)
 
-# This view handles the creation of a new note    
-class NoteForm(forms.ModelForm):
-    class Meta:
-        model = Note
-        fields = ['content', 'name', 'category']
-        widgets = {
-            'content': forms.Textarea(attrs={'rows':3, 'placeholder': 'Write your quote here...'}),
-            'name': forms.TextInput(attrs={'placeholder': 'Your name (if you want)'}),
-            'category': forms.Select(),
-        }
-
-    def clean_name(self):
-        name = self.cleaned_data.get('name')
-        if not name:
-            return 'anonymous'
-        return name
-    
-    def clean_category(self):
-        category = self.cleaned_data.get('category')
-        if category is None:
-            return 0 # Default to "Uncategorized"
-        return category
-    
 # This view handles the form submission for writing a new note
 class WriteANoteView(CreateView):
     form_class = NoteForm
