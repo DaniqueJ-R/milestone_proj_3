@@ -35,4 +35,4 @@ HTML
 Spoke to Mentre and now changing it to where user has to log in to crate note so they can delete/edit tthemself
 Now that thats changign, might lookk into liking notes?
 
-Trouble with Log in set up, taking me straight to log in but not findgin tempate
+Trouble with Log in set up, taking me straight to log in but not findgin tempate - fixed by adding quote/login.html to url

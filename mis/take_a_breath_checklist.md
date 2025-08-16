@@ -191,15 +191,15 @@ To enhance user experience and work toward distinction-level criteria, Take A Br
 
 ### Step 11: Views & URLs
 - [ ] Create views for CRUD
-- [ ] Configure urls.py
+- [x] Configure urls.py
 
 ### Step 12: Templates
-- [ ] Use Django templating
-- [ ] Add base layout
+- [x] Use Django templating
+- [x] Add base layout
 
 ### Step 13: Authentication
-- [ ] User signup/login/logout
-- [ ] Use @login_required
+- [x] User signup/login/logout
+- [x] Use @login_required
 
 ---
 

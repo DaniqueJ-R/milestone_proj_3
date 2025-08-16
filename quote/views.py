@@ -25,7 +25,7 @@ class SignUpView(CreateView):
 
 
 # This view handles the home page displaying a list of notes
-class NotesList(LoginRequiredMixin, generic.ListView):
+class NotesList(generic.ListView):
     model = Note
     template_name = 'quote/home.html'
     context_object_name = 'notes_list'
@@ -53,7 +53,7 @@ class NotesJson(View):
         return JsonResponse(data, safe=False)
 
 # This view handles the form submission for writing a new note
-class WriteANoteView(CreateView):
+class WriteANoteView(LoginRequiredMixin, CreateView):
     form_class = NoteForm
     template_name = 'quote/write-a-note.html'
 
