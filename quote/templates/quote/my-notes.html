@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>My Notes</h2>
+
+{% if notes %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Category</th>
+      <th>Status</th>
+      <th>Created On</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for note in notes %}
+    <tr>
+      <td>{{ note.content }}</td>
+      <td>{{ note.get_category_display }}</td>
+      <td>
+        {% if note.approved %}
+          ✅ Approved
+        {% else %}
+          ⏳ Pending / ❌ Denied
+        {% endif %}
+      </td>
+      <td>{{ note.created_on|date:"Y-m-d H:i" }}</td>
+      <td>
+        <a href="{% url 'edit_note' note.pk %}" class="btn btn-sm btn-warning">Edit</a>
+        <a href="{% url 'delete_note' note.pk %}" class="btn btn-sm btn-danger">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>You haven't written any notes yet.</p>
+{% endif %}
+
+{% endblock %}

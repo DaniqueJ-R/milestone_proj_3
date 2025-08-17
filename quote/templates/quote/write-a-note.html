@@ -5,7 +5,7 @@
   <section>
     <div id="heading-area">
       <span id="read-notes"><a href="{% url 'home' %}" class="heading-section">Pick</a></span>
-      <span id="write-notes"><a href="{% url 'write_note' %}" class="heading-section">Write</a></span>
+      <span id="write-notes"><a href="{% url 'write_a_note' %}" class="heading-section">Write</a></span>
     </div>
 
     <div id="submit-note">
@@ -19,7 +19,7 @@
     {% endfor %}
 </div>
 {% endif %}
-      <form id="quoteForm" method="post" action="{% url 'write_note' %}">
+      <form id="quoteForm" method="post" action="{% url 'write_a_note' %}">
     {% csrf_token %}
     <label for="content">Quote:</label>
     <textarea name="content" id="content" maxlength="100" required></textarea>
@@ -46,7 +46,7 @@
 {% endblock %}
 
 
-<form id="quoteForm" method="post" action="{% url 'write_note' %}">
+<form id="quoteForm" method="post" action="{% url 'write_a_note' %}">
     {% csrf_token %}
     <label for="content">Quote:</label>
     <textarea name="content" id="content" maxlength="100" required></textarea>

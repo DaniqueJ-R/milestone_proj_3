@@ -51,6 +51,7 @@
       <p>
         Welcome, {{ user.username }} | <a href="{% url 'logout' %}">Logout</a>
       </p>
+      <a href="{% url 'my_notes' %}">My Notes</a>
       {% else %}
       <p>
         <a href="{% url 'login' %}">Login</a> |

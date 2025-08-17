@@ -8,6 +8,7 @@ from .forms import NoteForm, SignUpForm
 from django.urls import reverse_lazy
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import ListView, UpdateView, DeleteView
 
 # Create your views here.
 
@@ -96,3 +97,40 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
 
     def form_invalid(self, form):
         return JsonResponse({'errors': form.errors}, status=400)
+
+# List of user’s notes
+class MyNotesView(LoginRequiredMixin, ListView):
+    model = Note
+    template_name = "quote/my-notes.html"
+    context_object_name = "notes"
+
+    def get_queryset(self):
+        # Only show the notes created by the logged-in user
+        return Note.objects.filter(author=self.request.user)
+
+
+# Update a note
+class NoteUpdateView(LoginRequiredMixin, UpdateView):
+    model = Note
+    form_class = NoteForm
+    template_name = "quote/edit_note.html"
+
+    def get_queryset(self):
+        # Prevent editing other people's notes
+        return Note.objects.filter(author=self.request.user)
+
+    def get_success_url(self):
+        return reverse_lazy("my_notes")
+
+
+# Delete a note
+class NoteDeleteView(LoginRequiredMixin, DeleteView):
+    model = Note
+    template_name = "quote/delete_note.html"
+
+    def get_queryset(self):
+        # Prevent deleting other people's notes
+        return Note.objects.filter(author=self.request.user)
+
+    def get_success_url(self):
+        return reverse_lazy("my_notes")
