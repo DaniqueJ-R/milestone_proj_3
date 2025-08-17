@@ -1,3 +1,6 @@
+import os
+import json
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from django.views import generic
@@ -7,7 +10,7 @@ from django.views import View
 from .forms import NoteForm, SignUpForm
 from django.urls import reverse_lazy
 from django.contrib.auth import login
-from django.contrib.auth.mixins import LoginRequiredMixin,
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, UpdateView, DeleteView
 
 # Create your views here.
@@ -59,6 +62,13 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
     form_class = NoteForm
     template_name = 'quote/write-a-note.html'
 
+    def get_badwords(self):
+        """Load badwords from JSON file."""
+        file_path = os.path.join(settings.BASE_DIR, "quote", "fixtures", "badwords.json")
+        with open(file_path, "r", encoding="utf-8") as f:
+            badwords_data = json.load(f)
+        return [entry["fields"]["word"] for entry in badwords_data]
+
     def form_valid(self, form):
         # Always assign the logged-in user as the author
         if self.request.user.is_authenticated:
@@ -70,13 +80,15 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
         if not form.cleaned_data.get('name'):
             form.instance.name = "Anonymous"
 
-        # Banned words check
-        banned_words = list(BadWord.objects.values_list('word', flat=True))
+        # Load banned words from JSON
+        banned_words = self.get_badwords()
         content_lower = form.cleaned_data['content'].lower()
 
+        # Empty content check
         if not content_lower.strip():
             return JsonResponse({'error': 'Content cannot be empty.'}, status=400)
 
+        # Banned word check
         if any(bad_word in content_lower for bad_word in banned_words):
             form.instance.status = 0  # Pending
             message = "Your quote requires manual approval."
@@ -95,9 +107,6 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
             'message': message,
             'status': self.object.status        
         })
-
-    def form_invalid(self, form):
-        return JsonResponse({'errors': form.errors}, status=400)
 
 # List of user’s notes
 class MyNotesView(LoginRequiredMixin, ListView):
