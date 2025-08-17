@@ -7,7 +7,7 @@ from django.views import View
 from .forms import NoteForm, SignUpForm
 from django.urls import reverse_lazy
 from django.contrib.auth import login
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin,
 from django.views.generic import ListView, UpdateView, DeleteView
 
 # Create your views here.
@@ -53,6 +53,7 @@ class NotesJson(View):
         ]
         return JsonResponse(data, safe=False)
 
+
 # This view handles the form submission for writing a new note
 class WriteANoteView(LoginRequiredMixin, CreateView):
     form_class = NoteForm
@@ -70,7 +71,7 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
             form.instance.name = "Anonymous"
 
         # Banned words check
-        banned_words = ["badword1", "badword2", "badword3"]
+        banned_words = list(BadWord.objects.values_list('word', flat=True))
         content_lower = form.cleaned_data['content'].lower()
 
         if not content_lower.strip():

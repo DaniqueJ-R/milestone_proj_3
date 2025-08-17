@@ -28,7 +28,7 @@ class Note(models.Model):
     content = models.CharField(max_length=100)
     name = models.CharField(max_length=100, default='anonymous', blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)  # 👈 replaces `approved`
+    status = models.IntegerField(choices=STATUS, default=0)
     category = models.IntegerField(choices = CATEGORY, default=0, blank=True)
     author = models.ForeignKey(
         User,
