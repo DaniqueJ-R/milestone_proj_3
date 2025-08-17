@@ -32,7 +32,7 @@ class NotesList(generic.ListView):
     context_object_name = 'notes_list'
 
     def get_queryset(self):
-        return Note.objects.filter(approved=True).order_by('?') # Random order for the home page
+        return Note.objects.filter(status=1).order_by('?') # Random order for the home page
     
 def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
@@ -42,7 +42,7 @@ def get_context_data(self, **kwargs):
 # This view handles the display of a single note
 class NotesJson(View):
     def get(self, request):
-        notes = Note.objects.filter(approved=True).order_by('-created_on')
+        notes = Note.objects.filter(status=1).order_by('-created_on')
         data = [
             {
                 "content": note.content,
@@ -77,10 +77,10 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
             return JsonResponse({'error': 'Content cannot be empty.'}, status=400)
 
         if any(bad_word in content_lower for bad_word in banned_words):
-            form.instance.approved = False
+            form.instance.status = 0  # Pending
             message = "Your quote requires manual approval."
         else:
-            form.instance.approved = True
+            form.instance.status = 1  # Approved
             message = "Your quote was submitted successfully!"
 
         self.object = form.save()
@@ -92,7 +92,7 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
             'category': self.object.category,
             'category_display': self.object.get_category_display(),
             'message': message,
-            'approved': self.object.approved        
+            'status': self.object.status        
         })
 
     def form_invalid(self, form):

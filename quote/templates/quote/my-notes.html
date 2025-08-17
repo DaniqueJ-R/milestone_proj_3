@@ -19,13 +19,7 @@
     <tr>
       <td>{{ note.content }}</td>
       <td>{{ note.get_category_display }}</td>
-      <td>
-        {% if note.approved %}
-          ✅ Approved
-        {% else %}
-          ⏳ Pending / ❌ Denied
-        {% endif %}
-      </td>
+      <td>{{ note.get_status_display }}</td>
       <td>{{ note.created_on|date:"Y-m-d H:i" }}</td>
       <td>
         <a href="{% url 'edit_note' note.pk %}" class="btn btn-sm btn-warning">Edit</a>
