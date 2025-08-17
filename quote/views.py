@@ -113,7 +113,7 @@ class MyNotesView(LoginRequiredMixin, ListView):
 class NoteUpdateView(LoginRequiredMixin, UpdateView):
     model = Note
     form_class = NoteForm
-    template_name = "quote/edit_note.html"
+    template_name = "quote/edit-note.html"
 
     def get_queryset(self):
         # Prevent editing other people's notes
@@ -126,7 +126,7 @@ class NoteUpdateView(LoginRequiredMixin, UpdateView):
 # Delete a note
 class NoteDeleteView(LoginRequiredMixin, DeleteView):
     model = Note
-    template_name = "quote/delete_note.html"
+    template_name = "quote/delete-note.html"
 
     def get_queryset(self):
         # Prevent deleting other people's notes

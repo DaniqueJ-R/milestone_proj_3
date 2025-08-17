@@ -4,6 +4,9 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
+        # Home
+    path('', views.NotesList.as_view(), name='home'),
+
     # Authentication
     path('login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
@@ -15,9 +18,6 @@ urlpatterns = [
     path('note/<int:pk>/delete/', views.NoteDeleteView.as_view(), name='delete_note'),
     path('notes-json/', views.NotesJson.as_view(), name='notes_json'),
     path('write-a-note/', views.WriteANoteView.as_view(), name='write_a_note'),
-
-    # Home
-    path('', views.NotesList.as_view(), name='home'),
 ]
 
 # Password reset
