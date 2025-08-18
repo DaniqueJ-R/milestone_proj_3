@@ -16,17 +16,19 @@ Overall
 installing gunicorn, summernote and heroku
 
 Heroku
-Deployment to Heroku
+Deployment to Heroku - ffix
 
 JAVA
-Function allowing notes to flip 
-function to then change colour of note and background at the same time
-Connecting notes to display on sticky
+Function allowing notes to flip -fix
+function to then change colour of note and background at the same time - fix
+Connecting notes to display on sticky - fix
 
 
 Python
-updated names and had to wipe db to reformat change
-Getting Static code to read correctly in django
+updated names and had to wipe db to reformat change - fix
+Getting Static code to read correctly in django - fix
+
+Password done page to show if password is in the system, but shwing email is not in system for all email - still
 
 CSS
 

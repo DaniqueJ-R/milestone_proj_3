@@ -1,17 +1,18 @@
-import os
 import json
+import os
+
 from django.conf import settings
-from django.shortcuts import render, redirect
-from django.views.generic import CreateView
-from django.views import generic
-from django.http import JsonResponse
-from .models import Note, BadWord
-from django.views import View
-from .forms import NoteForm, SignUpForm
-from django.urls import reverse_lazy
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, UpdateView, DeleteView
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views import View
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+
+from .forms import NoteForm, SignUpForm
+from .models import Note, BadWord
+
 
 # Create your views here.
 
@@ -29,7 +30,7 @@ class SignUpView(CreateView):
 
 
 # This view handles the home page displaying a list of notes
-class NotesList(generic.ListView):
+class NotesList(ListView):
     model = Note
     template_name = 'quote/home.html'
     context_object_name = 'notes_list'
