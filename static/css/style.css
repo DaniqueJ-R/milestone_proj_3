@@ -221,6 +221,11 @@ body.theme-sunset {
   padding-top: 0.25rem;
 }
 
+#my-notes-table {
+  width: 50%;
+  /* border-collapse: collapse; */
+}
+
 #read-notes {
   padding-right: 7rem;
 }

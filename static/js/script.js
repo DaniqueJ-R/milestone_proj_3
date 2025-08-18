@@ -36,23 +36,6 @@ async function loadNotes() {
 }
 
 // // Initial page load
-// document.addEventListener("DOMContentLoaded", () => {
-//   loadNotes();
-
-//   const savedTheme = localStorage.getItem("selectedTheme") || "space"; // default to 'space'
-//   document.body.className = `theme-${savedTheme}`;
-
-//   // Check if one is already marked as selected in the dropdown
-//   const selectedLink = document.querySelector(".dropdown-content a.selected");
-//   currentTheme = selectedLink
-//     ? selectedLink.getAttribute("data-value")
-//     : "space";
-
-//   // Apply the theme immediately
-//   document.body.className = `theme-${currentTheme}`;
-//   themeAudio.src = `/static/audio/${currentTheme}.mp3`; // preload
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
   // Load notes
   loadNotes();
