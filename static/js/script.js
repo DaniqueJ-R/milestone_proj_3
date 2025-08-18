@@ -132,7 +132,7 @@ document.querySelectorAll("#themeSelector a").forEach(a => {
         renderNotes();
 
         if (audioEnabled) {
-            themeAudio.src = `audio/${value}.mp3`;
+            themeAudio.src = `/static/audio/${value}.mp3`;
             themeAudio.play();
         }
     });
@@ -143,7 +143,7 @@ toggleAudioBtn?.addEventListener("click", () => {
     audioEnabled = !audioEnabled;
 
     if (audioEnabled) {
-        themeAudio.src = `audio/${themeSelector.value}.mp3`;
+        themeAudio.src = `/static/audio/${themeSelector.value}.mp3`;
         themeAudio.play();
     } else {
         themeAudio.pause();
