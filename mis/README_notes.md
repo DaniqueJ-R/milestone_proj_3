@@ -42,3 +42,5 @@ Trouble with Log in set up, taking me straight to log in but not findgin tempate
 Add {% blocktrans %} and {% trans 'Register:' %} - translation for text to user language- later on if possible
 
 Decided to change function of badword Json so db can be updated anytime with new banned words
+
+Added audio, but sometimes js does not catch which file to play and logs error - fixed?

@@ -6,6 +6,7 @@ let audioEnabled = false;
 let displayedNotes = []; // Array of current notes shown (max 5)
 let history = [];
 let notes = []; // Global notes array
+let currentTheme = "space"; // default
 
 const container = document.getElementById("notes-container");
 const addBtn = document.getElementById("addAffirmation");
@@ -37,7 +38,16 @@ async function loadNotes() {
 // Initial page load
 document.addEventListener("DOMContentLoaded", () => {
     loadNotes();
+
+    // Check if one is already marked as selected in the dropdown
+    const selectedLink = document.querySelector(".dropdown-content a.selected");
+    currentTheme = selectedLink ? selectedLink.getAttribute("data-value") : "space";
+
+    // Apply the theme immediately
+    document.body.className = `theme-${currentTheme}`;
+    themeAudio.src = `/static/audio/${currentTheme}.mp3`; // preload
 });
+
 
 // Render all displayed notes
 function renderNotes() {
@@ -125,8 +135,10 @@ document.querySelectorAll("#themeSelector a").forEach(a => {
         // Add 'selected' to the clicked link
         a.classList.add("selected");
 
-        const value = a.getAttribute("data-value");
-        document.body.className = `theme-${value}`;
+const value = a.getAttribute("data-value");
+currentTheme = value; // update global tracker
+document.body.className = `theme-${value}`;
+        console.log("Theme changed to:", currentTheme);
 
         // Update notes
         renderNotes();
@@ -136,7 +148,7 @@ document.querySelectorAll("#themeSelector a").forEach(a => {
             themeAudio.play();
             console.log("Audio source updated:", themeAudio.src);
         } else {
-            themeAudio.src = `/static/audio/${value}.mp3`;
+            console.log("Audio is disabled, not updating source");
             themeAudio.pause();
         }
     });
@@ -147,7 +159,7 @@ toggleAudioBtn?.addEventListener("click", () => {
     audioEnabled = !audioEnabled;
 
     if (audioEnabled) {
-        themeAudio.src = `/static/audio/${themeSelector.value}.mp3`;
+        themeAudio.src = `/static/audio/${currentTheme}.mp3`;
         themeAudio.play();
         toggleAudioBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
         console.log("Audio enabled:", themeAudio.src);
