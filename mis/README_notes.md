@@ -44,3 +44,5 @@ Add {% blocktrans %} and {% trans 'Register:' %} - translation for text to user 
 Decided to change function of badword Json so db can be updated anytime with new banned words
 
 Added audio, but sometimes js does not catch which file to play and logs error - fixed?
+
+Drop down not fully working, reloading page and showing new note but not filtering as it should. 
