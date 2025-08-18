@@ -130,10 +130,14 @@ document.querySelectorAll("#themeSelector a").forEach(a => {
 
         // Update notes
         renderNotes();
-
+// Update audio source if audio is enabled
         if (audioEnabled) {
             themeAudio.src = `/static/audio/${value}.mp3`;
             themeAudio.play();
+            console.log("Audio source updated:", themeAudio.src);
+        } else {
+            themeAudio.src = `/static/audio/${value}.mp3`;
+            themeAudio.pause();
         }
     });
 });
@@ -145,8 +149,12 @@ toggleAudioBtn?.addEventListener("click", () => {
     if (audioEnabled) {
         themeAudio.src = `/static/audio/${themeSelector.value}.mp3`;
         themeAudio.play();
+        toggleAudioBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+        console.log("Audio enabled:", themeAudio.src);
     } else {
         themeAudio.pause();
+        toggleAudioBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+        console.log("Audio disabled");
     }
 });
 

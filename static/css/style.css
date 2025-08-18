@@ -72,7 +72,7 @@ i {
   padding: 1rem;
 }
 
-#toggleAudio {
+#toggleAudio, #toggleAudio-off {
   padding-left: 3rem;
 }
 
