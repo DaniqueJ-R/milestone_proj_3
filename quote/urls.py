@@ -4,7 +4,7 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-        # Home
+    # Home
     path('', views.NotesList.as_view(), name='home'),
 
     # Authentication

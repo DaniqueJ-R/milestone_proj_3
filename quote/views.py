@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from django.views import generic
 from django.http import JsonResponse
-from .models import Note
+from .models import Note, BadWord
 from django.views import View
 from .forms import NoteForm, SignUpForm
 from django.urls import reverse_lazy
@@ -63,32 +63,31 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
     template_name = 'quote/write-a-note.html'
 
     def get_badwords(self):
-        """Load badwords from JSON file."""
+        """Load badwords from database."""
         file_path = os.path.join(settings.BASE_DIR, "quote", "fixtures", "badwords.json")
         with open(file_path, "r", encoding="utf-8") as f:
             badwords_data = json.load(f)
+        # Extract words from JSON structure
         return [entry["fields"]["word"] for entry in badwords_data]
 
     def form_valid(self, form):
-        # Always assign the logged-in user as the author
+        # Assign author
         if self.request.user.is_authenticated:
             form.instance.author = self.request.user
         else:
             form.instance.author = get_removed_user()
 
-        # Set default name if blank
+        # Set default name
         if not form.cleaned_data.get('name'):
             form.instance.name = "Anonymous"
 
-        # Load banned words from JSON
+        # Load banned words from DB
         banned_words = self.get_badwords()
         content_lower = form.cleaned_data['content'].lower()
 
-        # Empty content check
         if not content_lower.strip():
             return JsonResponse({'error': 'Content cannot be empty.'}, status=400)
 
-        # Banned word check
         if any(bad_word in content_lower for bad_word in banned_words):
             form.instance.status = 0  # Pending
             message = "Your quote requires manual approval."
@@ -98,15 +97,15 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
 
         self.object = form.save()
 
-        # Return JSON response for AJAX
         return JsonResponse({
             'quote': self.object.content,
             'name': self.object.name,
             'category': self.object.category,
             'category_display': self.object.get_category_display(),
             'message': message,
-            'status': self.object.status        
+            'status': self.object.status
         })
+
 
 # List of user’s notes
 class MyNotesView(LoginRequiredMixin, ListView):

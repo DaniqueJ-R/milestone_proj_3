@@ -38,3 +38,5 @@ Now that thats changign, might lookk into liking notes?
 Trouble with Log in set up, taking me straight to log in but not findgin tempate - fixed by adding quote/login.html to url
 
 Add {% blocktrans %} and {% trans 'Register:' %} - translation for text to user language- later on if possible
+
+Decided to change function of badword Json so db can be updated anytime with new banned words
