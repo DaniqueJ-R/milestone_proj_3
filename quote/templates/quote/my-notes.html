@@ -42,26 +42,22 @@
   <div class="row">
     {% for note in notes %} {% if note.status == 1 %} {# Approved notes #}
     <div class="col-md-4 mb-4">
-      <div class="card h-100 shadow-sm border-success">
+      <div  class="card note-card h-100 shadow-sm">
         <div class="card-body">
           <h5 class="card-title">"{{ note.content }}"</h5>
           <p class="text-muted mb-2">— {{ note.name }}</p>
           <hr />
-          <p class="mb-1">
-            <strong>Category:</strong> {{ note.get_category_display }}
-          </p>
-          <p class="mb-3">
+          <p><strong>Category:</strong> {{ note.get_category_display }}</p>
+          <p>
             <strong>Created:</strong> {{ note.created_on|date:"Y-m-d H:i" }}
           </p>
           <div class="d-flex justify-content-between">
-            <a
-              href="{% url 'edit_note' note.pk %}"
-              class="btn btn-sm btn-warning"
+            <a href="{% url 'edit_note' note.pk %}" class="btn btn-sm btn-theme"
               >Edit</a
             >
             <a
               href="{% url 'delete_note' note.pk %}"
-              class="btn btn-sm btn-danger"
+              class="btn btn-sm btn-theme"
               >Delete</a
             >
           </div>
