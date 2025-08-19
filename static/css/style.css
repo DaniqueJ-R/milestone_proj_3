@@ -10,6 +10,7 @@
   --black: black;
 }
 
+/* Global styles */
 body {
   margin: 0;
   font-family: sans-serif;
@@ -69,6 +70,7 @@ i {
   gap: inherit;
 }
 
+/* Sidebar styles */
 .sidebar {
   background: rgba(255, 255, 255, 0.1);
   padding: 1rem;
@@ -82,8 +84,7 @@ i {
   padding: 1rem;
 }
 
-/* Dropdown styles */
-
+/* Base styles */
 #heading-area {
   padding-top: 0.5rem;
 }
@@ -93,22 +94,6 @@ i {
   padding-right: 0rem;
 }
 
-#select-mood {
-  padding-top: 0.25rem;
-}
-
-#my-notes-table {
-  width: 50%;
-  /* border-collapse: collapse; */
-}
-
-#read-notes {
-  padding-right: 7rem;
-}
-
-#footer {
-  bottom: -5rem;
-}
 
 .dropdown-container {
   margin-bottom: 1rem;
@@ -151,6 +136,19 @@ i {
   color: #ff6347; /* Change to your desired hover color */
 }
 
+
+#select-mood {
+  padding-top: 0.25rem;
+}
+
+#read-notes {
+  padding-right: 7rem;
+}
+
+#footer {
+  bottom: -5rem;
+}
+
 #toggleAudio,
 #toggleAudio-off {
   padding-left: 3rem;
@@ -169,6 +167,8 @@ i {
   font-size: 2.5rem;
 }
 
+
+/* Home page Styles */
 .notes-container {
   position: relative;
   width: 18rem; /* width of note */
@@ -176,6 +176,7 @@ i {
   margin-bottom: 1rem;
 }
 
+/* Buttons */
 .controls {
   position: relative;
   display: flex;
@@ -201,7 +202,7 @@ i {
   justify-content: center;
   text-align: center;
   font-weight: 500;
-  font-size: 1.125rem; /* ~text-lg */
+  font-size: 1.125rem; 
   line-height: 1.5rem;
 }
 
@@ -246,11 +247,19 @@ i {
   font-style: italic;
 }
 
+.login-section {
+padding-top:5rem;
+}
+
 #quoteForm {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   width: fit-content;
+}
+
+#my-notes-container {
+padding: 0rem 2rem;
 }
 
 /* Quote content */
@@ -287,6 +296,7 @@ i {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* PopUp effect */
 .popup {
   position: fixed;
   top: 20px;
@@ -297,6 +307,14 @@ i {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+}
+
+.alert-danger {
+    color: black;
+    background-color: transparent;
+    border-color: #58151c;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.25rem;
 }
 
 /* Sticky note colors & text colors based on theme */

@@ -113,6 +113,7 @@ class MyNotesView(LoginRequiredMixin, ListView):
     model = Note
     template_name = "quote/my-notes.html"
     context_object_name = "notes"
+    pending_notes = Note.objects.filter(status=0).order_by("created_on")
 
     def get_queryset(self):
         # Only show the notes created by the logged-in user
