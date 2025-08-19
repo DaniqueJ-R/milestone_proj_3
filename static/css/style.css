@@ -57,7 +57,7 @@ a {
 
 i {
   padding-right: 0.25rem;
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 .hidden {
@@ -93,7 +93,6 @@ i {
   padding: 0.25rem 3rem;
   padding-right: 0rem;
 }
-
 
 .dropdown-container {
   margin-bottom: 1rem;
@@ -136,7 +135,6 @@ i {
   color: #ff6347; /* Change to your desired hover color */
 }
 
-
 #select-mood {
   padding-top: 0.25rem;
 }
@@ -166,7 +164,6 @@ i {
 .heading-section {
   font-size: 2.5rem;
 }
-
 
 /* Home page Styles */
 .notes-container {
@@ -202,7 +199,7 @@ i {
   justify-content: center;
   text-align: center;
   font-weight: 500;
-  font-size: 1.125rem; 
+  font-size: 1.125rem;
   line-height: 1.5rem;
 }
 
@@ -237,8 +234,7 @@ i {
 }
 
 #sticky-note-writing textarea::placeholder,
-#sticky-note-writing input::placeholder
- {
+#sticky-note-writing input::placeholder {
   color: var(--black);
   font-style: italic;
 }
@@ -249,7 +245,7 @@ i {
 }
 
 .login-section {
-padding-top:5rem;
+  padding-top: 5rem;
 }
 
 #quoteForm {
@@ -260,15 +256,15 @@ padding-top:5rem;
 }
 
 #my-notes-container {
-padding: 0rem 2rem;
+  padding: 0rem 2rem;
 }
 
 blockquote {
-    margin: revert;
-    color: var(--black);
-    font-style: italic;
-    font-size: 1.5rem;
-    line-height: 1.75rem;
+  margin: revert;
+  color: var(--black);
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
 }
 
 /* Quote content */
@@ -305,6 +301,18 @@ blockquote {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.form-wrapper {
+  max-width: 64%;
+  width: 100%;
+  margin: auto;
+  padding-bottom: 0.75rem;
+}
+
+.form-wrapper button {
+  padding: 0.5rem;
+  margin-left: 4rem;
+}
+
 /* PopUp effect */
 .popup {
   position: fixed;
@@ -319,11 +327,11 @@ blockquote {
 }
 
 .alert-danger {
-    color: black;
-    background-color: transparent;
-    border-color: #58151c;
-    padding: 0.75rem 1.25rem;
-    border-radius: 0.25rem;
+  color: black;
+  background-color: transparent;
+  border-color: #58151c;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.25rem;
 }
 
 /* Sticky note colors & text colors based on theme */

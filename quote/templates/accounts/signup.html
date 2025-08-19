@@ -4,11 +4,24 @@
 
 <!-- Signup.html content starts here -->
  <main>
-<section class="signup-section">
-  <div class="container">
-    <h2>Sign Up</h2>
-    <p>Welcome to Take a Breath. Thank you for joining us!</p>
-<form method="post" action="{% url 'signup' %}">
+<section class="signup-section d-flex justify-content-center align-items-center">
+  <div class="container ">
+    <h2 class="text-center">Sign Up</h2>
+    <p class="text-center">Welcome to Take a Breath. Thank you for joining us!</p>
+<form method="post" action="{% url 'signup' %}" class="form-wrapper">
+  {% if form.non_field_errors %}
+    <div class="alert alert-danger">
+      {{ form.non_field_errors }}
+    </div>
+  {% endif %}
+  
+  {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+        <div class="alert {{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
   {% csrf_token %}
   
   <div class="mb-3">
@@ -43,10 +56,10 @@
     {% endif %}
   </div>
 
-  <button type="submit" class="btn btn-primary">Sign Up</button>
+  <button type="submit" class="btn btn-theme">Sign Up</button>
 </form>
 
-    <p>Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
+    <p class="text-center">Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
   </div>
 </section>
 </main>
