@@ -3,15 +3,16 @@
 {% block content %}
 <main>
   <section>
-    <div id="heading-area">
+    <div id="heading-area" class="d-flex justify-content-center align-items-center"> 
       <span id="read-notes"><a href="{% url 'home' %}" class="heading-section">Pick</a></span>
       <span id="write-notes"><a href="{% url 'write_a_note' %}" class="heading-section">Write</a></span>
     </div>
 
     <div id="submit-note">
-      <h2>Share your quote</h2>
-      <p>Write a quote that inspires you. It will be reviewed before being published.</p>
-      <p>Once approved, it will appear on the home page!</p>
+      <h2 class="text-center">Share your quote</h2>
+      <p class="text-center">Write a quote that inspires you. 
+        <br>It will be reviewed before being published.
+        <br>Once approved, it will appear on the home page!</p>
       <!-- popups -->
       {% if messages %}
 <div class="messages">
@@ -58,24 +59,3 @@
 </main>
 {% endblock %}
 
-
-<form id="quoteForm" method="post" action="{% url 'write_a_note' %}">
-    {% csrf_token %}
-    <label for="content">Quote:</label>
-    <textarea name="content" id="content" maxlength="100" required></textarea>
-
-    <label for="name">Your Name (optional):</label>
-    <input type="text" name="name" id="name" placeholder="Anonymous">
-
-    <label for="category">Category:</label>
-    <select name="category" id="category">
-        <option value="0">Uncategorized</option>
-        <option value="1">Stress</option>
-        <option value="2">Depression</option>
-        <option value="3">Anxiety</option>
-    </select>
-
-    <button type="submit">Submit Quote</button>
-</form>
-
-<div id="popup" class="popup hidden"></div>
