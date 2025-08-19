@@ -251,7 +251,7 @@ i {
 padding-top:5rem;
 }
 
-#quoteForm {
+#quoteForm, #editNoteForm {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
