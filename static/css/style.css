@@ -262,6 +262,14 @@ padding-top:5rem;
 padding: 0rem 2rem;
 }
 
+blockquote {
+    margin: revert;
+    color: var(--black);
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+}
+
 /* Quote content */
 .sticky-note .note-content {
   font-family: var(--notes-font);

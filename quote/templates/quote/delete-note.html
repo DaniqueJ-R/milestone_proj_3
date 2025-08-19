@@ -9,10 +9,11 @@
       <p>Are you sure you want to delete this note?</p>
 
       <blockquote>{{ object.content }}</blockquote>
+      <p>— {{ object.name }}</p>
 
       <form method="post">
         {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Yes, delete</button>
+        <button type="submit" class="btn btn-theme">Yes, delete</button>
         <a href="{% url 'my_notes' %}" class="btn btn-secondary">Cancel</a>
       </form>
     </div>
