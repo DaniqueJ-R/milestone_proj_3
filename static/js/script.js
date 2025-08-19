@@ -54,6 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Update audio source if audio is enabled
   themeAudio.src = `/static/audio/${currentTheme}.mp3`;
   if (audioEnabled) themeAudio.play();
+
+// Apply theme to cards and buttons
+  applyThemeToCards(currentTheme);
+
+  console.log("Initial theme applied:", currentTheme);
 });
 
 
@@ -157,7 +162,14 @@ document.querySelectorAll("#themeSelector a").forEach((a) => {
     localStorage.setItem("selectedTheme", value);
 
     // Update notes
-    renderNotes();
+    if (document.getElementById("notes-container")) {
+  renderNotes();
+}
+
+    // Update cards
+    applyThemeToCards(value);
+    console.log("Cards theme updated:", value);
+
     // Update audio source if audio is enabled
     if (audioEnabled) {
       themeAudio.src = `/static/audio/${value}.mp3`;
@@ -170,6 +182,28 @@ document.querySelectorAll("#themeSelector a").forEach((a) => {
   });
 });
 
+// Apply theme to body, cards, and buttons
+function applyThemeToCards(theme) {
+  // Cards
+  document.querySelectorAll(".note-card").forEach(card => {
+    card.classList.remove("theme-space", "theme-sea", "theme-forest", "theme-sunset");
+    card.classList.add(`theme-${theme}`);
+  });
+
+  // Buttons
+  document.querySelectorAll(".btn-theme").forEach(btn => {
+    btn.classList.remove(
+      "btn-theme-space",
+      "btn-theme-sea",
+      "btn-theme-forest",
+      "btn-theme-sunset"
+    );
+    btn.classList.add(`btn-theme-${theme}`);
+  });
+}
+
+
+// Toggle audio on/off
 toggleAudioBtn?.addEventListener("click", () => {
   audioEnabled = !audioEnabled;
 
