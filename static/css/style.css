@@ -236,7 +236,12 @@ i {
 }
 
 #sticky-note-writing textarea::placeholder,
-#sticky-note-writing input::placeholder {
+#sticky-note-writing input::placeholder{
+  color: var(--black);
+  font-style: italic;
+}
+
+.card-body > p {
   color: var(--black);
   font-style: italic;
 }
@@ -330,22 +335,26 @@ body.theme-sunset {
 .card.theme-space {
   background: linear-gradient(to bottom right, #d8b4fe, #c4b5fd);
   color: #3730a3;
-  border: 1px solid #a78bfa;
+  border: transparent;
+  border-radius: 4px;
 }
 .card.theme-sea {
   background: linear-gradient(to bottom right, #67e8f9, #60a5fa);
   color: #1e40af;
-  border: 1px solid #3b82f6;
+  border: transparent;
+  border-radius: 4px;
 }
 .card.theme-forest {
   background: linear-gradient(to bottom right, #bbf7d0, #34d399);
   color: #065f46;
-  border: 1px solid #10b981;
+  border: transparent;
+  border-radius: 4px;
 }
 .card.theme-sunset {
   background: linear-gradient(to bottom right, #fed7aa, #f9a8d4);
   color: #c2410c;
-  border: 1px solid #f97316;
+  border: transparent;
+  border-radius: 4px;
 }
 
 /* ====== Themed Buttons ====== */

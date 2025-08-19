@@ -46,10 +46,15 @@
         alt="Logo"
         class="img-fluid"
       />
-      <!-- log in section to displpay user name -->
+
+
+      <!-- Navigation Links -->
+      <ul class="nav-list">
+        <li>
+                <!-- log in section to displpay user name -->
       {% if user.is_authenticated %}
       <p>
-        Welcome, {{ user.username }} | <a href="{% url 'logout' %}">Logout</a>
+        Welcome, <a href="{% url 'my_notes' %}">{{ user.username }}</a> | <a href="{% url 'logout' %}">Logout</a>
       </p>
       <a href="{% url 'my_notes' %}">My Notes</a>
       {% else %}
@@ -58,12 +63,12 @@
         <a href="{% url 'signup' %}">Sign Up</a>
       </p>
       {% endif %}
-
-      <!-- Navigation Links -->
-      <ul class="nav-list">
+        </li>
         <li>
           <a href="{% url 'home' %}"><i class="fas fa-home"></i> Notes </a>
         </li>
+        <li>
+          <a href="{% url 'write_a_note' %}"><i class="fas fa-pencil-alt"></i> Write a Note</a>
         <li>
           <a href="#"
             ><i class="fas fa-info-circle"></i> Pictures (coming soon)</a
@@ -80,6 +85,7 @@
             </div>
           </div>
         </li>
+        <!-- Audio Toggle -->
         <a id="toggleAudio"><i class="fa-solid fa-volume-xmark"></i></a>
       </ul>
       <!-- Social Media -->

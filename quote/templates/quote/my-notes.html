@@ -47,8 +47,8 @@
           <h5 class="card-title">"{{ note.content }}"</h5>
           <p class="text-muted mb-2">— {{ note.name }}</p>
           <hr />
-          <p><strong>Category:</strong> {{ note.get_category_display }}</p>
-          <p>
+          <p class="card-info-text"><strong>Category:</strong> {{ note.get_category_display }}</p>
+          <p class="card-info-text">
             <strong>Created:</strong> {{ note.created_on|date:"Y-m-d H:i" }}
           </p>
           <div class="d-flex justify-content-between">
