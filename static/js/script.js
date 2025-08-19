@@ -200,6 +200,13 @@ function applyThemeToCards(theme) {
     );
     btn.classList.add(`btn-theme-${theme}`);
   });
+
+    // Write-page background
+const bg = document.getElementById("sticky-note-writing");
+if (bg) {
+  bg.classList.remove("theme-space", "theme-sea", "theme-forest", "theme-sunset");
+  bg.classList.add(`theme-${theme}`);
+}
 }
 
 

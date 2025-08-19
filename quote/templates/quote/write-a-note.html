@@ -11,7 +11,8 @@
     <div id="submit-note">
       <h2>Share your quote</h2>
       <p>Write a quote that inspires you. It will be reviewed before being published.</p>
-      <p>Once approved, it will appear on the home page.</p>
+      <p>Once approved, it will appear on the home page!</p>
+      <!-- popups -->
       {% if messages %}
 <div class="messages">
     {% for message in messages %}
@@ -19,14 +20,12 @@
     {% endfor %}
 </div>
 {% endif %}
+
+<!-- Notes form -->
+ <div id="writing-notes-container">
       <form id="quoteForm" method="post" action="{% url 'write_a_note' %}">
     {% csrf_token %}
-    <label for="content">Quote:</label>
-    <textarea name="content" id="content" maxlength="100" required></textarea>
-
-    <label for="name">Your Name (optional):</label>
-    <input type="text" name="name" id="name" placeholder="Anonymous">
-
+    <div class='label-wrap'>
     <label for="category">Category:</label>
     <select name="category" id="category">
         <option value="0">Uncategorized</option>
@@ -34,9 +33,23 @@
         <option value="2">Depression</option>
         <option value="3">Anxiety</option>
     </select>
+</div>
+    <div id="sticky-note-writing" class="sticky-note theme-{{ note.category }}"><label for="content"></label>
+    <textarea name="content" id="content" maxlength="100" required placeholder="Write a quote here..."></textarea>
+ 
+    <div class='label-wrap'>
+    <label for="name">Your Name:</label>
+    <input type="text" name="name" id="name" placeholder="Anonymous">
+    </div>
+  </div>
 
-    <button type="submit">Submit Quote</button>
+  <div class='label-wrap'>
+<button type="reset" class="btn btn-theme">Reset</button>
+<button type="submit" class="btn btn-theme">Submit Quote</button>
+</div>
+
 </form>
+</div>
 
 <div id="popup" class="popup hidden"></div>
 
