@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 {% block content %}
 
@@ -19,8 +20,8 @@
       {% endif %}
 
       <!-- Edit Notes form -->
-      <div id="writing-notes-container">
-        <form method="post" id="editNoteForm" action="{% url 'edit_note' note.pk %}">
+      <div id="writing-notes-container" class="justify-content-center d-flex">
+        <form method="post" action="{% url 'edit_note' note.id %}" id="quoteForm">
           {% csrf_token %}
 
           <div class="label-wrap">

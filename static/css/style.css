@@ -237,7 +237,8 @@ i {
 }
 
 #sticky-note-writing textarea::placeholder,
-#sticky-note-writing input::placeholder{
+#sticky-note-writing input::placeholder
+ {
   color: var(--black);
   font-style: italic;
 }
@@ -251,7 +252,7 @@ i {
 padding-top:5rem;
 }
 
-#quoteForm, #editNoteForm {
+#quoteForm {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
