@@ -64,7 +64,7 @@
            <a href="{% url 'my_notes' %}"> Welcome, {{ user.username }} |</a> 
             <a href="{% url 'logout' %}">Logout</a>
           </p>
-          <a href="{% url 'my_notes' %}">My Notes</a>
+          <a href="{% url 'my_notes' %}"><i class="fas fa-home"></i> My Notes</a>
           {% else %}
           <p>
             <a href="{% url 'login' %}">Login</a> |
@@ -73,7 +73,7 @@
           {% endif %}
         </li>
             <li class="nav-item">
-              <a href="{% url 'home' %}"><i class="fas fa-home"></i> Notes </a>
+              <a href="{% url 'home' %}"><i class="fa-solid fa-note-sticky"></i> Notes </a>
             </li>
             <li class="nav-item">
               <a href="{% url 'write_a_note' %}"
@@ -163,7 +163,7 @@
             <a href="{% url 'my_notes' %}">Welcome, {{ user.username }} |</a> 
             <a href="{% url 'logout' %}">Logout</a>
           </p>
-          <a href="{% url 'my_notes' %}">My Notes</a>
+          <a href="{% url 'my_notes' %}"><i class="fas fa-home"></i> My Notes</a>
           {% else %}
           <p>
             <a href="{% url 'login' %}">Login</a> |
@@ -172,7 +172,7 @@
           {% endif %}
         </li>
         <li>
-          <a href="{% url 'home' %}"><i class="fas fa-home"></i> Notes </a>
+          <a href="{% url 'home' %}"><i class="fa-solid fa-note-sticky"></i> Notes </a>
         </li>
         <li>
           <a href="{% url 'write_a_note' %}"

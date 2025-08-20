@@ -480,6 +480,10 @@ body.theme-sunset {
   .delete-section >div> form {
     padding-bottom: 1rem;
   }
+
+  .popup {
+  position: revert;
+}
 }
 
 /* Medium screens and up */
