@@ -179,14 +179,23 @@ i {
   margin-bottom: 1rem;
 }
 
+#home-section {
+  padding: 0rem 0.5rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
 /* Buttons */
 .controls {
   position: relative;
   display: flex;
   gap: 1.5rem;
-  bottom: -0.75rem;
-  left: 3rem;
   max-width: fit-content;
+  padding-top: 10px;
 }
 
 /* Sticky note base */
@@ -463,8 +472,9 @@ body.theme-sunset {
     padding-left: 15px;
   }
 
-  #writing-notes-container {
-    padding: 1rem 10px;
+  #toggleAudio,
+  #toggleAudio-off {
+    padding-left: 0rem;
   }
 }
 
