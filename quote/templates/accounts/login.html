@@ -10,7 +10,7 @@
     <form method="post" action="{% url 'login' %}">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" class="btn btn-theme">Login</button>
     </form>
     <br>
     {% if form.non_field_errors %}
