@@ -46,3 +46,5 @@ Decided to change function of badword Json so db can be updated anytime with new
 Added audio, but sometimes js does not catch which file to play and logs error - fixed?
 
 Drop down not fully working, reloading page and showing new note but not filtering as it should. 
+
+MAking sidebr be notmal nav bar, I figured out its the display flex in the body thats making it stay to the side like that, ave to remove that when mobile szed and it should work? Nav bar keeps taking up sidebar space

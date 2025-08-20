@@ -71,6 +71,12 @@ i {
 }
 
 /* Sidebar styles */
+
+#mobileNav a,
+#mobileNav i {
+  color: var(--black);
+}
+
 .sidebar {
   background: rgba(255, 255, 255, 0.1);
   padding: 1rem;
@@ -427,4 +433,37 @@ body.theme-sunset {
 .btn-theme-sunset:hover {
   background: #ea580c;
   color: #fff;
+}
+
+/*Media Queries*/
+
+/* Small screens and up (Added by source)*/
+@media screen and (max-width: 576px) {
+  body {
+    display: block;
+    padding-top: 60px;
+    background-repeat: no-repeat;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  #social-links-nav {
+    bottom: 0rem;
+    left: 0rem;
+    position: relative;
+    padding-top: 10px;
+  }
+
+  #navbarNavDropdown{
+    padding-left: 15px;
+  }
+}
+
+/* Medium screens and up */
+@media screen and (min-width: 576px) {
+  #mobileNav {
+    display: none;
+  }
 }
