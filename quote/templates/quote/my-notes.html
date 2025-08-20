@@ -4,9 +4,9 @@
 <div class="container my-4" id="my-notes-container">
   <!-- Pending Notes Section -->
 <h2 class="mb-4">Pending Notes</h2>
-{% if pending_notes %}
+{% if notes %}
   <div class="row">
-    {% for note in pending_notes %}
+    {% for note in notes %} {% if note.status == 0 %} {# Approved notes #}
       <div class="col-md-4 mb-4">
         <div class="card note-card h-100 shadow-sm">
           <div class="card-body">
@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-    {% endfor %}
+    {% endif %} {% endfor %}
   </div>
 {% else %}
   <p>No pending notes.</p>
