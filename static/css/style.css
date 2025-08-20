@@ -476,6 +476,10 @@ body.theme-sunset {
   #toggleAudio-off {
     padding-left: 0rem;
   }
+
+  .delete-section >div> form {
+    padding-bottom: 1rem;
+  }
 }
 
 /* Medium screens and up */

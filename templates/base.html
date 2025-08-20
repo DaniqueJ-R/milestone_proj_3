@@ -61,7 +61,7 @@
           <!-- log in section to displpay user name -->
           {% if user.is_authenticated %}
           <p>
-            Welcome, <a href="{% url 'my_notes' %}">{{ user.username }}</a> |
+           <a href="{% url 'my_notes' %}"> Welcome, {{ user.username }} |</a> 
             <a href="{% url 'logout' %}">Logout</a>
           </p>
           <a href="{% url 'my_notes' %}">My Notes</a>
