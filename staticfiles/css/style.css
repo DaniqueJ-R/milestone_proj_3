@@ -10,6 +10,7 @@
   --black: black;
 }
 
+/* Global styles */
 body {
   margin: 0;
   font-family: sans-serif;
@@ -27,6 +28,10 @@ li,
 i {
   font-family: var(--primary-font);
   color: var(--primary-color);
+}
+
+h2 {
+  padding-top: 0.5rem;
 }
 
 main {
@@ -52,11 +57,24 @@ a {
 
 i {
   padding-right: 0.25rem;
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 .hidden {
   display: none;
+}
+
+.label-wrap {
+  display: flex;
+  justify-content: center;
+  gap: inherit;
+}
+
+/* Sidebar styles */
+
+#mobileNav a,
+#mobileNav i {
+  color: var(--black);
 }
 
 .sidebar {
@@ -72,142 +90,7 @@ i {
   padding: 1rem;
 }
 
-#toggleAudio {
-  padding-left: 3rem;
-}
-
-#social-links-nav {
-  display: flex;
-  gap: 1rem;
-  bottom: 1rem;   /* stick to bottom */
-  left: 2.5rem;   /* horizontal placement */
-  position: fixed;
-  z-index: 1000;
-}
-
-.heading-section {
-  font-size: 2.5rem;
-}
-
-.notes-container {
-  position: relative;
-  width: 18rem; /* width of note */
-  height: 18rem; /* height of note */
-  margin-bottom: 1rem;
-}
-
-.controls {
-  position: relative;
-  display: flex;
-  gap: 1.5rem;
-  bottom: -0.75rem;
-  left: 3rem;
-}
-
-/* Sticky note base */
-.sticky-note {
-  position: absolute;
-  width: 18rem;
-  height: 18rem;
-  padding: 1.5rem;
-  cursor: pointer;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.1);
-  transform-origin: center;
-  user-select: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  font-weight: 500;
-  font-size: 1.125rem; /* ~text-lg */
-  line-height: 1.5rem;
-}
-
-/* Quote content */
-.sticky-note .note-content {
-  font-family: var(--notes-font);
-  font-size: 2.5rem;
-  line-height: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--black);
-  text-align: center;
-}
-
-/* Author text */
-.sticky-note .note-author {
-  font-family: var(--notes-font);
-  font-size: 1.875rem;
-  font-style: italic;
-  text-align: right;
-  margin-top: 0.25rem;
-  color: var(--black);
-}
-
-/* Tape effect on top */
-.sticky-note::before {
-  content: "";
-  position: absolute;
-  top: -0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4rem;
-  height: 1.5rem;
-  background-color: rgba(254, 240, 138, 0.6);
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.popup {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #fffae6;
-  padding: 10px 20px;
-  border: 1px solid #ffd700;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-}
-.popup.hidden {
-  display: none;
-}
-
-/* Sticky note colors & text colors based on theme */
-.theme-space {
-  background: linear-gradient(to bottom right, #d8b4fe, #c4b5fd);
-  color: #3730a3;
-}
-.theme-sea {
-  background: linear-gradient(to bottom right, #67e8f9, #60a5fa);
-  color: #1e40af;
-}
-.theme-forest {
-  background: linear-gradient(to bottom right, #bbf7d0, #34d399);
-  color: #065f46;
-}
-.theme-sunset {
-  background: linear-gradient(to bottom right, #fed7aa, #f9a8d4);
-  color: #c2410c;
-}
-
-/* Body background themes (unchanged) */
-body.theme-space {
-  background: linear-gradient(to bottom right, indigo, purple, black);
-}
-body.theme-sea {
-  background: linear-gradient(to bottom right, #60a5fa, #06b6d4, #0d9488);
-}
-body.theme-forest {
-  background: linear-gradient(to bottom right, #065f46, #047857, #064e3b);
-}
-body.theme-sunset {
-  background: linear-gradient(to bottom right, #fb923c, #ec4899, #7c3aed);
-}
-
-/* Dropdown styles */
-
+/* Base styles */
 #heading-area {
   padding-top: 0.5rem;
 }
@@ -215,18 +98,6 @@ body.theme-sunset {
 #myDropdown {
   padding: 0.25rem 3rem;
   padding-right: 0rem;
-}
-
-#select-mood {
-  padding-top: 0.25rem;
-}
-
-#read-notes {
-  padding-right: 7rem;
-}
-
-#footer {
-  bottom: -5rem;
 }
 
 .dropdown-container {
@@ -268,4 +139,359 @@ body.theme-sunset {
 }
 .dropdown-content.open a:hover {
   color: #ff6347; /* Change to your desired hover color */
+}
+
+#select-mood {
+  padding-top: 0.25rem;
+}
+
+#read-notes {
+  padding-right: 7rem;
+}
+
+#footer {
+  bottom: -5rem;
+}
+
+#toggleAudio,
+#toggleAudio-off {
+  padding-left: 3rem;
+}
+
+#social-links-nav {
+  display: flex;
+  gap: 1rem;
+  bottom: 1rem; /* stick to bottom */
+  left: 2.5rem; /* horizontal placement */
+  position: fixed;
+  z-index: 1000;
+}
+
+.heading-section {
+  font-size: 2.5rem;
+}
+
+/* Home page Styles */
+.notes-container {
+  position: relative;
+  width: 18rem; /* width of note */
+  height: 18rem; /* height of note */
+  margin-bottom: 1rem;
+}
+
+#home-section {
+  padding: 0rem 0.5rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Buttons */
+.controls {
+  position: relative;
+  display: flex;
+  gap: 1.5rem;
+  max-width: fit-content;
+  padding-top: 10px;
+}
+
+/* Sticky note base */
+.sticky-note {
+  position: absolute;
+  width: 18rem;
+  height: 18rem;
+  padding: 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.1);
+  transform-origin: center;
+  user-select: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+}
+
+#sticky-note-writing {
+  position: relative;
+}
+
+#writing-notes-container {
+  padding: 1rem 0rem;
+  display: flex;
+  justify-content: center;
+}
+
+#sticky-note-writing textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: transparent;
+  border: transparent;
+  height: 181px;
+  resize: none;
+  outline: none;
+}
+
+#sticky-note-writing input {
+  outline: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: transparent;
+  border: transparent;
+  width: 50%;
+  padding-left: 1rem;
+}
+
+#sticky-note-writing textarea::placeholder,
+#sticky-note-writing input::placeholder {
+  color: var(--black);
+  font-style: italic;
+}
+
+.card-body > p {
+  color: var(--black);
+  font-style: italic;
+}
+
+.login-section {
+  padding-top: 5rem;
+}
+
+#quoteForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: fit-content;
+}
+
+#my-notes-container {
+  padding: 0rem 2rem;
+}
+
+blockquote {
+  margin: revert;
+  color: var(--black);
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+}
+
+/* Quote content */
+.sticky-note .note-content {
+  font-family: var(--notes-font);
+  font-size: 2.5rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--black);
+  text-align: center;
+}
+
+/* Author text */
+.sticky-note .note-author {
+  font-family: var(--notes-font);
+  font-size: 1.875rem;
+  font-style: italic;
+  text-align: right;
+  margin-top: 0.25rem;
+  color: var(--black);
+}
+
+/* Tape effect on top */
+.sticky-note::before {
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 1.5rem;
+  background-color: rgba(254, 240, 138, 0.6);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-wrapper {
+  max-width: 64%;
+  width: 100%;
+  margin: auto;
+  padding-bottom: 0.75rem;
+}
+
+.form-wrapper button {
+  padding: 0.5rem;
+  margin-left: 4rem;
+}
+
+/* PopUp effect */
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #fffae6;
+  padding: 10px 20px;
+  border: 1px solid #ffd700;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.alert-danger {
+  color: black;
+  background-color: transparent;
+  border-color: #58151c;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.25rem;
+}
+
+/* Sticky note colors & text colors based on theme */
+.theme-space {
+  background: linear-gradient(to bottom right, #d8b4fe, #c4b5fd);
+  color: #3730a3;
+}
+.theme-sea {
+  background: linear-gradient(to bottom right, #67e8f9, #60a5fa);
+  color: #1e40af;
+}
+.theme-forest {
+  background: linear-gradient(to bottom right, #bbf7d0, #34d399);
+  color: #065f46;
+}
+.theme-sunset {
+  background: linear-gradient(to bottom right, #fed7aa, #f9a8d4);
+  color: #c2410c;
+}
+
+/* Body background themes (unchanged) */
+body.theme-space {
+  background: linear-gradient(to bottom right, indigo, purple, black);
+}
+body.theme-sea {
+  background: linear-gradient(to bottom right, #60a5fa, #06b6d4, #0d9488);
+}
+body.theme-forest {
+  background: linear-gradient(to bottom right, #065f46, #047857, #064e3b);
+}
+body.theme-sunset {
+  background: linear-gradient(to bottom right, #fb923c, #ec4899, #7c3aed);
+}
+
+/* ====== Note Card Themes ====== */
+.card.theme-space {
+  background: linear-gradient(to bottom right, #d8b4fe, #c4b5fd);
+  color: #3730a3;
+  border: transparent;
+  border-radius: 4px;
+}
+.card.theme-sea {
+  background: linear-gradient(to bottom right, #67e8f9, #60a5fa);
+  color: #1e40af;
+  border: transparent;
+  border-radius: 4px;
+}
+.card.theme-forest {
+  background: linear-gradient(to bottom right, #bbf7d0, #34d399);
+  color: #065f46;
+  border: transparent;
+  border-radius: 4px;
+}
+.card.theme-sunset {
+  background: linear-gradient(to bottom right, #fed7aa, #f9a8d4);
+  color: #c2410c;
+  border: transparent;
+  border-radius: 4px;
+}
+
+/* ====== Themed Buttons ====== */
+.btn-theme-space {
+  background: #a78bfa;
+  color: white;
+}
+.btn-theme-space:hover {
+  background: #7c3aed;
+  color: #fff;
+}
+
+.btn-theme-sea {
+  background: #3b82f6;
+  color: white;
+}
+.btn-theme-sea:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn-theme-forest {
+  background: #10b981;
+  color: white;
+}
+.btn-theme-forest:hover {
+  background: #059669;
+  color: #fff;
+}
+
+.btn-theme-sunset {
+  background: #f97316;
+  color: white;
+}
+.btn-theme-sunset:hover {
+  background: #ea580c;
+  color: #fff;
+}
+
+/*Media Queries*/
+
+/* Small screens and up (Added by source)*/
+@media screen and (max-width: 576px) {
+  body {
+    display: block;
+    padding-top: 60px;
+    background-repeat: no-repeat;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  #home-section {
+  gap: 0.5rem;
+}
+
+  #social-links-nav {
+    bottom: 0rem;
+    left: 0rem;
+    position: relative;
+    padding-top: 10px;
+  }
+
+  #navbarNavDropdown {
+    padding-left: 15px;
+  }
+
+  #toggleAudio,
+  #toggleAudio-off {
+    padding-left: 0rem;
+  }
+
+  .delete-section >div> form {
+    padding-bottom: 1rem;
+  }
+
+  .popup {
+  position: revert;
+}
+}
+
+/* Medium screens and up */
+@media screen and (min-width: 576px) {
+  #mobileNav {
+    display: none;
+  }
 }
