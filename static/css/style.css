@@ -186,7 +186,6 @@ i {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
 }
 
 /* Buttons */
@@ -460,6 +459,10 @@ body.theme-sunset {
   .sidebar {
     display: none;
   }
+
+  #home-section {
+  gap: 0.5rem;
+}
 
   #social-links-nav {
     bottom: 0rem;
