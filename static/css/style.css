@@ -186,6 +186,7 @@ i {
   gap: 1.5rem;
   bottom: -0.75rem;
   left: 3rem;
+  max-width: fit-content;
 }
 
 /* Sticky note base */
@@ -214,7 +215,9 @@ i {
 }
 
 #writing-notes-container {
-  padding: 1rem 2rem;
+  padding: 1rem 0rem;
+  display: flex;
+  justify-content: center;
 }
 
 #sticky-note-writing textarea {
@@ -456,8 +459,12 @@ body.theme-sunset {
     padding-top: 10px;
   }
 
-  #navbarNavDropdown{
+  #navbarNavDropdown {
     padding-left: 15px;
+  }
+
+  #writing-notes-container {
+    padding: 1rem 10px;
   }
 }
 
