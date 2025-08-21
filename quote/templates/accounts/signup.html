@@ -58,6 +58,12 @@
 
   <button type="submit" class="btn btn-theme">Sign Up</button>
 </form>
+    <br>
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger">
+        {{ form.non_field_errors }}
+      </div>
+    {% endif %}
 
     <p class="text-center">Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
   </div>

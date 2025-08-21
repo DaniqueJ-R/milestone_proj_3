@@ -319,10 +319,10 @@ blockquote {
 }
 
 .form-wrapper {
-  max-width: 64%;
-  width: 100%;
-  margin: auto;
-  padding-bottom: 0.75rem;
+    max-width: 65%;
+    width: 55%;
+    margin: auto;
+    padding-bottom: 0.75rem;
 }
 
 .form-wrapper button {

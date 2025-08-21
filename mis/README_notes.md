@@ -49,6 +49,14 @@ Drop down not fully working, reloading page and showing new note but not filteri
 
 MAking sidebr be notmal nav bar, I figured out its the display flex in the body thats making it stay to the side like that, ave to remove that when mobile szed and it should work? Nav bar keeps taking up sidebar space - fixed
 
-Not fixed - Superuser dashbord not showing "No pending notes" Message but normal user dashbod shoing it. BEfore code was only showing "no pending notes" but not showing the notes tat wre pending. 
+Not fixed - Superuser dashbord not showing "No pending notes" Message but normal user dashbod shoing it. BEfore code was only showing "no pending notes" but not showing the notes tat wre pending. Not all normal sers see "no pending"
 
-Updating to debug false causing trouble, not reading static files - 
+Updating to debug false causing trouble, not reading static files -  Fixed by deleting static collect files, turning to true, remove server then run collect againi
+
+Bug - not fixed? - Added collaps to each theme on mobile navbar, but once theme selected, nav not closed properly so you have to press it again to correct it. Removed from dropdown as it was clashing with JS, and Decided that Users may want tto go through more than one theme at once, and may be annoying to always reoopn.+
+
+Notified that if music is playing the change theme option does not show, and you cannot shange the theme until the music is paused. 
+
+Main background and notes load on inital loading of page then flicks to uersonalized theme afer a sec9
+
+Testing shows tat user can create new accout with same email - fix?
