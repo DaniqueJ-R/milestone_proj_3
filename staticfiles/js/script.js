@@ -12,7 +12,8 @@ const container = document.getElementById("notes-container");
 const addBtn = document.getElementById("addAffirmation");
 const backBtn = document.getElementById("backAffirmation");
 const themeSelector = document.getElementById("themeSelector");
-const toggleAudioBtn = document.getElementById("toggleAudio");
+const toggleAudioMobile = document.getElementById("toggleAudioMobile");
+const toggleAudioSidebar = document.getElementById("toggleAudioSidebar");
 const themeAudio = document.getElementById("themeAudio");
 const emptyMsg = document.getElementById("emptyMessage");
 
@@ -211,19 +212,23 @@ if (bg) {
 
 
 // Toggle audio on/off
-toggleAudioBtn?.addEventListener("click", () => {
+[toggleAudioMobile, toggleAudioSidebar].forEach((el) => {
+  el?.addEventListener("click", () => {
   audioEnabled = !audioEnabled;
 
   if (audioEnabled) {
     themeAudio.src = `/static/audio/${currentTheme}.mp3`;
     themeAudio.play();
-    toggleAudioBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    toggleAudioMobile.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    toggleAudioSidebar.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
     console.log("Audio enabled:", themeAudio.src);
   } else {
     themeAudio.pause();
-    toggleAudioBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    toggleAudioMobile.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    toggleAudioSidebar.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
     console.log("Audio disabled");
   }
+});
 });
 
 // Buttons

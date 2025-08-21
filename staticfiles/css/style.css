@@ -153,8 +153,8 @@ i {
   bottom: -5rem;
 }
 
-#toggleAudio,
-#toggleAudio-off {
+#toggleAudioMobile,
+#toggleAudioSidebar {
   padding-left: 3rem;
 }
 
@@ -475,8 +475,8 @@ body.theme-sunset {
     padding-left: 15px;
   }
 
-  #toggleAudio,
-  #toggleAudio-off {
+  #toggleAudioMobile,
+  #toggleAudioSidebar {
     padding-left: 0rem;
   }
 
