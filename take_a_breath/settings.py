@@ -28,8 +28,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production! True = development mode, False = production mode
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '.herokuapp.com','localhost','127.0.0.1'
@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'take_a_breath.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("fade_armor_crank_651839", "sqlite:///db.sqlite3"))
+    'default': dj_database_url.parse(os.environ.get("postgresql://neondb_owner:npg_NhaA6jG8fzFC@ep-solitary-boat-a2vchlzj.eu-central-1.aws.neon.tech/cider_rabid_emu_208832", "sqlite:///db.sqlite3"))
 }
 
 CSRF_TRUSTED_ORIGINS = [
