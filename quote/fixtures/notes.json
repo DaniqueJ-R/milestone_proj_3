@@ -6,7 +6,7 @@
       "content": "Stress is temporary, your strength is permanent.",
       "name": "anonymous",
       "created_on": "2025-08-08T09:00:00Z",
-      "approved": true,
+      "status": 1,
       "category": 1,
       "author": 1
     }
@@ -18,7 +18,7 @@
       "content": "Healing is a journey, not a destination.",
       "name": "alex99",
       "created_on": "2025-08-07T10:45:00Z",
-      "approved": true,
+      "status": 1,
       "category": 2,
       "author": 1
     }
@@ -30,7 +30,7 @@
       "content": "Anxiety doesn’t define you, courage does.",
       "name": "anonymous",
       "created_on": "2025-08-06T14:20:00Z",
-      "approved": true,
+      "status": 1,
       "category": 3,
       "author": 1
     }
@@ -42,7 +42,7 @@
       "content": "Pause, breathe, and find your calm.",
       "name": "lisa_m",
       "created_on": "2025-08-05T08:30:00Z",
-      "approved": true,
+      "status": 1,
       "category": 0,
       "author": 1
     }
@@ -54,7 +54,7 @@
       "content": "Every step forward is progress, no matter how small.",
       "name": "anonymous",
       "created_on": "2025-08-04T16:00:00Z",
-      "approved": true,
+      "status": 1,
       "category": 1,
       "author": 1
     }
@@ -66,7 +66,7 @@
       "content": "Let your worries melt away like clouds in the sky.",
       "name": "sam_writer",
       "created_on": "2025-08-03T11:15:00Z",
-      "approved": false,
+      "status": 1,
       "category": 3,
       "author": 1
     }
@@ -78,7 +78,7 @@
       "content": "You’re capable of amazing things.",
       "name": "anonymous",
       "created_on": "2025-08-02T07:50:00Z",
-      "approved": true,
+      "status": 1,
       "category": 0,
       "author": 1
     }
@@ -90,7 +90,7 @@
       "content": "Take a deep breath, you are doing great.",
       "name": "anonymous",
       "created_on": "2025-08-11T18:00:00Z",
-      "approved": true,
+      "status": 1,
       "category": 1,
       "author": 1
     }
@@ -102,7 +102,7 @@
       "content": "You are stronger than your anxiety.",
       "name": "jane_doe",
       "created_on": "2025-08-10T15:30:00Z",
-      "approved": true,
+      "status": 1,
       "category": 3,
       "author": 1
     }
@@ -114,7 +114,7 @@
       "content": "Every day is a new chance to heal.",
       "name": "anonymous",
       "created_on": "2025-08-09T12:15:00Z",
-      "approved": false,
+      "status": 1,
       "category": 2,
       "author": 1
     }
