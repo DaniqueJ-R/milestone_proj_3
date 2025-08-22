@@ -6,7 +6,11 @@ from django.contrib.auth.models import User
 # This function returns the "Removed" user, creating it if necessary
 def get_removed_user():
     user, created = User.objects.get_or_create(
-        username="Removed", defaults={"email": "removed@example.com", "password": ""}
+        username="Removed",
+        defaults={
+            "email": "removed@example.com",
+            "password": ""
+        }
     )
     return user
 

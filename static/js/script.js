@@ -14,7 +14,7 @@ const backBtn = document.getElementById("backAffirmation");
 const themeSelector = document.getElementById("themeSelector");
 const toggleAudioMobile = document.getElementById("toggleAudioMobile");
 const toggleAudioSidebar = document.getElementById("toggleAudioSidebar");
-const themeAudio = document.getElementById("themeAudio");
+const themeAudio = document.querySelectorAll("dropdown-content");
 const emptyMsg = document.getElementById("emptyMessage");
 
 // Load notes from server

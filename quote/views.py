@@ -11,7 +11,7 @@ from django.views import View
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
 from .forms import NoteForm, SignUpForm
-from .models import Note, BadWord
+from .models import Note
 
 
 # Create your views here.
@@ -19,11 +19,15 @@ from .models import Note, BadWord
 
 # This view handles user signup
 class SignUpView(CreateView):
+    """Handle user registration and auto-login after successful signup."""
+
     form_class = SignUpForm
     template_name = "signup.html"
     success_url = reverse_lazy("home")  # redirect after signup
 
     def form_valid(self, form):
+        """Save the new user, log them in, and redirect to the home page."""
+
         response = super().form_valid(form)
         user = form.save()
         login(self.request, user)  # log in immediately after signup
@@ -32,25 +36,30 @@ class SignUpView(CreateView):
 
 # This view handles the home page displaying a list of notes
 class NotesList(ListView):
+    """Display the home page with a random list of approved notes."""
+
     model = Note
     template_name = "quote/home.html"
     context_object_name = "notes_list"
 
     def get_queryset(self):
-        return Note.objects.filter(status=1).order_by(
-            "?"
-        )  # Random order for the home page
+        """Return notes in random order for display on the home page."""
+        return Note.objects.filter(status=1).order_by("?")
 
-
-def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
-    context["notes"] = self.get_queryset().order_by("-created_on")
-    return context
+    def get_context_data(self, **kwargs):
+        """Add ordered notes to the context for template rendering."""
+        context = super().get_context_data(**kwargs)
+        context["notes"] = self.get_queryset().order_by("-created_on")
+        return context
 
 
 # This view handles the display of a single note for the home page
 class NotesJson(View):
+    """Serve approved notes as JSON for frontend use."""
+
     def get(self, request):
+        """Return a JSON list of approved notes ordered by creation date."""
+
         notes = Note.objects.filter(status=1).order_by("-created_on")
         data = [
             {
@@ -65,6 +74,8 @@ class NotesJson(View):
 
 # This view handles the form submission for writing a new note
 class WriteANoteView(LoginRequiredMixin, CreateView):
+    """Allow logged-in users to submit a new note with bad-word filtering."""
+
     form_class = NoteForm
     template_name = "quote/write-a-note.html"
 
@@ -83,8 +94,6 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
         # Assign author
         if self.request.user.is_authenticated:
             form.instance.author = self.request.user
-        else:
-            form.instance.author = get_removed_user()
 
         # Set default name
         if not form.cleaned_data.get("name"):
@@ -120,6 +129,8 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
 
 # List of user’s notes
 class MyNotesView(LoginRequiredMixin, ListView):
+    """Display the logged-in user’s notes, including pending ones."""
+
     model = Note
     template_name = "quote/my-notes.html"
     context_object_name = "notes"
@@ -132,6 +143,8 @@ class MyNotesView(LoginRequiredMixin, ListView):
 
 # Update a note
 class NoteUpdateView(LoginRequiredMixin, UpdateView):
+    """Allow users to edit their own notes."""
+
     model = Note
     form_class = NoteForm
     template_name = "quote/edit-note.html"
@@ -146,6 +159,8 @@ class NoteUpdateView(LoginRequiredMixin, UpdateView):
 
 # Delete a note
 class NoteDeleteView(LoginRequiredMixin, DeleteView):
+    """Allow users to delete their own notes."""
+
     model = Note
     template_name = "quote/delete-note.html"
 
