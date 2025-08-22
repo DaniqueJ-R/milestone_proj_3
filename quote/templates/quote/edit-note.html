@@ -1,6 +1,4 @@
-
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <!-- edit-notes.html content starts here -->
 <main>
@@ -8,7 +6,7 @@
     <div id="submit-note">
       <h2 class="text-center">Edit your note</h2>
       <p class="text-center">
-        Update your quote below. <br>
+        Update your quote below. <br />
         Once saved, it will go through review again if needed.
       </p>
 
@@ -21,7 +19,11 @@
 
       <!-- Edit Notes form -->
       <div id="writing-notes-container" class="justify-content-center d-flex">
-        <form method="post" action="{% url 'edit_note' note.id %}" id="quoteForm">
+        <form
+          method="post"
+          action="{% url 'edit_note' note.id %}"
+          id="quoteForm"
+        >
           {% csrf_token %}
 
           <div class="label-wrap">
@@ -29,7 +31,10 @@
             {{ form.category }}
           </div>
 
-          <div id="sticky-note-writing" class="sticky-note theme-{{ note.category }}">
+          <div
+            id="sticky-note-writing"
+            class="sticky-note theme-{{ note.category }}"
+          >
             <label for="id_content"></label>
             {{ form.content }}
             <div class="label-wrap">

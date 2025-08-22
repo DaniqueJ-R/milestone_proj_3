@@ -1,59 +1,84 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <main>
   <section>
-    <div id="heading-area" class="d-flex justify-content-center align-items-center"> 
-      <span id="read-notes"><a href="{% url 'home' %}" class="heading-section">Pick a Note</a></span>
-      <span id="write-notes"><a href="{% url 'write_a_note' %}" class="heading-section">Write a Note</a></span>
+    <div
+      id="heading-area"
+      class="d-flex justify-content-center align-items-center"
+    >
+      <span id="read-notes"
+        ><a href="{% url 'home' %}" class="heading-section"
+          >Pick a Note</a
+        ></span
+      >
+      <span id="write-notes"
+        ><a href="{% url 'write_a_note' %}" class="heading-section"
+          >Write a Note</a
+        ></span
+      >
     </div>
 
     <div id="submit-note">
       <h2 class="text-center">Share your quote</h2>
-      <p class="text-center">Write a quote that inspires you. 
-        <br>It will be reviewed before being published.
-        <br>Once approved, it will appear on the home page!</p>
+      <p class="text-center">
+        Write a quote that inspires you. <br />It will be reviewed before being
+        published. <br />Once approved, it will appear on the home page!
+      </p>
       <!-- popups -->
       {% if messages %}
-<div class="messages">
-    {% for message in messages %}
+      <div class="messages">
+        {% for message in messages %}
         <div class="alert {{ message.tags }}">{{ message }}</div>
-    {% endfor %}
-</div>
-{% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
 
-<!-- Notes form -->
- <div id="writing-notes-container">
-      <form id="quoteForm" method="post" action="{% url 'write_a_note' %}">
-    {% csrf_token %}
-    <div class='label-wrap'>
-    <label for="category">Category:</label>
-    <select name="category" id="category">
-        <option value="0">Uncategorized</option>
-        <option value="1">Stress</option>
-        <option value="2">Depression</option>
-        <option value="3">Anxiety</option>
-    </select>
-</div>
-    <div id="sticky-note-writing" class="sticky-note theme-{{ note.category }}"><label for="content"></label>
-    <textarea name="content" id="content" maxlength="100" required placeholder="Write a quote here..."></textarea>
- 
-    <div class='label-wrap'>
-    <label for="name">Your Name:</label>
-    <input type="text" name="name" id="name" placeholder="Anonymous">
-    </div>
-  </div>
+      <!-- Notes form -->
+      <div id="writing-notes-container">
+        <form id="quoteForm" method="post" action="{% url 'write_a_note' %}">
+          {% csrf_token %}
+          <div class="label-wrap">
+            <label for="category">Category:</label>
+            <select name="category" id="category">
+              <option value="0">Uncategorized</option>
+              <option value="1">Stress</option>
+              <option value="2">Depression</option>
+              <option value="3">Anxiety</option>
+            </select>
+          </div>
+          <div
+            id="sticky-note-writing"
+            class="sticky-note theme-{{ note.category }}"
+          >
+            <label for="content"></label>
+            <textarea
+              name="content"
+              id="content"
+              maxlength="100"
+              required
+              placeholder="Write a quote here..."
+            ></textarea>
 
-  <div class='label-wrap'>
-<button type="reset" class="btn btn-outline-light">Reset</button>
-<button type="submit" class="btn btn-outline-light">Submit Quote</button>
-</div>
+            <div class="label-wrap">
+              <label for="name">Your Name:</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Anonymous"
+              />
+            </div>
+          </div>
 
-</form>
-</div>
+          <div class="label-wrap">
+            <button type="reset" class="btn btn-outline-light">Reset</button>
+            <button type="submit" class="btn btn-outline-light">
+              Submit Quote
+            </button>
+          </div>
+        </form>
+      </div>
 
-<div id="popup" class="popup hidden"></div>
-
+      <div id="popup" class="popup hidden"></div>
     </div>
   </section>
 </main>

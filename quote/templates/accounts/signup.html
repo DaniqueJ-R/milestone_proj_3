@@ -1,73 +1,66 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <!-- Signup.html content starts here -->
- <main>
-<section class="signup-section d-flex justify-content-center align-items-center">
-  <div class="container ">
-    <h2 class="text-center">Sign Up</h2>
-    <p class="text-center">Welcome to Take a Breath. Thank you for joining us!</p>
-<form method="post" action="{% url 'signup' %}" class="form-wrapper">
-  {% if form.non_field_errors %}
-    <div class="alert alert-danger">
-      {{ form.non_field_errors }}
+<main>
+  <section
+    class="signup-section d-flex justify-content-center align-items-center"
+  >
+    <div class="container">
+      <h2 class="text-center">Sign Up</h2>
+      <p class="text-center">
+        Welcome to Take a Breath. Thank you for joining us!
+      </p>
+      <form method="post" action="{% url 'signup' %}" class="form-wrapper">
+        {% if form.non_field_errors %}
+        <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+        {% endif %} {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+          <div class="alert {{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+        {% endif %} {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="id_username" class="form-label">Username</label>
+          {{ form.username }} {% if form.username.errors %}
+          <div class="text-danger">{{ form.username.errors }}</div>
+          {% endif %}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_email" class="form-label">Email</label>
+          {{ form.email }} {% if form.email.errors %}
+          <div class="text-danger">{{ form.email.errors }}</div>
+          {% endif %}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_password1" class="form-label">Password</label>
+          {{ form.password1 }} {% if form.password1.errors %}
+          <div class="text-danger">{{ form.password1.errors }}</div>
+          {% endif %}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_password2" class="form-label">Confirm Password</label>
+          {{ form.password2 }} {% if form.password2.errors %}
+          <div class="text-danger">{{ form.password2.errors }}</div>
+          {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-theme">Sign Up</button>
+      </form>
+      <br />
+      {% if form.non_field_errors %}
+      <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+      {% endif %}
+
+      <p class="text-center">
+        Already have an account? <a href="{% url 'login' %}">Login here</a>.
+      </p>
     </div>
-  {% endif %}
-  
-  {% if messages %}
-    <div class="messages">
-      {% for message in messages %}
-        <div class="alert {{ message.tags }}">{{ message }}</div>
-      {% endfor %}
-    </div>
-  {% endif %}
-  {% csrf_token %}
-  
-  <div class="mb-3">
-    <label for="id_username" class="form-label">Username</label>
-    {{ form.username }}
-    {% if form.username.errors %}
-      <div class="text-danger">{{ form.username.errors }}</div>
-    {% endif %}
-  </div>
-
-  <div class="mb-3">
-    <label for="id_email" class="form-label">Email</label>
-    {{ form.email }}
-    {% if form.email.errors %}
-      <div class="text-danger">{{ form.email.errors }}</div>
-    {% endif %}
-  </div>
-
-  <div class="mb-3">
-    <label for="id_password1" class="form-label">Password</label>
-    {{ form.password1 }}
-    {% if form.password1.errors %}
-      <div class="text-danger">{{ form.password1.errors }}</div>
-    {% endif %}
-  </div>
-
-  <div class="mb-3">
-    <label for="id_password2" class="form-label">Confirm Password</label>
-    {{ form.password2 }}
-    {% if form.password2.errors %}
-      <div class="text-danger">{{ form.password2.errors }}</div>
-    {% endif %}
-  </div>
-
-  <button type="submit" class="btn btn-theme">Sign Up</button>
-</form>
-    <br>
-    {% if form.non_field_errors %}
-      <div class="alert alert-danger">
-        {{ form.non_field_errors }}
-      </div>
-    {% endif %}
-
-    <p class="text-center">Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
-  </div>
-</section>
+  </section>
 </main>
 <!-- signup.html content ends here -->
 {% endblock %}
