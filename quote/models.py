@@ -1,9 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
-
-
 # This function returns the "Removed" user, creating it if necessary
 def get_removed_user():
     user, created = User.objects.get_or_create(

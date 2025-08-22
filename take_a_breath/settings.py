@@ -25,10 +25,13 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-ta=1j8w@rc@0_7*6oj16f^mn4ozw+=g=-ia$!&hx+8!^rzzuc3'
+# SECRET_KEY = (
+#     'django-insecure-ta=1j8w@rc@0_7*6oj16f^mn4ozw+=g=-ia$!&hx+8!^rzzuc3'
+# )
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production! True = development mode, False = production mode
+# SECURITY WARNING: don't run with debug turned on in production!
+# True = development mode, False = production mode
 DEBUG = False
 # DEBUG = True
 
@@ -94,7 +97,6 @@ DATABASES = {
     "default": dj_database_url.config(
         env="DATABASE_URL",
         conn_max_age=600,
-        # conn_health_checks=True,
         ssl_require=True,
     ),
 }
@@ -121,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": ("django.contrib.auth.password_validation." "NumericPasswordValidator"),
     },
 ]
 

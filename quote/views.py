@@ -48,7 +48,7 @@ def get_context_data(self, **kwargs):
     return context
 
 
-# This view handles the display of a single note
+# This view handles the display of a single note for the home page
 class NotesJson(View):
     def get(self, request):
         notes = Note.objects.filter(status=1).order_by("-created_on")
@@ -68,6 +68,7 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
     form_class = NoteForm
     template_name = "quote/write-a-note.html"
 
+    # Load badwords from database.
     def get_badwords(self):
         """Load badwords from database."""
         file_path = os.path.join(
@@ -89,7 +90,7 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
         if not form.cleaned_data.get("name"):
             form.instance.name = "Anonymous"
 
-        # Load banned words from DB
+        # Load banned words from database
         banned_words = self.get_badwords()
         content_lower = form.cleaned_data["content"].lower()
 

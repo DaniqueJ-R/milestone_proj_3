@@ -1,15 +1,21 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 
-{% block content %}
-
-<!-- index.html content starts here -->
-
-  <section>
-    <div id="home-section" class="container-fluid">
-
-    <div id="heading-area" class="d-flex justify-content-center align-items-center">
-      <span id="read-notes"><a href="{% url 'home' %}" class="heading-section">Pick a note</a></span>
-      <span id="write-notes"><a href="{% url 'write_a_note' %}" class="heading-section">Write a note</a></span>
+<section>
+  <div id="home-section" class="container-fluid">
+    <div
+      id="heading-area"
+      class="d-flex justify-content-center align-items-center"
+    >
+      <span id="read-notes"
+        ><a href="{% url 'home' %}" class="heading-section"
+          >Pick a note</a
+        ></span
+      >
+      <span id="write-notes"
+        ><a href="{% url 'write_a_note' %}" class="heading-section"
+          >Write a note</a
+        ></span
+      >
     </div>
 
     <!-- Filter dropdown -->
@@ -17,11 +23,50 @@
       <div id="myDropdown">
         <form method="get" action="{% url 'home' %}">
           <label id="select-mood">Select a mood:</label>
-          <select name="category" id="themeSelector" onchange="this.form.submit()">
+          <select
+            name="category"
+            id="themeSelector"
+            onchange="this.form.submit()"
+          >
+            <!-- prettier-ignore -->
             <option value="0" {% if request.GET.category == "0" or not request.GET.category %}selected{% endif %}>All</option>
-            <option value="1" {% if request.GET.category == "1" %}selected{% endif %}>Stress</option>
-            <option value="2" {% if request.GET.category == "2" %}selected{% endif %}>Depression</option>
-            <option value="3" {% if request.GET.category == "3" %}selected{% endif %}>Anxiety</option>
+
+            <option
+              value="1"
+              {%
+              if
+              request.GET.category=""
+              ="1"
+              %}selected{%
+              endif
+              %}
+            >
+              Stress
+            </option>
+            <option
+              value="2"
+              {%
+              if
+              request.GET.category=""
+              ="2"
+              %}selected{%
+              endif
+              %}
+            >
+              Depression
+            </option>
+            <option
+              value="3"
+              {%
+              if
+              request.GET.category=""
+              ="3"
+              %}selected{%
+              endif
+              %}
+            >
+              Anxiety
+            </option>
           </select>
         </form>
       </div>
@@ -32,26 +77,27 @@
     <!-- Container for sticky notes -->
     <div id="notes-container" class="notes-container">
       {% if notes_list %}
-        <!-- Loop through notes and display them -->
-        {% for note in notes_list %}
-          <!-- Display each note as a sticky note -->
-          <div class="sticky-note theme-{{ note.category }}">
-            <p>{{ note.content }}</p>
-            <small>— {{ note.name }}</small>
-          </div>
-        {% endfor %}
-      {% else %}
-        <p id="emptyMessage" >No affirmations yet. Add some to get started!</p>
+      <!-- Loop through notes and display them -->
+      {% for note in notes_list %}
+      <!-- Display each note as a sticky note -->
+      <div class="sticky-note theme-{{ note.category }}">
+        <p>{{ note.content }}</p>
+        <small>— {{ note.name }}</small>
+      </div>
+      {% endfor %} {% else %}
+      <p id="emptyMessage">No affirmations yet. Add some to get started!</p>
       {% endif %}
     </div>
 
     <!-- Controls below notes -->
     <div class="controls">
-      <button id="backAffirmation" class="btn btn-outline-light">Go Back</button>
-      <button id="addAffirmation" class="btn btn-outline-light">One More</button>
+      <button id="backAffirmation" class="btn btn-outline-light">
+        Go Back
+      </button>
+      <button id="addAffirmation" class="btn btn-outline-light">
+        One More
+      </button>
     </div>
-    </div>
-  </section>
-
-<!-- index.html content ends here -->
+  </div>
+</section>
 {% endblock %}
