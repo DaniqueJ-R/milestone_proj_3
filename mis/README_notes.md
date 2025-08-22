@@ -60,3 +60,5 @@ Notified that if music is playing the change theme option does not show, and you
 Main background and notes load on inital loading of page then flicks to uersonalized theme afer a sec9
 
 Testing shows tat user can create new accout with same email - fix?
+
+Save changes not taking you back to main page?
