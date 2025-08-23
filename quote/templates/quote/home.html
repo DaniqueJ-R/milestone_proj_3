@@ -29,13 +29,19 @@
             onchange="this.form.submit()"
           >
             <!-- prettier-ignore -->
-            <option value="0" {% if request.GET.category == "0" or not request.GET.category %}selected{% endif %}>All</option>
+            <option value="0" {% if request.GET.category = "0" or not request.GET.category %}selected{% endif %}>All</option>
+<option value="1" 
+  {% if request.GET.category = "1" %}selected{% endif %}>
+  Category 1
+</option>
+<option value="1" 
+  {% if request.GET.category == "1" %}selected{% endif %}>
+  Category 1
+</option>
+
 
             <option
-              value="1"
-              {%
-              if
-              request.GET.category=""
+              value="1"              {%              if              request.GET.category=""
               ="1"
               %}selected{%
               endif
