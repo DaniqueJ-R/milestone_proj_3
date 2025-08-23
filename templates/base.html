@@ -1,6 +1,6 @@
 {% load static %} {% url 'home' as home_url %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -39,7 +39,11 @@
   </head>
   <body class="theme-space">
     <!-- Mobile Nav bar -->
-    <nav class="navbar navbar-expand-lg note-card justify-content-right fixed-top" data-bs-theme="dark" id="mobileNav">
+    <nav
+      class="navbar navbar-expand-lg note-card justify-content-right fixed-top"
+      data-bs-theme="dark"
+      id="mobileNav"
+    >
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">Take A Breath</a>
         <!-- Hamburger toggle button -->
@@ -58,32 +62,38 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li>
-          <!-- log in section to displpay user name -->
-          {% if user.is_authenticated %}
-          <p>
-           <a href="{% url 'my_notes' %}"> Welcome, {{ user.username }} |</a> 
-            <a href="{% url 'logout' %}">Logout</a>
-          </p>
-          <a href="{% url 'my_notes' %}"><i class="fas fa-home"></i> My Notes</a>
-          {% else %}
-          <p>
-            <a href="{% url 'login' %}">Login</a> |
-            <a href="{% url 'signup' %}">Sign Up</a>
-          </p>
-          {% endif %}
-        </li>
+              <!-- log in section to displpay user name -->
+              {% if user.is_authenticated %}
+              <p>
+                <a href="{% url 'my_notes' %}">
+                  Welcome, {{ user.username }} |</a
+                >
+                <a href="{% url 'logout' %}">Logout</a>
+              </p>
+              <a href="{% url 'my_notes' %}"
+                ><i class="fas fa-home"></i> My Notes</a
+              >
+              {% else %}
+              <p>
+                <a href="{% url 'login' %}">Login</a> |
+                <a href="{% url 'signup' %}">Sign Up</a>
+              </p>
+              {% endif %}
+            </li>
             <li class="nav-item">
-              <a href="{% url 'home' %}"><i class="fa-solid fa-note-sticky"></i> Notes </a>
+              <a href="{% url 'home' %}"
+                ><i class="fa-solid fa-note-sticky"></i> Notes
+              </a>
             </li>
             <li class="nav-item">
               <a href="{% url 'write_a_note' %}"
-            ><i class="fas fa-pencil-alt"></i> Write a Note</a
-          >
+                ><i class="fas fa-pencil-alt"></i> Write a Note</a
+              >
             </li>
             <li class="nav-item">
               <a href="#"
-            ><i class="fa-solid fa-camera"></i> Pictures (coming soon)</a
-          >
+                ><i class="fa-solid fa-camera"></i> Pictures (coming soon)</a
+              >
             </li>
             <li class="nav-item dropdowndropdown-container">
               <a
@@ -95,7 +105,7 @@
               >
                 Atmosphere
               </a>
-              <ul class="dropdown-menu dropdown-content" id="themeSelector">
+              <ul class="dropdown-menu dropdown-content" id="themeSelectorNav">
                 <li><a class="dropdown-item" data-value="space">Cosmic</a></li>
                 <li><a class="dropdown-item" data-value="sea">Ocean</a></li>
                 <li>
@@ -105,7 +115,11 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a id="toggleAudioMobile"><i class="fa-solid fa-volume-xmark"></i></a> 
+<button id="toggleAudioMobile" aria-pressed="false" aria-label="Toggle theme audio">
+  <i class="fa-solid fa-volume-xmark"></i>
+</button>
+            </li>
+
             <li class="nav-item">
               <div id="social-links-nav">
                 <a
@@ -139,9 +153,6 @@
       </div>
     </nav>
 
-
-
-
     <!-- Side Nav Bar -->
     <div class="sidebar" id="sidebar">
       <a href="{% url 'home' %}">
@@ -160,10 +171,12 @@
           <!-- log in section to displpay user name -->
           {% if user.is_authenticated %}
           <p>
-            <a href="{% url 'my_notes' %}">Welcome, {{ user.username }} |</a> 
+            <a href="{% url 'my_notes' %}">Welcome, {{ user.username }} |</a>
             <a href="{% url 'logout' %}">Logout</a>
           </p>
-          <a href="{% url 'my_notes' %}"><i class="fas fa-home"></i> My Notes</a>
+          <a href="{% url 'my_notes' %}"
+            ><i class="fas fa-home"></i> My Notes</a
+          >
           {% else %}
           <p>
             <a href="{% url 'login' %}">Login</a> |
@@ -172,7 +185,9 @@
           {% endif %}
         </li>
         <li>
-          <a href="{% url 'home' %}"><i class="fa-solid fa-note-sticky"></i> Notes </a>
+          <a href="{% url 'home' %}"
+            ><i class="fa-solid fa-note-sticky"></i> Notes
+          </a>
         </li>
         <li>
           <a href="{% url 'write_a_note' %}"
@@ -188,7 +203,7 @@
         <li>
           <div class="dropdown-container">
             <div class="dropdown-header">Atmosphere ▼</div>
-            <div class="dropdown-content" id="themeSelector">
+            <div class="dropdown-content" id="themeSelectorSidebar">
               <a data-value="space">Cosmic</a><br />
               <a data-value="sea">Ocean</a><br />
               <a data-value="forest">Forest</a><br />
@@ -197,7 +212,9 @@
           </div>
         </li>
         <!-- Audio Toggle Sidebar-->
-        <a id="toggleAudioSidebar"><i class="fa-solid fa-volume-xmark"></i></a>
+<button id="toggleAudioSidebar" aria-pressed="false" aria-label="Toggle theme audio">
+  <i class="fa-solid fa-volume-xmark"></i>
+</button>
       </ul>
       <!-- Social Media -->
       <div id="social-links-nav">
@@ -242,12 +259,14 @@
       <!-- Footer -->
       <footer class="mt-auto" id="footer">
         <div class="container text-center">
-                 <p>&copy; 2023 Take A Breath. All rights reserved.</p>
+          <p>&copy; 2023 Take A Breath. All rights reserved.</p>
         </div>
       </footer>
     </main>
 
-    <audio id="themeAudio" loop></audio>
+    <audio id="themeAudio" aria-label="Themed background music">
+      Your browser does not support the audio element.
+    </audio>
 
     <!-- Bootstraps Javascript Link -->
     <script

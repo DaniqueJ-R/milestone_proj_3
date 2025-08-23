@@ -11,7 +11,8 @@ let currentTheme = "space"; // default
 const container = document.getElementById("notes-container");
 const addBtn = document.getElementById("addAffirmation");
 const backBtn = document.getElementById("backAffirmation");
-const themeSelector = document.getElementById("themeSelector");
+const themeSelectorNav = document.getElementById("themeSelectorNav");
+const themeSelectorSidebar = document.getElementById("themeSelectorSidebar");
 const toggleAudioMobile = document.getElementById("toggleAudioMobile");
 const toggleAudioSidebar = document.getElementById("toggleAudioSidebar");
 const themeAudio = document.getElementById("themeAudio");
@@ -36,37 +37,45 @@ async function loadNotes() {
   }
 }
 
-// // Initial page load
+// Initial page load
 document.addEventListener("DOMContentLoaded", () => {
   // Load notes
   loadNotes();
 
   // Get the saved theme from localStorage
-  const savedTheme = localStorage.getItem("selectedTheme") || "space"; 
+  const savedTheme = localStorage.getItem("selectedTheme") || "space";
   currentTheme = savedTheme; // update global tracker
 
   // Apply it to the body
   document.body.className = `theme-${currentTheme}`;
 
   // Mark the correct theme link as selected if it exists
-  const link = document.querySelector(`#themeSelector a[data-value="${currentTheme}"]`);
-  if (link) link.classList.add("selected");
+  [themeSelectorSidebar, themeSelectorNav].forEach((container) => {
+    if (!container) return;
+    const link = container.querySelector(`a[data-value="${currentTheme}"]`);
+    if (link) link.classList.add("selected");
+    themeSelections(container);
+  });
 
   // Update audio source if audio is enabled
   themeAudio.src = `/static/audio/${currentTheme}.mp3`;
   if (audioEnabled) themeAudio.play();
 
-// Apply theme to cards and buttons
+  // Apply theme to cards and buttons
   applyThemeToCards(currentTheme);
 
   console.log("Initial theme applied:", currentTheme);
 });
 
-
 // Render all displayed notes
+
 function renderNotes() {
   container.innerHTML = "";
 
+  // if (emptyMsg) {
+  //   emptyMsg.classList.toggle("hidden", displayedNotes.length > 0);
+  // }
+  //test - might delete
   if (emptyMsg) {
     if (displayedNotes.length === 0) {
       emptyMsg.classList.remove("hidden");
@@ -75,13 +84,8 @@ function renderNotes() {
     }
   }
 
-  const selectedLink = document.querySelector(".dropdown-content a.selected");
-  const theme = selectedLink
-    ? selectedLink.getAttribute("data-value")
-    : "space"; // default
-
-  displayedNotes.forEach((noteText, i) => {
-    const note = createStickyNote(noteText, i, theme);
+  displayedNotes.forEach((noteObj, i) => {
+    const note = createStickyNote(noteObj, i, currentTheme);
     container.appendChild(note);
   });
 }
@@ -130,7 +134,6 @@ function showRandomNote() {
     topNote.classList.add("new-note");
     setTimeout(() => topNote.classList.remove("new-note"), 300);
   }
-  console.log("Random note shown:", nextNote);
 }
 
 // Go back to previous note
@@ -142,57 +145,60 @@ function goBack() {
 }
 
 // Theme & audio handling
-document.querySelectorAll("#themeSelector a").forEach((a) => {
-  a.addEventListener("click", (e) => {
-    e.preventDefault();
+function themeSelections(container) {
+  if (!container) return;
 
-    // Remove 'selected' from any other link
-    document
-      .querySelectorAll("#themeSelector a")
-      .forEach((link) => link.classList.remove("selected"));
+  container.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
 
-    // Add 'selected' to the clicked link
-    a.classList.add("selected");
+      // Remove 'selected' from all links
+      container
+        .querySelectorAll("a")
+        .forEach((l) => l.classList.remove("selected"));
 
-    const value = a.getAttribute("data-value");
-    currentTheme = value; // update global tracker
-    document.body.className = `theme-${value}`;
-    console.log("Theme changed to:", currentTheme);
+      // Mark clicked link
+      link.classList.add("selected");
 
-    // Store in localStorage
-    localStorage.setItem("selectedTheme", value);
+      // Update global theme
+      const value = link.getAttribute("data-value");
+      currentTheme = value;
+      document.body.className = `theme-${value}`;
+      localStorage.setItem("selectedTheme", value);
 
-    // Update notes
-    if (document.getElementById("notes-container")) {
-  renderNotes();
-}
+      // Update notes, cards
+      renderNotes();
+      applyThemeToCards(value);
 
-    // Update cards
-    applyThemeToCards(value);
-    console.log("Cards theme updated:", value);
+      // Update audio
+      if (audioEnabled) {
+        themeAudio.src = `/static/audio/${value}.mp3`;
+        themeAudio.play();
+      } else {
+        themeAudio.pause();
+      }
 
-    // Update audio source if audio is enabled
-    if (audioEnabled) {
-      themeAudio.src = `/static/audio/${value}.mp3`;
-      themeAudio.play();
-      console.log("Audio source updated:", themeAudio.src);
-    } else {
-      console.log("Audio is disabled, not updating source");
-      themeAudio.pause();
-    }
+      console.log("Theme changed to:", value);
+    });
   });
-});
+}
 
 // Apply theme to body, cards, and buttons
 function applyThemeToCards(theme) {
-  // Cards
-  document.querySelectorAll(".note-card").forEach(card => {
-    card.classList.remove("theme-space", "theme-sea", "theme-forest", "theme-sunset");
+
+    // Cards
+  document.querySelectorAll(".note-card").forEach((card) => {
+    card.classList.remove(
+      "theme-space",
+      "theme-sea",
+      "theme-forest",
+      "theme-sunset"
+    );
     card.classList.add(`theme-${theme}`);
   });
 
-  // Buttons
-  document.querySelectorAll(".btn-theme").forEach(btn => {
+    // Buttons
+  document.querySelectorAll(".btn-theme").forEach((btn) => {
     btn.classList.remove(
       "btn-theme-space",
       "btn-theme-sea",
@@ -202,44 +208,48 @@ function applyThemeToCards(theme) {
     btn.classList.add(`btn-theme-${theme}`);
   });
 
-    // Write-page background
-const bg = document.getElementById("sticky-note-writing");
-if (bg) {
-  bg.classList.remove("theme-space", "theme-sea", "theme-forest", "theme-sunset");
-  bg.classList.add(`theme-${theme}`);
+  // Write-page background
+  const bg = document.getElementById("sticky-note-writing");
+  if (bg) {
+    bg.classList.remove(
+      "theme-space",
+      "theme-sea",
+      "theme-forest",
+      "theme-sunset"
+    );
+    bg.classList.add(`theme-${theme}`);
+  }
 }
-}
-
 
 // Toggle audio on/off
-[toggleAudioMobile, toggleAudioSidebar].forEach((el) => {
-  el?.addEventListener("click", () => {
-  audioEnabled = !audioEnabled;
+[toggleAudioMobile, toggleAudioSidebar].forEach((btn) => {
+  btn?.addEventListener("click", () => {
+    audioEnabled = !audioEnabled;
 
-  if (audioEnabled) {
-    themeAudio.src = `/static/audio/${currentTheme}.mp3`;
-    themeAudio.play();
-    toggleAudioMobile.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-    toggleAudioSidebar.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-    console.log("Audio enabled:", themeAudio.src);
-  } else {
-    themeAudio.pause();
-    toggleAudioMobile.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
-    toggleAudioSidebar.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
-    console.log("Audio disabled");
-  }
+    // Update audio
+    if (audioEnabled) {
+      themeAudio.src = `/static/audio/${currentTheme}.mp3`;
+      themeAudio.play();
+      btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    } else {
+      themeAudio.pause();
+      btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    }
+
+    // Update ARIA state on both buttons
+    [toggleAudioMobile, toggleAudioSidebar].forEach((b) => {
+      if (!b) return;
+      b.setAttribute("aria-pressed", audioEnabled.toString());
+      b.setAttribute("aria-label", audioEnabled ? "Mute theme audio" : "Unmute theme audio");
+    });
+  });
 });
-});
+
+
 
 // Buttons
-addBtn?.addEventListener("click", () => {
-  console.log("Add button clicked");
-  showRandomNote();
-});
-backBtn?.addEventListener("click", () => {
-  console.log("Back button clicked");
-  goBack();
-});
+addBtn?.addEventListener("click", showRandomNote);
+backBtn?.addEventListener("click", goBack);
 
 // Form submission handling
 if (document.getElementById("quoteForm")) {
