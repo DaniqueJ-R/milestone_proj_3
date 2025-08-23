@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block content %}
+
+<section
+  class="password-section d-flex form-wrapper justify-content-center align-items-center mvh-100"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mt-3 offset-md-2">
+        <h1 id="errors">Bad Request (400)</h1>
+        <p>The request could not be understood by the server.</p>
+        <button href="{% url 'home' %}" class="btn btn-theme">
+          Return to homepage
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

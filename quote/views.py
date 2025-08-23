@@ -16,7 +16,6 @@ from .models import Note
 
 # Create your views here.
 
-
 # This view handles user signup
 class SignUpView(CreateView):
     """Handle user registration and auto-login after successful signup."""
