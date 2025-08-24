@@ -15,9 +15,8 @@ body {
   margin: 0;
   font-family: sans-serif;
   min-height: 100vh;
-  max-width: 2000px;
   display: flex;
-  background-repeat: no-repeat;z
+  background-repeat: no-repeat;
 }
 
 h2,
@@ -110,6 +109,7 @@ i {
 }
 
 .dropdown-content {
+  cursor: pointer;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
@@ -137,6 +137,7 @@ i {
   color: inherit; /* or pick a custom color */
   text-decoration: none;
 }
+
 .dropdown-content.open a:hover {
   color: #ff6347; /* Change to your desired hover color */
 }
@@ -211,7 +212,6 @@ i {
   width: 18rem;
   height: 18rem;
   padding: 1.5rem;
-  cursor: pointer;
   border-radius: 4px;
   box-shadow:
     0 4px 12px rgba(0, 0, 0, 0.15),
