@@ -32,8 +32,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # True = development mode, False = production mode
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
 
@@ -107,6 +107,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com",
     "https://localhost",
     "https://localhost:8000",
+    "https://take-a-breath-a26c57655e5e.herokuapp.com",
 ]
 
 # Password validation
