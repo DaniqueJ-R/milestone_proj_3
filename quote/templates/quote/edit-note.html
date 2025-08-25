@@ -1,53 +1,50 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% block title %}Edit Note{% endblock %} {% block
+content %}
 
-  <section class="edit-section">
-    <div id="submit-note">
-      <h2 class="text-center">Edit your note</h2>
-      <p class="text-center">
-        Update your quote below. <br />
-        Once saved, it will go through review again if needed.
-      </p>
+<section class="edit-section">
+  <div id="submit-note">
+    <h2 class="text-center">Edit your note</h2>
+    <p class="text-center">
+      Update your quote below. <br />
+      Once saved, it will go through review again if needed.
+    </p>
 
-      <!-- error handling -->
-      {% if form.non_field_errors %}
-      <div class="messages">
-        <div class="alert alert-danger">{{ form.non_field_errors }}</div>
-      </div>
-      {% endif %}
-
-      <!-- Edit Notes form -->
-      <div id="writing-notes-container" class="justify-content-center d-flex">
-        <form
-          method="post"
-          action="{% url 'edit_note' note.id %}"
-          id="quoteForm"
-        >
-          {% csrf_token %}
-
-          <div class="label-wrap">
-            <label for="id_category">Category:</label>
-            {{ form.category }}
-          </div>
-
-          <div
-            id="sticky-note-writing"
-            class="sticky-note theme-{{ note.category }}"
-          >
-            <label for="id_content"></label>
-            {{ form.content }}
-            <div class="label-wrap">
-              <label for="id_name">Your Name:</label>
-              {{ form.name }}
-            </div>
-          </div>
-
-          <div class="label-wrap">
-            <button type="submit" class="btn btn-theme">Save Changes</button>
-            <a href="{% url 'my_notes' %}" class="btn btn-secondary">Cancel</a>
-          </div>
-        </form>
-      </div>
+    <!-- error handling -->
+    {% if form.non_field_errors %}
+    <div class="messages">
+      <div class="alert alert-danger">{{ form.non_field_errors }}</div>
     </div>
-  </section>
+    {% endif %}
+
+    <!-- Edit Notes form -->
+    <div id="writing-notes-container" class="justify-content-center d-flex">
+      <form method="post" action="{% url 'edit_note' note.id %}" id="quoteForm">
+        {% csrf_token %}
+
+        <div class="label-wrap">
+          <label for="id_category">Category:</label>
+          {{ form.category }}
+        </div>
+
+        <div
+          id="sticky-note-writing"
+          class="sticky-note theme-{{ note.category }}"
+        >
+          <label for="id_content"></label>
+          {{ form.content }}
+          <div class="label-wrap">
+            <label for="id_name">Your Name:</label>
+            {{ form.name }}
+          </div>
+        </div>
+
+        <div class="label-wrap">
+          <button type="submit" class="btn btn-theme">Save Changes</button>
+          <a href="{% url 'my_notes' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
 {% endblock %}
