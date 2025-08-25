@@ -144,12 +144,12 @@ This is your quiet corner of the internet. Here, you’ll find short, uplifting 
 
     <!-- Side Nav Bar -->
     <div class="sidebar" id="sidebar">
-      <a href="{% url 'home' %}">
+      <a href="{% url 'home' %}" aria-label="Take A Breath homepage">
         <!-- Logo -->
         <img
           id="logo"
           src="{% static 'images/Logoo-removebg-preview.png' %}"
-          alt="Logo"
+          alt="Take A Breath Logo"
           class="img-fluid"
         />
       </a>
@@ -259,9 +259,15 @@ This is your quiet corner of the internet. Here, you’ll find short, uplifting 
       </footer>
     </main>
 
-    <audio id="themeAudio" aria-label="Themed background music">
-      Your browser does not support the audio element.
-    </audio>
+<audio id="themeAudio" aria-label="Themed background music">
+  Your browser does not support the audio element.
+</audio>
+
+<div class="audio-transcript visually-hidden">
+  <p id="themeAudioTranscript">Transcript: Forest sounds with birds chirping, wind rustling through trees.</p>
+</div>
+
+
 
     <!-- Bootstraps Javascript Link -->
     <script

@@ -28,11 +28,11 @@ Home
     <div id="notes-filter">
       <div id="myDropdown">
         <form method="get" action="{% url 'home' %}">
-          <label id="select-mood">Select a mood:</label>
+          <label for="moodSelector" id="select-mood">Select a mood:</label>
           <select
             name="category"
-            id="themeSelector"
-            onchange="this.form.submit()"
+            id="moodSelector"
+            aria-label="Select a mood to filter notes"
           >
             <!-- prettier-ignore -->
             <option value="0" {% if request.GET.category == "0" or not request.GET.category %}selected{% endif %}>All</option>
@@ -78,7 +78,7 @@ Home
       </div>
     </div>
 
-    <p class="slogan">Daily affirmations for your inner peace</p>
+    <p class="slogan">Daily affirmations for your inner peace </p>
 
     <!-- Container for sticky notes -->
     <div id="notes-container" class="notes-container">
@@ -88,7 +88,7 @@ Home
       <!-- Display each note as a sticky note -->
       <div class="sticky-note theme-{{ note.category }}">
         <p>{{ note.content }}</p>
-        <small>— {{ note.name }}</small>
+        <p><small>— {{ note.name }}</small></p>
       </div>
       {% endfor %} {% else %}
       <p id="emptyMessage">No affirmations yet. Add some to get started!</p>

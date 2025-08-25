@@ -159,14 +159,14 @@ To explain the structure of the site and how to navigate it, I created a site ma
 
 ### Visual Design
 
-- Custom matching colourscheem for Sea (Blue Tones), Sunset(Orange-Purple Tones), Cosmic (purple Tones), and Forest(Green Tones)  or calming color palette
+- Custom matching colourscheem for Sea (Blue Tones), Sunset(Orange-Purple Tones), Cosmic (purple Tones), and Forest(Green Tones) 
 - Accessible typography for overall site
 - Curved hadwritten typography for notes displayed
 - Simple, welcoming layout
 
 ### Color Scheme
 
-From the beginning, I wanted the site to feel dynamic and personal, so instead of being limited to a single color palette, I designed it to adapt based on the user’s chosen theme. Users can select between **Ocean, Sunset, Forest, or Space/Cosmic**, each with its own unique gradient background, note card styling, and button colors while keeping accessibility and readability in mind.
+From the beginning, I wanted the site to feel dynamic and personal, so instead of being limited to a single color palette, I designed it to adapt based on the user’s chosen theme. Users can select between **Ocean, Sunset, Forest, or Space/Cosmic**, each with its own unique gradient background, note card styling, and button colors while keeping accessibility and readability in mind. These pallets were inspired by [Coolors](https://coolors.co/), and customized to prefered shades during the styling process.
 
 To achieve this, I created theme-specific CSS classes (e.g., `.theme-sea`, `.theme-forest`, `.theme-sunset`, `.theme-space`) that apply consistent styling across the site’s elements, including the body background, note cards, and buttons. This ensures the design is cohesive within each theme while still providing variety and personalization.
 
@@ -208,6 +208,15 @@ Warm oranges, pinks, and purples for an uplifting atmosphere.
 * Text color: `#c2410c`
 * Buttons: `#f97316` (hover: `#ea580c`)
 
+### Typography
+
+For the overall site, I selected **Noto Sans** as the primary font. This font was chosen for its clean, modern design and excellent readability across different devices. A serif fallback ensures that text remains legible even if the font fails to load.
+
+To create a handwritten, personal touch for the notes, I used **Allison**. This script font brings warmth and authenticity to the design, with a sans-serif fallback for reliability.
+
+To highlight certain headings and draw the user’s attention, I applied **Cabin Sketch**, a Google Web Font with an outlined style. It complements the site’s theme while remaining easy to read, and falls back to sans-serif if unavailable.
+
+![Design Cabinsketch](documentation/design-cabinsketch.jpg)
 
 ### Media
 
@@ -220,12 +229,31 @@ The logo was chosen for its professional design quality and its ability to refle
 
 **Audio**
 
-The video is also a mockup generated using the AI site Ai.invideo as a generated promotional video detailing more of Zenair Wellness Center's values and general goal for the members.
+To enhance the calming and immersive experience of the site, I incorporated background sounds that change depending on the user’s chosen theme. After researching different options, I sourced four free, theme-fitting sounds from [Freesound](https://freesound.org/), ensuring they matched the moods of **Ocean, Sunset, Forest, and Space/Cosmic**.
+
+Each sound was carefully selected to complement its theme—for example, soothing waves for the Ocean setting, gentle forest ambiance for Forest, and more atmospheric tones for Space. These audio choices help deepen the sense of mindfulness, allowing users to feel more connected to the environment they’ve chosen while exploring the site.
+
+All audio elements are implemented in a way that respects accessibility, with the option to mute sounds if the user prefers a quieter experience.
+
+
+**Accessibility Notes for Audio**
+
+To ensure the audio features are inclusive, I considered users who may have hearing impairments or who prefer to browse without sound:
+
+* Each audio track is paired with a clear descriptive label (e.g., *“Ocean waves”*, *“Forest birds”*, *“Space ambience”*, *“Sunset park ambience”*), so users understand what the sound represents.
+* The site includes a **mute/unmute toggle button**, giving users full control over whether they want to engage with the audio.
+* Audio is **optional and not required** to use or navigate the site, ensuring the experience is equally accessible to all users.
+* Descriptions of the audio are included in the README and documentation, so users know what themes/sounds are available even if they cannot hear them.
+
+This approach ensures that while sound enhances the mindfulness experience for many users, the platform remains fully functional and welcoming for everyone.
+
+--- 
 
 **Summery**
 - All images and audio include alt tags
 - Colour themes inspured by [Coolors](https://coolors.co/)
-- Audio embedded from sources like [Freesound](https://freesound.org/)
+- Typography slected from [Google Font](https://fonts.google.com/)
+- Audio embedded from source [Freesound](https://freesound.org/)
 - Logo sourced from free platform [Creative Fabrica](https://www.creativefabrica.com/product/take-a-deep-breath-retro-svg/)
 
 ---
@@ -234,7 +262,7 @@ The video is also a mockup generated using the AI site Ai.invideo as a generated
 
 ### Universal Features
 
-#### Navigation Menu
+#### Navigation Menu 
 Responsive nav bar for mobile and matching Sidebar for tablet and desktop. Contains the following:
 - Site logo
 - Log in / Sign up (if not logged in)
@@ -276,34 +304,115 @@ Displays note and name without stikynote design. Once deleted, note is immediatl
 Throughout the Build phase, Chrome Developer Tools are used to ensure all pages are developed to remain intuitive, responsive, and accessible across all device widths. The pages were designed at 1400px wide, reducing to 320px for mobile devices. These tools and others were used for the Testing phase. 
 
  Chrome Developer Tools also used for debugging of Javascript file and pointing out possibe Django errors
- (CONTINUE)
 
 The following sections summarise the tests and results.
 
 ### Code Validation
 
-- [HTML Validator](https://validator.w3.org/)
-- [CSS Validator](https://jigsaw.w3.org/css-validator/)
+### Validator Testing
+
+#### W3C Markup Validator:
+
+Code has been tested using the [HTML Validator](https://validator.w3.org/) and [CSS Validator](https://jigsaw.w3.org/css-validator/).
+
+The W3C Markup Validator were used to validate the HTML on all pages of the project to ensure there were no syntax errors in there. To validate the HTML files, the html file from te browser was coppied for each page using the 'View Page Source' feature on Google Chome, to remove the Django Template and validate the whole page.
+
+* **Home page** - 0 Errors / 0 Warnings:
+
+![HTML home](documentation/testing/htmlchecker-index.jpg)
+
+Index page - [View Full HTML Validation Results here.](https://github.com/mittnamnkenny/fishtales/blob/main/documentation/testing/htmlcheckerfull-index.pdf)
+
+* **Home page** - 0 Errors / 0 Warnings:
+
+![HTML Blog](documentation/testing/htmlchecker-blog.jpg)
+
+Blog page - [View Full HTML Validation Results here.](https://github.com/mittnamnkenny/fishtales/blob/main/documentation/testing/htmlcheckerfull-blog.pdf)
+
+* **Home page** - 0 Errors / 0 Warnings:
+
+![HTML Detail](documentation/testing/htmlchecker-postdetail.jpg)
+
+Post Detail page - [View Full HTML Validation Results here.](https://github.com/mittnamnkenny/fishtales/blob/main/documentation/testing/htmlcheckerfull-postdetail.pdf)
+
+* **Home page** - 0 Errors / 0 Warnings:
+
+![HTML Add](documentation/testing/htmlchecker-postadd.jpg)
+
+Post Add page - [View Full HTML Validation Results here.](https://github.com/mittnamnkenny/fishtales/blob/main/documentation/testing/htmlcheckerfull-postadd.pdf)
+
+* **Home page** - 0 Errors / 0 Warnings:
+
+![HTML Update](documentation/testing/htmlchecker-postupdate.jpg)
+
+Post Update page - [View Full HTML Validation Results here.](https://github.com/mittnamnkenny/fishtales/blob/main/documentation/testing/htmlcheckerfull-postupdate.pdf)
+
+* **Home page** - 0 Errors / 0 Warnings:
+
+![HTML Comment](documentation/testing/htmlchecker-commentupdate.jpg)
+
+Comment Update page - [View Full HTML Validation Results here.](https://github.com/mittnamnkenny/fishtales/blob/main/documentation/testing/htmlcheckerfull-commentupdate.pdf)
+
+#### W3C CSS Validator:
+
+The W3C CSS Validator Services were used to validate the CSS giving the following results - 0 Errors / 5 warnings
+
+![CSS No errors](assets/README/css-no-error.png)
+
+![CSS warnings](assets/README/css-warnings.png)
+
+The warnings are due to 1) import of the Google fonts, 2) a webkit extension for Safari support of the flip-card effect used on the home page, and  3) using the root format for most colouring and text on the site (--var).
+
 
 ### Browser Testing
 
 Tested across major browsers to ensure consistency:
 - Navigation
 - Fonts
+- Note display
 - Form functionality
 - Responsiveness
 
-### Device Testing
+I have tested that this application works using Macbook Air, and Asus Tuf, using the following browsers:
 
-Tested on:
-- Desktop
-- Tablet
-- Mobile
+  - Safari 
+  - Google Chrome 
+  - Firefox 
+  - Opera GX
+
+I have tested this application works on the following Mobile devices:
+
+  - OnePlus Nord N 10
+  - iPhone XR
+  - Samsung 
 
 ### Accessibility
 
-- Tested using [WAVE](https://wave.webaim.org/)
+- Tested using [WAVE](https://wave.webaim.org/) on all page backgrounds:
+
+**Beginig issues:**
+- 0 errors
+- 4 contrast Errors
+- 6 Alerts
+- 2 Features
+- 8 Structurs Elements
+- 32 ARIA
+
+**Issues Resolved:**
+
 - Resolved contrast issues and heading structure
+
+**Issues Not Resolved:**
+- Atmosphere text shows not to be in contrast with all backgounds, but no other test shown to give the same issue. 
+- Notes detected to be headings which are incorrect so alert has been ignored. 
+
+**Ending issues:**
+- 0 errors
+- 4 contrast Errors
+- 3 Alerts
+- 3 Features
+- 8 Structurs Elements
+- 32 ARIA
 
 ### User Stories
 
@@ -364,3 +473,54 @@ More info: [GitHub Docs - Fork a Repo](https://docs.github.com/en/get-started/qu
 - **Video:** [InVideo](https://ai.invideo.io/)
 - **Tools Used:** HTML5, CSS3, Bootstrap, JavaScript, Chrome DevTools, Git, GitHub
 ing
+
+
+
+
+## Technologies Used
+
+### Languages Used:
+
+  - HTML5
+  - CSS3
+  - JavaScript
+  - Python
+
+### Frameworks and Libraries Used:
+
+  - [Bootstrap:](https://getbootstrap.com/) Bootstrap CSS Framework used for styling and to build responsive web pages.
+  - [Cloudinary:](https://cloudinary.com/) Used to store all blog images and uploaded images.
+  - [Coverage:](https://coverage.readthedocs.io/en/latest/index.html) Used for measuring code coverage of Python test files.
+  - [Django:](https://www.djangoproject.com/) Main Python framework used in the development.
+  - [Django Allauth:](https://django-allauth.readthedocs.io/en/latest/index.html) Used for authentication and account registration.
+  - [Django Crispy Forms:](https://django-crispy-forms.readthedocs.io/en/latest/) Used to simplify the rendering of Django forms.
+  - [dj_database_url:](https://pypi.org/project/dj-database-url/) Used to allow database urls to connect to the postgres database.
+  - [Gunicorn:](https://gunicorn.org/) Green Unicorn, used as the Web Server to run Django on Heroku.
+  - [Jest:](https://jestjs.io/) A delightful JavaScript Testing Framework, used for automated tests.
+  - [psycopg2:](https://pypi.org/project/psycopg2/) Used PostgreSQL database adapter.
+  - [Summernote:](https://github.com/summernote/django-summernote) To provide a WYSIWYG editor for customizing new blog content and add images.
+
+### Software and Web Applications Used:
+
+  - [Am I Responsive:](http://ami.responsivedesign.is) Checking the responsive.
+  - [Balsamiq:](https://balsamiq.com/) Used to create the wireframes.
+  - [Chrome DevTools:](https://developer.chrome.com/docs/devtools/) Used to test the response on different screen sizes, debugging and to generate a Lighthouse report to analyze page load.
+  - [Font Awesome:](https://fontawesome.com/) Used throughout the site to add icons for aesthetic and UX purposes.
+  - [Gauger:](https://gauger.io/fonticon/) To create the favicon, create beautiful favicon with ease.
+  - [Git:](https://git-scm.com/) Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+  - [GitHub:](https://github.com/) GitHub is used to store the projects code after being pushed from Git and to create the Kanban board used for this project.
+  - [Google Fonts:](https://fonts.google.com/) To import font family ’Cabin Sketch’ which is used throughout the site. Added fallback font sans-serif.
+  - [Google Maps:](https://mapsplatform.google.com/) Google Maps Embed API used in footer section
+  - [Heroku:](https://www.heroku.com/) For deployment and hosting of the application.
+  - [Heroku PostgreSQL:](https://www.heroku.com/postgres) The database used for this application.
+  - [HTML Validator:](https://validator.w3.org/) Check your code for HTML validation.
+  - [JSHint:](https://jshint.com/) Check code for JavaScript validation.
+  - [Lucidchart:](https://www.lucidchart.com/pages/) Used to create the site map.
+  - [Materialize Colors:](https://materializecss.com/color.html) Used to create the main colour palette.
+  - [Photoshop:](https://www.adobe.com/se/products/photoshop.html) Used to customize the hero image, adjust brightness and add gradient overlay.
+  - [SVG Backgrounds:](https://svgbackgrounds.com/) Scalable Vector Graphic used in the featurette section. Should the background image fail there is a fallback background colour set so the page still functions.
+  - [SVG Wave Generator:](https://softr.io/tools/svg-wave-generator/) Used to generate a gradient SVG wave used in the hero section.
+  - [Tiny PNG:](https://tinypng.com/) Compressing images to smaller sizes.
+  - [Unsplash:](https://unsplash.com/photos/NtkCemIfaiU) Hero image, Man fishing on river at daytime, Chris Sarsgard.
+  - [W3 CSS Validator:](https://jigsaw.w3.org/css-validator/) Check your code for CSS validation.
+  - [Writer:](https://writer.com/grammar-checker/) Free Grammar Check.
