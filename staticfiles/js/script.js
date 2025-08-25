@@ -165,17 +165,53 @@ function themeSelections(container) {
 			applyThemeToCards(value);
 
 			// Update audio
-			if (audioEnabled) {
-				themeAudio.src = `/static/audio/${value}.mp3`;
-				themeAudio.play();
-			} else {
-				themeAudio.pause();
-			}
+    if (audioEnabled) {
+      setThemeAudio(value); // handles both src + label + play
+    } else {
+      const audio = document.getElementById("themeAudio");
+      audio.pause();
+    }
 
-			console.log("Theme changed to:", value);
+    console.log("Theme changed to:", value);
 		});
 	});
 }
+
+function setThemeAudio(theme) {
+  const audio = document.getElementById("themeAudio");
+  let src = "";
+  let label = "Themed background music";
+
+  switch (theme) {
+    case "space":
+      src = "/static/audio/space.mp3";
+      label = "Themed background music - Space ambience";
+      break;
+    case "sea":
+      src = "/static/audio/sea.mp3";
+      label = "Themed background music - Ocean waves";
+      break;
+    case "forest":
+      src = "/static/audio/forest.mp3";
+      label = "Themed background music - Forest birds";
+      break;
+    case "sunset":
+      src = "/static/audio/sunset.mp3";
+      label = "Themed background music - Sunset park ambience";
+      break;
+  }
+
+  // Update aria-label for screen readers
+  audio.setAttribute("aria-label", label);
+  console.log("Audio label set to:", label);
+
+  // Update audio src and play
+  audio.src = src;
+  audio.play();
+}
+
+
+
 
 // Apply theme to body, cards, and buttons
 function applyThemeToCards(theme) {
@@ -214,32 +250,33 @@ function applyThemeToCards(theme) {
 	}
 }
 
+
 // Toggle audio on/off
 [toggleAudioMobile, toggleAudioSidebar].forEach((btn) => {
-	btn?.addEventListener("click", () => {
-		audioEnabled = !audioEnabled;
+  btn?.addEventListener("click", () => {
+    audioEnabled = !audioEnabled;
 
-		// Update audio
-		if (audioEnabled) {
-			themeAudio.src = `/static/audio/${currentTheme}.mp3`;
-			themeAudio.play();
-			btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-		} else {
-			themeAudio.pause();
-			btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
-		}
+    if (audioEnabled) {
+      // instead of setting .src directly, use the helper
+      setThemeAudio(currentTheme);
+      btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    } else {
+      themeAudio.pause();
+      btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    }
 
-		// Update ARIA state on both buttons
-		[toggleAudioMobile, toggleAudioSidebar].forEach((b) => {
-			if (!b) return;
-			b.setAttribute("aria-pressed", audioEnabled.toString());
-			b.setAttribute(
-				"aria-label",
-				audioEnabled ? "Mute theme audio" : "Unmute theme audio",
-			);
-		});
-	});
+    // Update ARIA state on both buttons
+    [toggleAudioMobile, toggleAudioSidebar].forEach((b) => {
+      if (!b) return;
+      b.setAttribute("aria-pressed", audioEnabled.toString());
+      b.setAttribute(
+        "aria-label",
+        audioEnabled ? "Mute theme audio" : "Unmute theme audio"
+      );
+    });
+  });
 });
+
 
 // Buttons
 addBtn?.addEventListener("click", showRandomNote);

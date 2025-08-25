@@ -17,9 +17,16 @@ Take A Breath is a minimalist, full-stack web application built to spread kindne
 
 - [User Experience](#user-experience)
   - [Strategy](#strategy)
+    - [Primary Strategic Aims](#primary-strategic-aims)
   - [Scope](#scope)
+    - [In-Scope Features](#in-scope-features)
+    - [Out-of-Scope Features](#out-of-scope-features)
+    - [Scrapped Features](#scrapped-features)
   - [Structure](#structure)
   - [Skeleton](#skeleton)
+    - [Wireframes](#wireframes)
+    - [Data Model](#data-model)
+    - [Site Map](#site-map)
   - [Surface](#surface)
 - [Features](#features)
 - [Testing](#testing)
@@ -101,9 +108,11 @@ This site is aimed at overall internet users seeking comforting and motivational
 - **My Notes Page:** all users notes, Pending and Approved sections, Edit and Delete Button for every note. 
 - **Global Elements:** Consistent nav menu and sidebar menu for mobile and desktop respecivly, audio toggle, footer with licence, and social links
 
----
 
+---
 ## Skeleton
+
+### Wireframes
 
 Wireframes were designed for mobile, tablet, and desktop responsiveness.
 
@@ -124,9 +133,29 @@ Responsive breakpoints considered:
 - <576px - Phone
 - ≥576px - Tablet and desktop
 
----
 
+### Data Model
+
+This project is hosted on Heroku and the database used is Heroku PostgreSQL. 
+Cloudinary is used to store all blog images. Two custom models were created for this project; Post and Comment. With the default Django User model already included.
+
+Entity Relationship Diagram - Post:
+
+![ERD Posts](documentation/erd-posts.jpg)
+
+Entity Relationship Diagram - Comment:
+
+![ERD Comments](documentation/erd-comments.jpg)
+
+### Site Map
+
+To explain the structure of the site and how to navigate it, I created a site map using Lucidchart:
+
+![Site Map](documentation/sitemap.jpg)
+
+---
 ## Surface
+
 
 ### Visual Design
 
@@ -137,10 +166,63 @@ Responsive breakpoints considered:
 
 ### Color Scheme
 
-Colors picked via tools like IMAGECOLORPICKER and contrast-tested for accessibility.
+From the beginning, I wanted the site to feel dynamic and personal, so instead of being limited to a single color palette, I designed it to adapt based on the user’s chosen theme. Users can select between **Ocean, Sunset, Forest, or Space/Cosmic**, each with its own unique gradient background, note card styling, and button colors while keeping accessibility and readability in mind.
+
+To achieve this, I created theme-specific CSS classes (e.g., `.theme-sea`, `.theme-forest`, `.theme-sunset`, `.theme-space`) that apply consistent styling across the site’s elements, including the body background, note cards, and buttons. This ensures the design is cohesive within each theme while still providing variety and personalization.
+
+Each theme was tested for **readability and accessibility**, with contrasting text colors against gradient backgrounds to ensure all notes remain easy to read for all visitors regardless of theme choice:
+
+### 🌌 Space / Cosmic - 
+
+Deep indigos and purples with soft lavender notes.
+
+* Background: `linear-gradient(indigo, purple, black)`
+* Note cards: `#d8b4fe → #c4b5fd`
+* Text color: `#3730a3`
+* Buttons: `#a78bfa` (hover: `#7c3aed`)
+
+### 🌊 Ocean-
+
+Bright turquoise and blues for a refreshing, calm aesthetic.
+
+* Background: `linear-gradient(#60a5fa, #06b6d4, #0d9488)`
+* Note cards: `#67e8f9 → #60a5fa`
+* Text color: `#1e40af`
+* Buttons: `#3b82f6` (hover: `#2563eb`)
+
+### 🌲 Forest -
+
+Natural greens with dark accents for grounding and balance.
+
+* Background: `linear-gradient(#065f46, #047857, #064e3b)`
+* Note cards: `#bbf7d0 → #34d399`
+* Text color: `#065f46`
+* Buttons: `#10b981` (hover: `#059669`)
+
+### 🌅 Sunset - 
+
+Warm oranges, pinks, and purples for an uplifting atmosphere.
+
+* Background: `linear-gradient(#fb923c, #ec4899, #7c3aed)`
+* Note cards: `#fed7aa → #f9a8d4`
+* Text color: `#c2410c`
+* Buttons: `#f97316` (hover: `#ea580c`)
+
 
 ### Media
 
+**Logo**
+
+Since no logo was provided for this project, I explored free design resources to find one that fit the calming and uplifting theme of the site. After reviewing several options, I selected a completed logo from Creative Fabrica
+, which aligned perfectly with the project’s minimalist aesthetic and focus on positivity.
+
+The logo was chosen for its professional design quality and its ability to reflect the project’s purpose—creating a safe, welcoming space for users to pause, reflect, and share kindness. Its simple, modern style ensures accessibility and brand recognition across devices.
+
+**Audio**
+
+The video is also a mockup generated using the AI site Ai.invideo as a generated promotional video detailing more of Zenair Wellness Center's values and general goal for the members.
+
+**Summery**
 - All images and audio include alt tags
 - Colour themes inspured by [Coolors](https://coolors.co/)
 - Audio embedded from sources like [Freesound](https://freesound.org/)
@@ -170,20 +252,33 @@ Contains copyright for site including year.
 #### Metadata
 Optimized meta titles and descriptions for better SEO.
 
-#### Confirmation Page
-Displays a success message after form submission.
+#### Error Pages
+Errors 400, 403, 404, 405, and 500 added to fit theme of page if error occures
 
 ### Page-Specific Features
 
-#### FAQ Accordion
-Compact collapsible sections with common user questions.
+#### Sticky notes for display
+displays handwritten notes from users in a stacked style of 5 background notes at a time. 
 
-#### Inquiry/Booking Form
-Fields: Full name, email, phone, reason, date, message
+#### Write a note display
+Continued stiky note design with the following: Notes area, name area (Anonymous by default) filter to manually approve notes with certain words
+
+#### Edit a note display
+Has same design as Write a note, with auto populated note for easy editing. Once Edited, change is seen immediatly. 
+
+#### Delete a note display
+Displays note and name without stikynote design. Once deleted, note is immediatly removed from rotation of displayable notes and database. 
 
 ---
 
 ## Testing
+
+Throughout the Build phase, Chrome Developer Tools are used to ensure all pages are developed to remain intuitive, responsive, and accessible across all device widths. The pages were designed at 1400px wide, reducing to 320px for mobile devices. These tools and others were used for the Testing phase. 
+
+ Chrome Developer Tools also used for debugging of Javascript file and pointing out possibe Django errors
+ (CONTINUE)
+
+The following sections summarise the tests and results.
 
 ### Code Validation
 
