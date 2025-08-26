@@ -31,6 +31,8 @@ i {
 
 h2 {
   padding-top: 0.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 main {
@@ -429,38 +431,38 @@ body.theme-sunset {
 /* ====== Themed Buttons ====== */
 .btn-theme-space {
   background: #a78bfa;
-  color: white;
+  color: var(--white);
 }
 .btn-theme-space:hover {
   background: #7c3aed;
-  color: #fff;
+  color: var(--white);
 }
 
 .btn-theme-sea {
   background: #3b82f6;
-  color: white;
+  color: var(--white);
 }
 .btn-theme-sea:hover {
   background: #2563eb;
-  color: #fff;
+  color: var(--white);
 }
 
 .btn-theme-forest {
   background: #10b981;
-  color: white;
+  color: var(--white);
 }
 .btn-theme-forest:hover {
   background: #059669;
-  color: #fff;
+  color: var(--white);
 }
 
 .btn-theme-sunset {
   background: #f97316;
-  color: white;
+  color: var(--white);
 }
 .btn-theme-sunset:hover {
   background: #ea580c;
-  color: #fff;
+  color: var(--white);
 }
 
 /*Media Queries*/

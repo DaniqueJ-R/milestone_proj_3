@@ -380,65 +380,183 @@ I have tested that this application works using Macbook Air, and Asus Tuf, using
   - Firefox 
   - Opera GX
 
-I have tested this application works on the following Mobile devices:
 
-  - OnePlus Nord N 10
-  - iPhone XR
-  - Samsung 
+### Manual Testing
 
-### Accessibility
+#### 1. **Functionality Testing**
 
-- Tested using [WAVE](https://wave.webaim.org/) on all page backgrounds:
+I tested each feature of the site to ensure it works as intended.
 
-**Beginig issues:**
-- 0 errors
-- 4 contrast Errors
-- 6 Alerts
-- 2 Features
-- 8 Structurs Elements
-- 32 ARIA
+
+
+| Feature | Action | Expected Result | Pass/Fail | Notes |
+| ------- | ------ | --------------- | --------- | ----- |
+| Home page loads | Visit `/` | Page loads with “Pick a Note” and “Write a Note” options, Sidebar with logo and links, and sticky note with text displayed automatically | ✅ Pass | Initial load shows all notes and default (space) background before updating to show correctly |
+| Filter by mood | Select "Stress" in dropdown | Nothing changes on page | ❌ Fail | Did not have time to set up JS for filter |
+| Log in | Entered different login details, both correct and incorrect | Pop-up informed what issue was denying my login, and once correct, took me to the home page with login template | ✅ Pass | No Notes |
+| Add note | Submit note form with no name | Note approved with default name anonymous | ✅ Pass | Note shows under Approved Notes on My Notes page. Pop-up informed that the note was approved immediately |
+| Add note with expletives | Submit note form with bad word from list | Pop up informed that note needs to be manually approved | ✅ Pass | Note shows under Pending Notes on My Notes page. Works with the new word added to the list immediately. |
+| Edit note | Edit content of a pending and approved note | Updated content is saved and displayed immediately | ✅ Pass | Edit Page populated with note text already for easy alterations |
+| Delete note  | Click “Delete” on a note | Note is removed from list | ✅ Pass | Delete Page shows full note and name to confirm deletion |
+| Manually Approved notes  | Logged into Admin page and approves note manually | Note moves from “Pending” to “Approved” | ✅ Pass | User not notified of approval |
+| Mobile navigation  | Open site on different phone types (IOS, Android) | Sidebar menu collapses to top screen Nav Bar and is usable | ⚠️ Partial | Navbar works, but does not collapse once theme selected or user taps outside nav bar |
+
+
+---
+
+### 2. **Responsiveness Testing**
+
+Tested the site across multiple screen sizes using Chrome DevTools, personal, and friends phones and laptops.
+
+| Device             | Expected Behaviour                              | Pass/Fail |
+| ------------------ | ----------------------------------------------- | --------- |
+| Mobile (iPhone SE) | Notes stack vertically, navigation collapses    | ✅ Pass    |
+| Tablet (iPad)      | Notes display in grid, sidebar still accessible | ✅ Pass    |
+| Desktop (1080p)    | Full layout visible, grid responsive            | ✅ Pass    |
+
+---
+
+### 3. **Accessibility Testing**
+
+Used [WAVE](https://wave.webaim.org/) and Lighthouse accessibility checker.
+
+| Check               | Expected Result                             | Pass/Fail |
+| ------------------- | ------------------------------------------- | --------- |
+| Alt text on images  | All images have alt attributes              | ✅ Pass    |
+| Contrast ratio      | Text has sufficient contrast                | ✅ Pass    |
+| Keyboard navigation | All interactive elements accessible via Tab | ✅ Pass    |
+| ARIA labels         | Sidebar navigation labelled                 | ✅ Pass    |
 
 **Issues Resolved:**
 
 - Resolved contrast issues and heading structure
+- Transcript for Audio
+- Missed and sort Aria lables and alts
+- Connecting form to Mood selection Label
 
 **Issues Not Resolved:**
-- Atmosphere text shows not to be in contrast with all backgounds, but no other test shown to give the same issue. 
+- Atmosphere text, and buttons shows not to be in contrast with all backgounds, but no other test shown to give the same issue. 
 - Notes detected to be headings which are incorrect so alert has been ignored. 
-
-**Ending issues:**
-- 0 errors
-- 4 contrast Errors
-- 3 Alerts
-- 3 Features
-- 8 Structurs Elements
-- 32 ARIA
-
-### User Stories
-
-Each user story tested to ensure functionality matches expectations.
-
-### Performance
-
-Lighthouse used to improve image sizes, font loading, and rendering.
+- Reminder to add transcript for audio as Alert. Transcript added but alert still shows.
 
 ---
 
+### 4. **Data Management Testing**
+
+Checked CRUD functionality with database.
+
+| Action               | Expected Result                               | Pass/Fail |
+| -------------------- | --------------------------------------------- | --------- |
+| Create note with expletives | Entry appears in DB with status `0` (Pending) | ✅ Pass    |
+| Create note with **No** expletives | Entry appears in DB with status `1` (Approved) | ✅ Pass    |
+| Approve note (admin) | Status changes to `1` (Approved)              | ✅ Pass    |
+| Delete note          | Record removed from DB                        | ✅ Pass    |
+| Delete User          | Record of user removed from DB but notes remain | ✅ Pass    |
+
+---
+
+### 5. **Error/Bug Testing**
+
+| Test                                 | Expected Result                                  | Outcome |
+| ------------------------------------ | ------------------------------------------------ | ------- |
+| Submit form with blank fields        | Form validation prevents submission              | ✅ Works |
+| Access `/edit_note/` with invalid ID | Error handled gracefully (404)                   | ✅ Works |
+| Delete note twice                    | First deletion works, second shows error message | ✅ Works |
+
+---
+
+### 6. **Deployment Testing**
+
+* Verified app deployed successfully on Heroku.
+* Checked links in README – all work.
+* Confirmed `DEBUG = False` in production.
+* Confirmed no secrets (keys, passwords) in repo.
+
+
+
+### Performance
+
+Using Lighthouse performance testing within Chrome Developer Tools, every major page's performance was tested on desktop and mobile devices. The results from this testing are outlined below. 
+
+The tests highlighted a constant theme of image sizes being too large and elements such as bootstraps and Google fonts causing a longer loading time for users. All files have been appropriately right-sized and formatted to improve the user experience, and we will continue to work on these elements to reduce the loading time. In the meantime, the "class="d-block w-100" was removed from the carousel images as suggested by Lighthouse. 
+
+**Lighthouse test - Mobile**
+
+Lighthouse Home Mobile
+
+![Lighthouse Home Mobile](assets/README/index-lighthouse-mobile.png)
+
+Lighthouse Class Mobile
+
+![Lighthouse Class Mobile](assets/README/classes-mobile.png)
+
+Lighthouse Contact Us Mobile
+
+![Lighthouse Contact Us Mobile](assets/README/contact-us-mobile.png)
+
+Lighthouse Success Mobile
+
+![Lighthouse Success Mobile](assets/README/success-mobile.png)
+
+**Lighthouse test - Desktop**
+
+Lighthouse Home Desktop
+
+![Lighthouse Home Desktop](assets/README/index-lighthouse-desktop.png)
+
+Lighthouse Class Desktop
+
+![Lighthouse Class Desktop](assets/README/classes-desktop.png)
+
+Lighthouse Contact Us Desktop
+
+![Lighthouse Contact Us Desktop](assets/README/contact-us-desktop.png)
+
+Lighthouse Success Desktop
+
+![Lighthouse Success Desktop](assets/README/success-desktop.png)
+
 ## Bugs
 
-### Fixed
+### Bug Fixes/ General Improvements 
 
-- Resized large images to improve performance
-- Corrected nav-menu dropdown alignment
-- Fixed font overflow in pricing table
-- Re-aligned class sections using Bootstrap
-- Resolved carousel size issue
-- Fixed accordion tabs opening simultaneously
-- Adjusted social media icon placement and responsiveness
+- **Setting Body to 2000px and resizing photos** — The Lighthouse results initially for the Index and Classes page indicated that the photos were too large for the page, leading to longer loading times and a poor user experience. 
 
-### Remaining
+- _Fix:_ When I Showed this to my mentor, his solution was to set a max width of 2000px for the Body of the page, resize the photos to 2000px max, and change them to .webp instead of .jpg. This resulted in the pages getting the results from Lighthouse mentioned below
 
-- Nav-menu on smaller devices does not collapse after link click (to be fixed)
+* **Nav-Menu dropdown appearing on Left side of screen** — When I first added the Nav Menu, the drop-down section was not correctly positioned, causing it to show on the left side of the page instead of under the heading it was created for. 
+
+- _Fix:_ To fix this, I went through each line and noticed that the area was not within the correct area, then I reinstalled the code for the dropdown and nav-menu, which now shows the dropdown under the correct area after testing. 
+
+* **Resizing Pricing Table font to remove overhanding** - After adding the correct information to the pricing table on the Homepage, I noticed it will overflow on the page when on smaller devices. 
+
+- _Fix:_ To combat this, I used a Media Query and changed the font, making it that it was 0.8rem on small decided, and increasing to 1.1rem on larger devices. 
+
+* **Using bootstrap arrangement for spacing and location of classes section** - During the sizing and styling of the Class section, there was an issue with the spacing, where the Zumba class would not be aligned Center and the other classes would not align left or right respectively. 
+
+- _Fix:_ I referenced the Boardwalk Games coding and Bootstraps Documents, realizing the Row and containing classes were not in the correct place, and the column sizes were incorrect. In correcting this, The X formation was possible, allowing it to form in a single line on Mobile devices and in the X formation on Desktop and tablets. This looks different from the Wireframes as it was agreed this styling was preferred to the original.  
+
+* **Sizing carousel on home page** - When initially adding the carousel, it only covered a part of the header section. Per the wireframe, this was to spread across the entire page which Bootstrap did not have any direct classes for. 
+
+- _Fix:_ Fixing this took some time due to spacing. Ultimately it was fixed after finding online code with CSS that assisted with the sizing and location of the photos. 
+
+* **Reconnecting Accordion on FAQ not to open together** - Once working on the FAQ section, there were difficulties getting the colours to show correctly as the bootstraps classes catered to the same thing in different areas, as well as a problem where, as the Accordion was duplicated, both sections were opening simultaneously. 
+
+- _Fix:_ The fix was to overwrite the colour classes in the Accordion library, allowing me to customize them in the uniformed colour pallet. To prevent the tabs from opening together, I had to change the data-bs-target, aria-controls, data-bs-parent and ID, making them unique to each tab, preventing any further bugs. 
+
+* **Spacing and sizing of Social media icons** - Upon first adding the Social Icons in the Nav-Menu, it was first added to the list area, which worked visually, but was shown not to be allowed in the coding rules, pointed out by the HTML Verification check.  
+
+- _Fix:_ Initially it was taken from the list codes, and was showing beside the logo incorrectly. I then tried adding padding or the flex display CSS, however, it was not responsive on all screen sizes. Ultimately I was able to add it as a list item, that was able to keep the icons in the correct area, and now being verified by the HTML Verification check. 
+
+
+### Remaining Bugs
+
+There are still minor issues on the site that can be a slightly unfavourable experience on the project for tablet and mobile users, where the nav-menu does not automatically collapse after using the dropdown for each second. The nav-menu has to be closed manually to see the page, however, they are taken to the correct location on each page.
+
+![Nav-menu area not colappsing after selecting dropdown option](assets/README/nav-bar-issue.png)
+
+
+
 
 ---
 
