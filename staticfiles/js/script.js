@@ -67,6 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Render all displayed notes
 function renderNotes() {
+  if (!container) return; // prevent error if notes-container is not on this page
+
   container.innerHTML = "";
 
   if (emptyMsg) {
@@ -82,6 +84,7 @@ function renderNotes() {
     container.appendChild(note);
   });
 }
+
 
 // Create sticky note element
 function createStickyNote(noteObj, index, theme) {
@@ -220,40 +223,37 @@ function setThemeAudio(theme) {
 
 // Apply theme to body, cards, and buttons
 function applyThemeToCards(theme) {
-  // Cards
-  document.querySelectorAll(".note-card").forEach((card) => {
-    card.classList.remove(
-      "theme-space",
-      "theme-sea",
-      "theme-forest",
-      "theme-sunset"
-    );
-    card.classList.add(`theme-${theme}`);
-  });
+  const themeClasses = ["theme-space", "theme-sea", "theme-forest", "theme-sunset"];
 
-  // Buttons
+  // Handle note cards (both Pending + Approved on My Notes page)
+  document.querySelectorAll("#my-notes-container .note-card, #notes-container .note-card")
+    .forEach((card) => {
+      card.classList.remove(...themeClasses);
+      card.classList.add(`theme-${theme}`);
+    });
+
+  // Handle card bodies inside note cards only
+  document.querySelectorAll("#my-notes-container .note-card .card-body, #notes-container .note-card .card-body")
+    .forEach((body) => {
+      body.classList.remove(...themeClasses);
+      body.classList.add(`theme-${theme}`);
+    });
+
+  // Theme buttons inside notes
   document.querySelectorAll(".btn-theme").forEach((btn) => {
-    btn.classList.remove(
-      "btn-theme-space",
-      "btn-theme-sea",
-      "btn-theme-forest",
-      "btn-theme-sunset"
-    );
+    btn.classList.remove("btn-theme-space", "btn-theme-sea", "btn-theme-forest", "btn-theme-sunset");
     btn.classList.add(`btn-theme-${theme}`);
   });
 
-  // Write-page background
+  // Write-page background (only exists on write form page)
   const bg = document.getElementById("sticky-note-writing");
   if (bg) {
-    bg.classList.remove(
-      "theme-space",
-      "theme-sea",
-      "theme-forest",
-      "theme-sunset"
-    );
+    bg.classList.remove(...themeClasses);
     bg.classList.add(`theme-${theme}`);
   }
 }
+
+
 
 // Toggle audio on/off
 [toggleAudioMobile, toggleAudioSidebar].forEach((btn) => {
