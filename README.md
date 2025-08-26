@@ -9,7 +9,7 @@
 
 ## About
 
-Take A Breath is a minimalist, full-stack web application built to spread kindness and positivity online. Inspired by the concept of a message in a bottle, it allows users to submit short, anonymous motivational quotes or kind messages. When someone visits the site, they receive a randomly selected note written by another user. The project is designed with accessibility and user experience in mind, offering a calm, focused space where people can pause, reflect, and feel supported—no accounts or logins needed. All messages are stored in a secure database and can be added or removed via a simple, user-friendly interface.
+Take A Breath is a minimalist, full-stack web application built to spread kindness and positivity online. Inspired by the concept of a message in a bottle, it allows users to submit short, anonymous motivational quotes or kind messages. When someone visits the site, they receive a randomly selected note written by another user. The project is designed with accessibility and user experience in mind, offering a calm and focused space where people can pause, reflect, and feel supported—no accounts or logins required. All messages are stored in a secure database and can be added or removed via a simple, user-friendly interface. Explore how each part of the site supports these goals in the following sections.
 
 ---
 
@@ -28,10 +28,40 @@ Take A Breath is a minimalist, full-stack web application built to spread kindne
     - [Data Model](#data-model)
     - [Site Map](#site-map)
   - [Surface](#surface)
+    - [Visual Design](#visual-design)
+    - [Color Scheme](#color-scheme)
+    - [Typography](#typography)
+    - [Media](#media)
 - [Features](#features)
+  - [Universal Features](#universal-features)
+  - [Page-Specific Features](#page-specific-features)
 - [Testing](#testing)
-- [Bugs](#bugs)
-- [Deployment](#deployment)
+  - [Validator Testing](#validator-testing)
+    - [HTML Validator](#w3c-html-validator)
+    - [CSS Validator](#w3c-CSS-validator)
+  - [Browser Testing](#browser-testing)
+  - [Manual Testing](#manual-testing)
+    - [Functionality Testing](#functionality-testing)
+    - [Responsiveness Testing](#responsiveness-testing)
+    - [Accessibility Testing](#accessibility-testing)
+    - [Data Management Testing](#data-management-testing)
+    - [Error/Bug Testing](#errorbug-testing)
+    - [Deployment Testing](#deployment-testing)
+    - [Performance](#performance)
+- [Bug Fixes/ General Improvements](#bug-fixes-general-improvements)
+  - [Issues & Fixes](#issues--fixes)
+  - [Remaining Bugs](#remaining-bugs)
+  - [Future Improvements](#future-improvements)
+- [Deployment Guide](#deployment-guide)
+  - [GitHub Pages Deployment](#1-github-pages-deployment-front-end)
+  - [Heroku Deployment](#2-heroku-deployment-back-end)
+    - [Database Setup](#database-setup)
+    - [Configuring Environment Variables](#configuring-environment-variables)
+    - [Django Settings Updates](#django-settings-update)
+    - [Cloudinary Setup](#cloudinary-setup-media--static-files)
+    - [Final Deployment](#final-deployment)
+  - [Forking](#forking)
+  - [Cloning Your Fork](#cloning-your-fork)
 - [Credits](#credits)
 
 ---
@@ -305,11 +335,9 @@ Throughout the Build phase, Chrome Developer Tools are used to ensure all pages 
 
 The following sections summarise the tests and results.
 
-### Code Validation
-
 ### Validator Testing
 
-#### W3C Markup Validator:
+#### W3C HTML Validator:
 
 Code has been tested using the [HTML Validator](https://validator.w3.org/) and [CSS Validator](https://jigsaw.w3.org/css-validator/).
 
@@ -381,7 +409,7 @@ I have tested that this application works using Macbook Air, and Asus Tuf, using
 
 ### Manual Testing
 
-#### **Functionality Testing**
+#### Functionality Testing
 
 I tested each feature of the site to ensure it works as intended.
 
@@ -400,7 +428,7 @@ I tested each feature of the site to ensure it works as intended.
 
 ---
 
-### **Responsiveness Testing**
+### Responsiveness Testing
 
 Tested the site across multiple screen sizes using Chrome DevTools, personal, and friends phones and laptops.
 
@@ -412,7 +440,7 @@ Tested the site across multiple screen sizes using Chrome DevTools, personal, an
 
 ---
 
-### **Accessibility Testing**
+### Accessibility Testing
 
 Used [WAVE](https://wave.webaim.org/) and Lighthouse accessibility checker.
 
@@ -437,7 +465,7 @@ Used [WAVE](https://wave.webaim.org/) and Lighthouse accessibility checker.
 
 ---
 
-### **Data Management Testing**
+### Data Management Testing
 
 Checked CRUD functionality with database.
 
@@ -451,7 +479,7 @@ Checked CRUD functionality with database.
 
 ---
 
-### **Error/Bug Testing**
+### Error/Bug Testing
 
 | Test                                 | Expected Result                                  | Outcome |
 | ------------------------------------ | ------------------------------------------------ | ------- |
@@ -461,7 +489,7 @@ Checked CRUD functionality with database.
 
 
 
-### **Deployment Testing**
+### Deployment Testing
 
 * Verified app deployed successfully on Heroku.
 * Checked links in README – all work.
@@ -502,7 +530,6 @@ Lighthouse Write a Note Desktop
 ![Lighthouse Write a Note Desktop](documents/testing/lighthouse-desktop-write-a-note.png)
 
 ## Bug Fixes/ General Improvements 
-
 
 ### Issues & Fixes (READ AND UPDATE)
 
@@ -587,7 +614,7 @@ Lighthouse Write a Note Desktop
 
 ---
 
-
+(UPDATE)
 ![Nav-menu area not colappsing after selecting dropdown option](assets/README/nav-bar-issue.png)
 
 
