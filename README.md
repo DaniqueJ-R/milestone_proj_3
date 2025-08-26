@@ -1,6 +1,6 @@
 # Take A Breath
 
-![Website Mockup](documents/read-me/)
+![Website Mockup](documents/read-me/)(UPDATE)
 
 [Live Website](https://take-a-breath-a26c57655e5e.herokuapp.com/)  
 [GitHub Repository](https://github.com/DaniqueJ-R/milestone_proj_3)
@@ -141,17 +141,17 @@ Cloudinary is used to store all blog images. Two custom models were created for 
 
 Entity Relationship Diagram - Post:
 
-![ERD Posts](documentation/erd-posts.jpg)
+![ERD Posts](documentation/erd-posts.jpg)(UPDATE)
 
 Entity Relationship Diagram - Comment:
 
-![ERD Comments](documentation/erd-comments.jpg)
+![ERD Comments](documentation/erd-comments.jpg)(UPDATE)
 
 ### Site Map
 
 To explain the structure of the site and how to navigate it, I created a site map using Lucidchart:
 
-![Site Map](documentation/sitemap.jpg)
+![Site Map](documentation/sitemap.jpg) (UPDATE)
 
 ---
 ## Surface
@@ -214,9 +214,7 @@ For the overall site, I selected **Noto Sans** as the primary font. This font wa
 
 To create a handwritten, personal touch for the notes, I used **Allison**. This script font brings warmth and authenticity to the design, with a sans-serif fallback for reliability.
 
-To highlight certain headings and draw the user’s attention, I applied **Cabin Sketch**, a Google Web Font with an outlined style. It complements the site’s theme while remaining easy to read, and falls back to sans-serif if unavailable.
-
-![Design Cabinsketch](documentation/design-cabinsketch.jpg)
+![Noto Sans and Allison Fonts](documents/fonts.png)
 
 ### Media
 
@@ -317,7 +315,7 @@ Code has been tested using the [HTML Validator](https://validator.w3.org/) and [
 
 The W3C Markup Validator were used to validate the HTML on all pages of the project to ensure there were no syntax errors in there. To validate the HTML files, the html file from te browser was coppied for each page using the 'View Page Source' feature on Google Chome, to remove the Django Template and validate the whole page.
 
-* **Home page** - 0 Errors / 0 Warnings:
+* **Home page** - 0 Errors / 0 Warnings: (UPDATES PICS)
 
 ![HTML home](documentation/testing/htmlchecker-index.jpg)
 
@@ -357,9 +355,9 @@ Comment Update page - [View Full HTML Validation Results here.](https://github.c
 
 The W3C CSS Validator Services were used to validate the CSS giving the following results - 0 Errors / 5 warnings
 
-![CSS No errors](assets/README/css-no-error.png)
+![CSS No errors](documents/css-no-errors.png)
 
-![CSS warnings](assets/README/css-warnings.png)
+![CSS warnings](documents/css-warnings.png)
 
 The warnings are due to 1) import of the Google fonts, 2) a webkit extension for Safari support of the flip-card effect used on the home page, and  3) using the root format for most colouring and text on the site (--var).
 
@@ -383,11 +381,9 @@ I have tested that this application works using Macbook Air, and Asus Tuf, using
 
 ### Manual Testing
 
-#### 1. **Functionality Testing**
+#### **Functionality Testing**
 
 I tested each feature of the site to ensure it works as intended.
-
-
 
 | Feature | Action | Expected Result | Pass/Fail | Notes |
 | ------- | ------ | --------------- | --------- | ----- |
@@ -404,19 +400,19 @@ I tested each feature of the site to ensure it works as intended.
 
 ---
 
-### 2. **Responsiveness Testing**
+### **Responsiveness Testing**
 
 Tested the site across multiple screen sizes using Chrome DevTools, personal, and friends phones and laptops.
 
 | Device             | Expected Behaviour                              | Pass/Fail |
 | ------------------ | ----------------------------------------------- | --------- |
-| Mobile (iPhone SE) | Notes stack vertically, navigation collapses    | ✅ Pass    |
+| Mobile (iPhone XR, Samsung S20, OnePlus Nord N 10) | Notes stack vertically, navigation collapses    | ✅ Pass    |
 | Tablet (iPad)      | Notes display in grid, sidebar still accessible | ✅ Pass    |
 | Desktop (1080p)    | Full layout visible, grid responsive            | ✅ Pass    |
 
 ---
 
-### 3. **Accessibility Testing**
+### **Accessibility Testing**
 
 Used [WAVE](https://wave.webaim.org/) and Lighthouse accessibility checker.
 
@@ -441,7 +437,7 @@ Used [WAVE](https://wave.webaim.org/) and Lighthouse accessibility checker.
 
 ---
 
-### 4. **Data Management Testing**
+### **Data Management Testing**
 
 Checked CRUD functionality with database.
 
@@ -455,7 +451,7 @@ Checked CRUD functionality with database.
 
 ---
 
-### 5. **Error/Bug Testing**
+### **Error/Bug Testing**
 
 | Test                                 | Expected Result                                  | Outcome |
 | ------------------------------------ | ------------------------------------------------ | ------- |
@@ -463,9 +459,9 @@ Checked CRUD functionality with database.
 | Access `/edit_note/` with invalid ID | Error handled gracefully (404)                   | ✅ Works |
 | Delete note twice                    | First deletion works, second shows error message | ✅ Works |
 
----
 
-### 6. **Deployment Testing**
+
+### **Deployment Testing**
 
 * Verified app deployed successfully on Heroku.
 * Checked links in README – all work.
@@ -473,172 +469,349 @@ Checked CRUD functionality with database.
 * Confirmed no secrets (keys, passwords) in repo.
 
 
-
 ### Performance
 
 Using Lighthouse performance testing within Chrome Developer Tools, every major page's performance was tested on desktop and mobile devices. The results from this testing are outlined below. 
-
-The tests highlighted a constant theme of image sizes being too large and elements such as bootstraps and Google fonts causing a longer loading time for users. All files have been appropriately right-sized and formatted to improve the user experience, and we will continue to work on these elements to reduce the loading time. In the meantime, the "class="d-block w-100" was removed from the carousel images as suggested by Lighthouse. 
 
 **Lighthouse test - Mobile**
 
 Lighthouse Home Mobile
 
-![Lighthouse Home Mobile](assets/README/index-lighthouse-mobile.png)
+![Lighthouse Home Mobile](documents/testing/lighthouse-mobile-home.png)
 
-Lighthouse Class Mobile
+Lighthouse My Notes Mobile
 
-![Lighthouse Class Mobile](assets/README/classes-mobile.png)
+![Lighthouse My Notes Mobile](documents/testing/lighthouse-mobile-my-note.png)
 
-Lighthouse Contact Us Mobile
+Lighthouse Write a Note Mobile
 
-![Lighthouse Contact Us Mobile](assets/README/contact-us-mobile.png)
-
-Lighthouse Success Mobile
-
-![Lighthouse Success Mobile](assets/README/success-mobile.png)
+![Lighthouse Write a Note Mobile](documents/testing/lighthouse-mobile-write-a-note.png)
 
 **Lighthouse test - Desktop**
 
-Lighthouse Home Desktop
+Lighthouse Desktop
 
-![Lighthouse Home Desktop](assets/README/index-lighthouse-desktop.png)
+![Lighthouse Home Desktop](documents/testing/lighthouse-desktop-home.png)
 
-Lighthouse Class Desktop
+Lighthouse My Notes Desktop
 
-![Lighthouse Class Desktop](assets/README/classes-desktop.png)
+![Lighthouse My Notes Desktop](documents/testing/lighthouse-desktop-my-note.png)
 
-Lighthouse Contact Us Desktop
+Lighthouse Write a Note Desktop
 
-![Lighthouse Contact Us Desktop](assets/README/contact-us-desktop.png)
+![Lighthouse Write a Note Desktop](documents/testing/lighthouse-desktop-write-a-note.png)
 
-Lighthouse Success Desktop
+## Bug Fixes/ General Improvements 
 
-![Lighthouse Success Desktop](assets/README/success-desktop.png)
 
-## Bugs
+### Issues & Fixes (READ AND UPDATE)
 
-### Bug Fixes/ General Improvements 
+* **Installing Gunicorn, Summernote, and Heroku** – Setting up deployment required configuring Gunicorn for production, adding Summernote for rich-text editing, and ensuring Heroku could serve static files.
 
-- **Setting Body to 2000px and resizing photos** — The Lighthouse results initially for the Index and Classes page indicated that the photos were too large for the page, leading to longer loading times and a poor user experience. 
+- *Fix:* Adjusted Django settings, added missing requirements, and configured environment variables in Heroku.
 
-- _Fix:_ When I Showed this to my mentor, his solution was to set a max width of 2000px for the Body of the page, resize the photos to 2000px max, and change them to .webp instead of .jpg. This resulted in the pages getting the results from Lighthouse mentioned below
+* **Deployment Errors on Heroku** – The project wouldn’t deploy due to build errors and missing dependencies.
 
-* **Nav-Menu dropdown appearing on Left side of screen** — When I first added the Nav Menu, the drop-down section was not correctly positioned, causing it to show on the left side of the page instead of under the heading it was created for. 
+- *Fix:* Corrected the `Procfile`, updated `requirements.txt`, and re-ran `collectstatic` after adjusting debug settings.
 
-- _Fix:_ To fix this, I went through each line and noticed that the area was not within the correct area, then I reinstalled the code for the dropdown and nav-menu, which now shows the dropdown under the correct area after testing. 
+* **Note Flip Function (JavaScript)** – Sticky notes weren’t flipping correctly, only partially animating.
 
-* **Resizing Pricing Table font to remove overhanding** - After adding the correct information to the pricing table on the Homepage, I noticed it will overflow on the page when on smaller devices. 
+- *Fix:* Rewrote the JS flip function and confirmed CSS transforms applied correctly.
 
-- _Fix:_ To combat this, I used a Media Query and changed the font, making it that it was 0.8rem on small decided, and increasing to 1.1rem on larger devices. 
+* **Changing Note Colors with Background** – Notes and backgrounds weren’t updating together when the color was changed.
 
-* **Using bootstrap arrangement for spacing and location of classes section** - During the sizing and styling of the Class section, there was an issue with the spacing, where the Zumba class would not be aligned Center and the other classes would not align left or right respectively. 
+- *Fix:* Linked the color-change function to the flip event so both updated at the same time.
 
-- _Fix:_ I referenced the Boardwalk Games coding and Bootstraps Documents, realizing the Row and containing classes were not in the correct place, and the column sizes were incorrect. In correcting this, The X formation was possible, allowing it to form in a single line on Mobile devices and in the X formation on Desktop and tablets. This looks different from the Wireframes as it was agreed this styling was preferred to the original.  
+* **Sticky Notes Not Displaying** – Newly created notes weren’t showing on the sticky note board.
 
-* **Sizing carousel on home page** - When initially adding the carousel, it only covered a part of the header section. Per the wireframe, this was to spread across the entire page which Bootstrap did not have any direct classes for. 
+- *Fix:* Corrected backend template rendering to pass notes properly, then tested with new entries.
 
-- _Fix:_ Fixing this took some time due to spacing. Ultimately it was fixed after finding online code with CSS that assisted with the sizing and location of the photos. 
+* **Database Rename Errors (Django)** – Model and field name changes broke the database.
 
-* **Reconnecting Accordion on FAQ not to open together** - Once working on the FAQ section, there were difficulties getting the colours to show correctly as the bootstraps classes catered to the same thing in different areas, as well as a problem where, as the Accordion was duplicated, both sections were opening simultaneously. 
+- *Fix:* Wiped the database, applied fresh migrations, and reloaded test data.
 
-- _Fix:_ The fix was to overwrite the colour classes in the Accordion library, allowing me to customize them in the uniformed colour pallet. To prevent the tabs from opening together, I had to change the data-bs-target, aria-controls, data-bs-parent and ID, making them unique to each tab, preventing any further bugs. 
+* **Static Files Not Loading** – CSS/JS wasn’t being served correctly in Django.
 
-* **Spacing and sizing of Social media icons** - Upon first adding the Social Icons in the Nav-Menu, it was first added to the list area, which worked visually, but was shown not to be allowed in the coding rules, pointed out by the HTML Verification check.  
+- *Fix:* Updated `STATICFILES_DIRS` and `STATIC_ROOT`, ran `collectstatic`, and confirmed files loaded in production.
 
-- _Fix:_ Initially it was taken from the list codes, and was showing beside the logo incorrectly. I then tried adding padding or the flex display CSS, however, it was not responsive on all screen sizes. Ultimately I was able to add it as a list item, that was able to keep the icons in the correct area, and now being verified by the HTML Verification check. 
+* **Login Redirect Error** – Login sent users to a missing template.
 
+- *Fix:* Added `quote/login.html` to templates and updated URL mapping.
+
+* **Sidebar vs Navbar on Mobile** – Sidebar took up space on small screens instead of collapsing.
+
+- *Fix:* Overrode `display: flex` in the body using media queries and adjusted layout for responsive design.
+
+* **Audio Playback Error** – Audio sometimes failed to play when changing themes.
+
+- *Fix:* Updated JS to set the audio `src` before playback, which reduced errors.
+
+* **Debug False & Static Files** – Turning off DEBUG caused static assets not to load.
+
+- *Fix:* Cleared collected static files, set DEBUG to True temporarily, re-ran `collectstatic`, then redeployed.
+
+---
 
 ### Remaining Bugs
 
-There are still minor issues on the site that can be a slightly unfavourable experience on the project for tablet and mobile users, where the nav-menu does not automatically collapse after using the dropdown for each second. The nav-menu has to be closed manually to see the page, however, they are taken to the correct location on each page.
+* **Password Reset Page** – Currently shows success even if the email is not registered. Needs conditional check before showing confirmation.
+
+* **Dropdown Filtering Issue** – Dropdown reloads the page and adds notes correctly, but filtering still does not work reliably.
+
+* **Superuser Dashboard** – Does not display “No pending notes” when expected. Normal users see the correct state.
+
+* **Mobile Theme Dropdown** – After selecting a theme, the nav doesn’t automatically close. Left as-is for now, but may be improved later.
+
+* **Theme Change Blocked by Audio** – When music is playing, the theme selector does not appear. Requires JS adjustment to allow both at the same time.
+
+* **Page Flicker on Theme Load** – Default theme briefly loads before switching to user’s saved theme. Could be improved by applying the theme server-side on render.
+
+* **Duplicate Accounts with Same Email** – Users can currently register multiple accounts with the same email. Needs unique email validation in the model or form.
+
+---
+
+
+### Future Improvements
+
+* **User Authentication & Ownership** – Notes are now linked to logged-in users. Next step could be to add “liking” or “sharing” functionality for notes.
+
+* **Language Translation** – Add `{% blocktrans %}` and `{% trans %}` tags across templates so users can see messages in their preferred language.
+
+* **Bad Word JSON System** – Currently updates manually. Could be extended to allow admins to add banned words directly via the dashboard.
+
+* **Improved Navbar** – Consider refining mobile behavior so dropdowns collapse automatically without conflicting with theme or audio scripts.
+
+* **Better Theme Loading** – Instead of client-side flicker, apply theme selection on the server during template rendering for a smoother user experience.
+
+* **Audio & Theme Sync** – Enhance the UX so theme changes don’t pause or conflict with background audio.
+
+---
+
 
 ![Nav-menu area not colappsing after selecting dropdown option](assets/README/nav-bar-issue.png)
 
 
+---
 
+## Deployment Guide
+
+This project was deployed using **GitHub Pages** for static hosting and **Heroku** for the Django backend.
+Please do not make direct changes to the `main` branch, as any updates pushed there will automatically reflect on the live site.
+Instead, fork and clone the repository if you wish to work on your own version without affecting production.
+
+
+The live website can be found here: https://take-a-breath-a26c57655e5e.herokuapp.com/.
 
 ---
 
-## Deployment
+### 1. GitHub Pages Deployment (Front-End)
 
-### Live Site
-
-Deployed using GitHub Pages:
-
-1. Go to repository Settings > Pages
-2. Set source to `main` branch
-3. Save and visit the generated link
-
-[Live Website Link](https://your-deployment-link.com)
-
-### How to Fork & Clone
-
-1. Set up Git and GitHub authentication
-2. Visit [Original Repo](https://github.com/your-username/your-repo-name)
-3. Click "Fork"
-4. In your new fork, click "Code" > Clone with HTTPS or SSH
-5. Run `git clone <URL>` in your terminal
-
-More info: [GitHub Docs - Fork a Repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+1. Log into the [GitHub repository](https://github.com/DaniqueJ-R/milestone_proj_3).
+2. Click the **Settings** tab from the repository menu.
+3. From the left-hand menu, click **Pages**.
+4. Under **Source**, select the **Main branch** (instead of “None”) from the dropdown.
+5. The page will automatically refresh, displaying the **deployment URL**.
+6. Test the URL to confirm the site is live.
 
 ---
+
+### 2. Heroku Deployment (Back-End)
+
+1. Log into your [Heroku Dashboard](https://dashboard.heroku.com/apps).
+2. Click **New → Create new app**.
+3. Enter a unique app name and select your region.
+4. Click **Create app**.
+
+#### Database Setup
+
+5. Go to the **Resources** tab.
+6. In the **Add-ons** search bar, find **Heroku Postgres** and select it.
+7. Choose the plan **Hobby Dev – Free** or **Essentiial 1**(UPDATE?) and submit.
+
+#### Configuring Environment Variables
+
+8. Navigate to the **Settings** tab → **Reveal Config Vars**.
+9. Copy the `DATABASE_URL` provided.
+10. In your local project (GitPod or IDE), create a new `env.py` file in the top-level directory.
+11. Inside `env.py`, add:
+
+```python
+import os
+os.environ["DATABASE_URL"] = "Paste Heroku DATABASE_URL here"
+os.environ["SECRET_KEY"] = "yourRandomSecretKey"
+```
+
+12. Back in Heroku, add the same `SECRET_KEY` in **Config Vars**.
+
+#### Django Settings Update
+
+13. In `settings.py`:
+
+* Replace the hardcoded secret with:
+
+  ```python
+  SECRET_KEY = os.environ.get("SECRET_KEY")
+  ```
+* Update the database config:
+
+  ```python
+  DATABASES = {
+      'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+  }
+  ```
+
+14. Save all files, then run migrations:
+
+```bash
+python manage.py migrate
+```
+
+#### Cloudinary Setup (Media & Static Files)
+
+15. Log into [Cloudinary](https://cloudinary.com/) and copy the `CLOUDINARY_URL`.
+16. In `env.py`:
+
+```python
+os.environ["CLOUDINARY_URL"] = "cloudinary://your-api-key"
+```
+
+17. Add the same variable to Heroku Config Vars.
+18. Add this to `settings.py`:
+
+```python
+STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+MEDIA_URL = "/media/"
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+```
+
+19. Ensure templates are linked properly:
+
+```python
+TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
+TEMPLATES = [
+    {
+        "DIRS": [TEMPLATES_DIR],
+    },
+]
+```
+
+20. Add your app hostname to `ALLOWED_HOSTS`:
+
+```python
+ALLOWED_HOSTS = ["your-app-name.herokuapp.com", "localhost"]
+```
+
+#### Final Deployment
+
+21. Create required folders at project root: `media/`, `static/`, `templates/`.
+22. Create a `Procfile` with the following:
+
+```
+web: gunicorn PROJECT_NAME.wsgi
+```
+
+23. Push your code to GitHub.
+24. In Heroku → **Deploy tab → Deploy Branch**.
+25. When the build completes, click **Open App** to view the live site.
+
+---
+
+
+If you’d like to propose changes, contribute improvements, or use this project as the basis for your own, please fork and clone the repository instead of editing the main branch directly.
+
+### Forking
+
+1. Make sure you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed and configured with authentication to GitHub.
+2. Navigate to the [project repository](https://github.com/DaniqueJ-R/milestone_proj_3).
+3. In the top-right corner of the repository page, click the **Fork** button (next to “Star” and “Watch”).
+4. The repository will now appear in your GitHub account as your own fork.
+
+### Cloning Your Fork
+
+5. From your forked repository, click the green **Code** button above the file list.
+
+6. Choose your preferred cloning option:
+
+   * **HTTPS** — copy the URL and run:
+
+     ```bash
+     git clone https://github.com/your-username/milestone_proj_3.git
+     ```
+   * **SSH** — copy the SSH key and run:
+
+     ```bash
+     git clone git@github.com:your-username/milestone_proj_3.git
+     ```
+   * **GitHub CLI** — run:
+
+     ```bash
+     gh repo clone your-username/milestone_proj_3
+     ```
+
+7. Once cloned, navigate into the project folder:
+
+   ```bash
+   cd milestone_proj_3
+   ```
+
+8. You can now create your own branch, make changes, and push updates to your fork without affecting the live site.
+
+🔗 For more details, see GitHub’s official guide: [Fork a Repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+
+
 
 ## Credits
 
-- **Images:** [Freepik](https://freepik.com)
-- **Wireframes:** [Balsamiq](https://balsamiq.com/wireframes)
-- **Video:** [InVideo](https://ai.invideo.io/)
-- **Tools Used:** HTML5, CSS3, Bootstrap, JavaScript, Chrome DevTools, Git, GitHub
-ing
+### People
 
-
-
-
-## Technologies Used
+* Mentor Brian Macharia for guiding and advising throughout the project's lifecycle.
+* Rick Atherton, Elaine Broche, mittnamnkenny, and Ilyascan OIgun are sources of information for README content and layout.
+* Code Institute Slack community for peer reviewing the website.
 
 ### Languages Used:
 
   - HTML5
   - CSS3
+  - Bootstrap
   - JavaScript
-  - Python
+  - Python 
+  - Django
+  - Chrome DevTools
+  - Git
+  - GitHub
 
 ### Frameworks and Libraries Used:
 
   - [Bootstrap:](https://getbootstrap.com/) Bootstrap CSS Framework used for styling and to build responsive web pages.
-  - [Cloudinary:](https://cloudinary.com/) Used to store all blog images and uploaded images.
-  - [Coverage:](https://coverage.readthedocs.io/en/latest/index.html) Used for measuring code coverage of Python test files.
+  - [Coverage:](https://coverage.readthedocs.io/en/latest/index.html) Used for measuring code coverage of Python test files. 
   - [Django:](https://www.djangoproject.com/) Main Python framework used in the development.
-  - [Django Allauth:](https://django-allauth.readthedocs.io/en/latest/index.html) Used for authentication and account registration.
+  - [Django Allauth:](https://django-allauth.readthedocs.io/en/latest/index.html) Used for authentication and account registration. (UPDATE)
   - [Django Crispy Forms:](https://django-crispy-forms.readthedocs.io/en/latest/) Used to simplify the rendering of Django forms.
   - [dj_database_url:](https://pypi.org/project/dj-database-url/) Used to allow database urls to connect to the postgres database.
   - [Gunicorn:](https://gunicorn.org/) Green Unicorn, used as the Web Server to run Django on Heroku.
-  - [Jest:](https://jestjs.io/) A delightful JavaScript Testing Framework, used for automated tests.
-  - [psycopg2:](https://pypi.org/project/psycopg2/) Used PostgreSQL database adapter.
+  - [psycopg2:](https://pypi.org/project/psycopg2/) Used PostgreSQL database adapter. (UPDATE)
   - [Summernote:](https://github.com/summernote/django-summernote) To provide a WYSIWYG editor for customizing new blog content and add images.
+  - [Black Formatter:](https://www.youtube.com/watch?v=nrQly6jybNk&t=466s) To format Django and Python documents in VSCode
 
 ### Software and Web Applications Used:
 
   - [Am I Responsive:](http://ami.responsivedesign.is) Checking the responsive.
-  - [Balsamiq:](https://balsamiq.com/) Used to create the wireframes.
+  - [Wireframe CC:](https://wireframe.cc/) Used to create the wireframes.
   - [Chrome DevTools:](https://developer.chrome.com/docs/devtools/) Used to test the response on different screen sizes, debugging and to generate a Lighthouse report to analyze page load.
   - [Font Awesome:](https://fontawesome.com/) Used throughout the site to add icons for aesthetic and UX purposes.
-  - [Gauger:](https://gauger.io/fonticon/) To create the favicon, create beautiful favicon with ease.
+  - [Creative Fabrica](https://www.creativefabrica.com/product/take-a-deep-breath-retro-svg/) Site that provided Logo for Take A Breath
+  - [Favicon.io:](https://favicon.io/) To format Logo to use as favicon.
   - [Git:](https://git-scm.com/) Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
   - [GitHub:](https://github.com/) GitHub is used to store the projects code after being pushed from Git and to create the Kanban board used for this project.
   - [Google Fonts:](https://fonts.google.com/) To import font family ’Cabin Sketch’ which is used throughout the site. Added fallback font sans-serif.
-  - [Google Maps:](https://mapsplatform.google.com/) Google Maps Embed API used in footer section
   - [Heroku:](https://www.heroku.com/) For deployment and hosting of the application.
   - [Heroku PostgreSQL:](https://www.heroku.com/postgres) The database used for this application.
   - [HTML Validator:](https://validator.w3.org/) Check your code for HTML validation.
-  - [JSHint:](https://jshint.com/) Check code for JavaScript validation.
-  - [Lucidchart:](https://www.lucidchart.com/pages/) Used to create the site map.
-  - [Materialize Colors:](https://materializecss.com/color.html) Used to create the main colour palette.
-  - [Photoshop:](https://www.adobe.com/se/products/photoshop.html) Used to customize the hero image, adjust brightness and add gradient overlay.
-  - [SVG Backgrounds:](https://svgbackgrounds.com/) Scalable Vector Graphic used in the featurette section. Should the background image fail there is a fallback background colour set so the page still functions.
-  - [SVG Wave Generator:](https://softr.io/tools/svg-wave-generator/) Used to generate a gradient SVG wave used in the hero section.
-  - [Tiny PNG:](https://tinypng.com/) Compressing images to smaller sizes.
-  - [Unsplash:](https://unsplash.com/photos/NtkCemIfaiU) Hero image, Man fishing on river at daytime, Chris Sarsgard.
+  - [JSHint:](https://jshint.com/) Check code for JavaScript validation. (UPDATE)
+  - [Lucidchart:](https://www.lucidchart.com/pages/) Used to create the site map.(UPDATE)
+  - [Coolors:](https://coolors.co/) Used to create the main colour palette. 
+  - [Freesound:](https://freesound.org/) Used to source audio files. 
   - [W3 CSS Validator:](https://jigsaw.w3.org/css-validator/) Check your code for CSS validation.
-  - [Writer:](https://writer.com/grammar-checker/) Free Grammar Check.
+  - [Grammarly:](https://www.grammarly.com/) Free Grammar Check.
