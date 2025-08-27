@@ -1,10 +1,5 @@
-{% extends "base.html" %} 
-
-{% block title %}
-Forbidden (403)
-{% endblock%} 
-
-{% block content %}
+{% extends "base.html" %} {% block title %} Forbidden (403) {% endblock%} {%
+block content %}
 
 <section
   class="password-section d-flex form-wrapper justify-content-center align-items-center mvh-100"
@@ -14,9 +9,7 @@ Forbidden (403)
       <div class="col-md-8 mt-3 offset-md-2">
         <h1 id="errors">Forbidden (403)</h1>
         <p>Sorry, you don’t have permission to view this page.</p>
-        <button href="{% url 'home' %}" class="btn btn-theme">
-          Return to homepage
-        </button>
+        <a href="{% url 'home' %}" class="btn btn-theme">Return to homepage</a>
       </div>
     </div>
   </div>

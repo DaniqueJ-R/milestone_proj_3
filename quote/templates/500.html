@@ -1,9 +1,4 @@
-{% extends "base.html" %}
-
-{% block title %}
-Page not found (500)
-{% endblock %}
-
+{% extends "base.html" %} {% block title %} Page not found (500) {% endblock %}
 {% block content %}
 
 <section
@@ -14,9 +9,7 @@ Page not found (500)
       <div class="col-md-8 mt-3 offset-md-2">
         <h1 id="errors">Page not found (500)</h1>
         <p>Sorry, there was a server error. Please try again later.</p>
-        <button href="{% url 'home' %}" class="btn btn-theme">
-          Return to homepage
-        </button>
+        <a href="{% url 'home' %}" class="btn btn-theme">Return to homepage</a>
       </div>
     </div>
   </div>
