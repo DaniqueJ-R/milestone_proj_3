@@ -738,8 +738,6 @@ Lighthouse Write a Note Desktop
 
 * **Password Reset Page** – Currently shows success even if the email is not registered. Needs conditional check before showing confirmation.
 
-* **Dropdown Filtering Issue** – Dropdown reloads the page and adds notes correctly, but filtering still does not work reliably.
-
 * **Pending Notes Dashboard** – Does not display “No pending notes” when expected. Only shows if there are no Approved notes as well.
 
 * **Mobile Theme Dropdown** – After selecting a theme, the nav doesn’t automatically close. Left as-is for now, but may be improved later.
@@ -763,6 +761,8 @@ Lighthouse Write a Note Desktop
 * **Better Theme Loading** – Instead of client-side flicker, apply theme selection on the server during template rendering for a smoother user experience.
 
 * **Audio Playback** – Look into having audio pause and play at same space instead of restarting. 
+
+* **Dropdown Filtering** – The UI for dropdown is fully implemented, but the interactive functionality is not yet connected to JavaScript. This feature will be fully functional in a future update.
 
 ---
 
