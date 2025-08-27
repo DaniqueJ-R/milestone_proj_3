@@ -1,3 +1,9 @@
+"""
+Views for the quote app.
+
+Handles user signup, note submission, editing, deletion, and JSON responses.
+"""
+
 import json
 import os
 
@@ -5,16 +11,12 @@ from django.conf import settings
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
-from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
 from .forms import NoteForm, SignUpForm
 from .models import Note
-
-
-# Create your views here.
 
 
 # This view handles user signup
@@ -27,7 +29,6 @@ class SignUpView(CreateView):
 
     def form_valid(self, form):
         """Save the new user, log them in, and redirect to the home page."""
-
         response = super().form_valid(form)
         user = form.save()
         login(self.request, user)  # log in immediately after signup
@@ -59,7 +60,6 @@ class NotesJson(View):
 
     def get(self, request):
         """Return a JSON list of approved notes ordered by creation date."""
-
         notes = Note.objects.filter(status=1).order_by("-created_on")
         data = [
             {
@@ -79,7 +79,6 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
     form_class = NoteForm
     template_name = "quote/write-a-note.html"
 
-    # Load badwords from database.
     def get_badwords(self):
         """Load badwords from database."""
         file_path = os.path.join(
@@ -91,7 +90,7 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
         return [entry["fields"]["word"] for entry in badwords_data]
 
     def form_valid(self, form):
-        # Assign author
+        """Validate form content and save the note with approval status."""
         if self.request.user.is_authenticated:
             form.instance.author = self.request.user
 
@@ -102,9 +101,11 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
         # Load banned words from database
         banned_words = self.get_badwords()
         content_lower = form.cleaned_data["content"].lower()
-
         if not content_lower.strip():
-            return JsonResponse({"error": "Content cannot be empty."}, status=400)
+            return JsonResponse(
+                {"error": "Content cannot be empty."},
+                status=400
+            )
 
         if any(bad_word in content_lower for bad_word in banned_words):
             form.instance.status = 0  # Pending
@@ -127,9 +128,9 @@ class WriteANoteView(LoginRequiredMixin, CreateView):
         )
 
 
-# List of user’s notes
+# List of user's notes
 class MyNotesView(LoginRequiredMixin, ListView):
-    """Display the logged-in user’s notes, including pending ones."""
+    """Display the logged-in user's notes, including pending ones."""
 
     model = Note
     template_name = "quote/my-notes.html"
@@ -137,7 +138,7 @@ class MyNotesView(LoginRequiredMixin, ListView):
     pending_notes = Note.objects.filter(status=0).order_by("created_on")
 
     def get_queryset(self):
-        # Only show the notes created by the logged-in user
+        """Return only the notes created by the logged-in user."""
         return Note.objects.filter(author=self.request.user)
 
 
@@ -150,10 +151,11 @@ class NoteUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "quote/edit-note.html"
 
     def get_queryset(self):
-        # Prevent editing other people's notes
+        """Prevent editing other people's notes."""
         return Note.objects.filter(author=self.request.user)
 
     def get_success_url(self):
+        """Redirect to the user's notes page after update."""
         return reverse_lazy("my_notes")
 
 
@@ -165,8 +167,9 @@ class NoteDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "quote/delete-note.html"
 
     def get_queryset(self):
-        # Prevent deleting other people's notes
+        """Prevent deleting other people's notes."""
         return Note.objects.filter(author=self.request.user)
 
     def get_success_url(self):
+        """Redirect to the user's notes page after deletion."""
         return reverse_lazy("my_notes")

@@ -1,18 +1,24 @@
+"""Models for handling notes, bad words, and background themes in the app."""
+
 from django.db import models
 from django.contrib.auth.models import User
 
 
-# Create your models here.
-# This function returns the "Removed" user, creating it if necessary
 def get_removed_user():
+    """Return the 'Removed' user, creating it if necessary."""
     user, created = User.objects.get_or_create(
-        username="Removed", defaults={"email": "removed@example.com", "password": ""}
+        username="Removed",
+        defaults={
+            "email": "removed@example.com",
+            "password": "",
+        },
     )
     return user
 
 
-# Model to store notes (quotes) created by users
 class Note(models.Model):
+    """Model to store notes (quotes) created by users."""
+
     CATEGORY = (
         (0, "Uncategorized"),
         (1, "Stress"),
@@ -25,6 +31,7 @@ class Note(models.Model):
         (1, "Approved"),
         (2, "Denied"),
     )
+
     content = models.CharField(max_length=100)
     name = models.CharField(max_length=100, default="anonymous", blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -37,22 +44,28 @@ class Note(models.Model):
     )
 
     class Meta:
-        ordering = ["created_on"]  # Order by creation date in ascending order
+        """Metadata for ordering notes by creation date."""
+
+        ordering = ["created_on"]
 
     def __str__(self):
+        """Return a string representation of the note."""
         return f"quote-'{self.content}' by {self.name}"
 
 
-# Model to store bad words
 class BadWord(models.Model):
+    """Model to store banned words."""
+
     word = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
+        """Return the word as its string representation."""
         return self.word
 
 
-# Background model to store theme and other settings
 class Background(models.Model):
+    """Model to store theme and background settings."""
+
     THEME_CHOICES = (
         (0, "Cosmic"),
         (1, "Ocean"),
@@ -67,4 +80,5 @@ class Background(models.Model):
     audio = models.FileField(upload_to="audio/", blank=True, null=True)
 
     def __str__(self):
-        return self.theme
+        """Return the theme as its string representation."""
+        return str(self.theme)

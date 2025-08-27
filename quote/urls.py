@@ -1,3 +1,9 @@
+"""
+URL configuration for the quote app.
+
+Includes authentication routes and note management routes.
+"""
+
 from . import views
 from django.urls import path
 from django.contrib.auth import views as auth_views

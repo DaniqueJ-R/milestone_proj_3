@@ -401,7 +401,7 @@ The warnings are due to 1) import of the Google fonts, 2) a webkit extension for
 
 JSHint was used to validate the JavaScript with no errors highlighted.
 
-![Jshint](documentation/testing/jshint.jpg)
+![Jshint](documents/testing/jshint-check.png)
 
 #### PEP8 Online:
 
@@ -890,7 +890,7 @@ If you’d like to propose changes, contribute improvements, or use this project
   - [Heroku:](https://www.heroku.com/) For deployment and hosting of the application.
   - [Heroku PostgreSQL:](https://www.heroku.com/postgres) The database used for this application.
   - [HTML Validator:](https://validator.w3.org/) Check your code for HTML validation.
-  - [JSHint:](https://jshint.com/) Check code for JavaScript validation. (UPDATE)
+  - [JSHint:](https://jshint.com/) Check code for JavaScript validation.
   - [Lucidchart:](https://www.lucidchart.com/pages/) Used to create the site map.
   - [Coolors:](https://coolors.co/) Used to create the main colour palette. 
   - [Freesound:](https://freesound.org/) Used to source audio files. 
