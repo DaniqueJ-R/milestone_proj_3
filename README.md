@@ -314,19 +314,19 @@ Contains copyright for site including year.
 #### Metadata
 Optimized meta titles and descriptions for better SEO.
 
-![Error Page Screenshot](assets/README/footer-image.png)
+![Error Page Screenshot](documents/site-shots/error-page.png)
 
 #### Error Pages
 Errors 400, 403, 404, 405, and 500 added to fit theme of page if error occures
 
 ### Page-Specific Features
 
-![Footer Screenshot](assets/README/footer-image.png)
+![Sticky notes Screenshot](documents/site-shots/sticky-note-design.png)
 
 #### Sticky notes for display
 displays handwritten notes from users in a stacked style of 5 background notes at a time. 
 
-![Footer Screenshot](assets/README/footer-image.png)
+![Footer Screenshot](documents/site-shots/write-note-design.png)
 
 #### Write a note display
 Continued stiky note design with the following: Notes area, name area (Anonymous by default) filter to manually approve notes with certain words
