@@ -1,8 +1,10 @@
+/* jshint esversion: 11 */
+
 console.log("Script loaded");
 
 let audioEnabled = false;
 let displayedNotes = []; // Array of current notes shown (max 5)
-const history = [];
+const notesHistory = [];
 let notes = []; // Global notes array
 let currentTheme = "space"; // default
 
@@ -15,6 +17,7 @@ const toggleAudioMobile = document.getElementById("toggleAudioMobile");
 const toggleAudioSidebar = document.getElementById("toggleAudioSidebar");
 const themeAudio = document.getElementById("themeAudio");
 const emptyMsg = document.getElementById("emptyMessage");
+const popup = document.getElementById("popup");
 
 // Load notes from server
 async function loadNotes() {
@@ -112,12 +115,12 @@ function showRandomNote() {
 
   const available = notes.filter((a) => !displayedNotes.includes(a));
   const nextNote =
-    available.length > 0
-      ? available[Math.floor(Math.random() * available.length)]
+    available.length > 0 ? 
+    available[Math.floor(Math.random() * available.length)]
       : notes[Math.floor(Math.random() * notes.length)];
 
   if (displayedNotes.length > 0) {
-    history.push([...displayedNotes]);
+    notesHistory.push([...displayedNotes]);
   }
 
   displayedNotes.unshift(nextNote);
@@ -134,9 +137,9 @@ function showRandomNote() {
 
 // Go back to previous note
 function goBack() {
-  if (history.length === 0) return;
+  if (notesHistory.length === 0) return;
 
-  displayedNotes = history.pop();
+  displayedNotes = notesHistory.pop();
   renderNotes();
 }
 

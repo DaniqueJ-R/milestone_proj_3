@@ -331,17 +331,18 @@ displays handwritten notes from users in a stacked style of 5 background notes a
 #### Write a note display
 Continued stiky note design with the following: Notes area, name area (Anonymous by default) filter to manually approve notes with certain words
 
-![Footer Screenshot](assets/README/footer-image.png)
-
-#### Edit a note display
-Has same design as Write a note, with auto populated note for easy editing. Once Edited, change is seen immediatly. 
-
-![My notes  Screenshot](assets/README/footer-image.png)
+![My notes Pending/Approved Screenshot](documents/site-shots/approve-pending-notes.png)
+![My notes Card Screenshot](documents/site-shots/my-notes-card.png)
 
 #### My notes display
 Showcases all the users notes, seperated into Pending and Approved noted so user is easily infomred of their notes progress. Each note comes with a Delete and Edit button
 
-![Footer Screenshot](assets/README/footer-image.png)
+![Edit A Note Screenshot](documents/site-shots/edit-note.png)
+
+#### Edit a note display
+Has same design as Write a note, with auto populated note for easy editing. Once Edited, change is seen immediatly. 
+
+![Delete Screenshot](documents/site-shots/delete-note.png)
 
 #### Delete a note display
 Displays note and name without stikynote design. Once deleted, note is immediatly removed from rotation of displayable notes and database. 
@@ -396,7 +397,7 @@ The W3C CSS Validator Services were used to validate the CSS giving the followin
 The warnings are due to 1) import of the Google fonts, 2) a webkit extension for Safari support of the flip-card effect used on the home page, and  3) using the root format for most colouring and text on the site (--var).
 
 
-#### JSHint:
+#### JSHint: (UPDATE)
 
 JSHint was used to validate the JavaScript with no errors highlighted.
 
@@ -890,7 +891,7 @@ If you’d like to propose changes, contribute improvements, or use this project
   - [Heroku PostgreSQL:](https://www.heroku.com/postgres) The database used for this application.
   - [HTML Validator:](https://validator.w3.org/) Check your code for HTML validation.
   - [JSHint:](https://jshint.com/) Check code for JavaScript validation. (UPDATE)
-  - [Lucidchart:](https://www.lucidchart.com/pages/) Used to create the site map.(UPDATE)
+  - [Lucidchart:](https://www.lucidchart.com/pages/) Used to create the site map.
   - [Coolors:](https://coolors.co/) Used to create the main colour palette. 
   - [Freesound:](https://freesound.org/) Used to source audio files. 
   - [W3 CSS Validator:](https://jigsaw.w3.org/css-validator/) Check your code for CSS validation.
