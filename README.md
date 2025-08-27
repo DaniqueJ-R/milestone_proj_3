@@ -282,6 +282,8 @@ Since no logo was provided for this project, I explored free design resources to
 
 The logo was chosen for its professional design quality and its ability to reflect the project’s purpose—creating a safe, welcoming space for users to pause, reflect, and share kindness. It's simple, modern style ensures accessibility and brand recognition across devices.
 
+![Take A Breath Logo](static/images/Logoo-removebg-preview.png)
+
 **Audio**
 
 To enhance the calming and immersive experience of the site, I incorporated background sounds that change depending on the user’s chosen theme. After researching different options, I sourced four free, theme-fitting sounds from [Freesound](https://freesound.org/), ensuring they matched the moods of **Ocean, Sunset, Forest, and Space/Cosmic**.
@@ -322,9 +324,9 @@ This approach ensures that while sound enhances the mindfulness experience for m
 
 ### Universal Features
 
-![Mobile Nav Menu Screenshot](documents/site-shots/nav-bar.png)
 ![Desktop Sidebar Screenshot](documents/site-shots/sidebar.png)
 ![Atmosphere Screenshot](documents/site-shots/atmosphere-drop-down.png)
+![Mobile Nav Menu Screenshot](documents/site-shots/nav-bar.png)
 
 #### Navigation Menu 
 
@@ -513,7 +515,7 @@ PEP8 Online linter (Python validator) The code passed without any errors on all 
 ![PEP8 Views](documents/testing/pep8-views.py.png)
 
 
-### Browser Testing (CONTINUE)
+### Browser Testing 
 
 Tested across major browsers to ensure consistency:
 - Navigation
@@ -982,7 +984,7 @@ If you’d like to propose changes, contribute improvements, or use this project
 
 ### Software and Web Applications Used:
 
-  - [Am I Responsive:](http://ami.responsivedesign.is) Checking the responsive.
+  - [Techsini:](https://techsini.com/multi-mockup/index.php) Checking the responsive nd for mockup above.
   - [Wireframe CC:](https://wireframe.cc/) Used to create the wireframes.
   - [Chrome DevTools:](https://developer.chrome.com/docs/devtools/) Used to test the response on different screen sizes, debugging and to generate a Lighthouse report to analyze page load.
   - [Font Awesome:](https://fontawesome.com/) Used throughout the site to add icons for aesthetic and UX purposes.
