@@ -397,47 +397,39 @@ The W3C CSS Validator Services were used to validate the CSS giving the followin
 The warnings are due to 1) import of the Google fonts, 2) a webkit extension for Safari support of the flip-card effect used on the home page, and  3) using the root format for most colouring and text on the site (--var).
 
 
-#### JSHint: (UPDATE)
+#### JSHint:
 
 JSHint was used to validate the JavaScript with no errors highlighted.
 
 ![Jshint](documents/testing/jshint-check.png)
 
 #### PEP8 Online:
-
+ 
 PEP8 Online linter (Python validator) The code passed without any errors on all files tested:
 
   - admin.py
 
-![PEP8 Admin](documentation/testing/pep8onlinecheck-admin.jpg)
+![PEP8 Admin](documents/testing/pep8-admin.py.png)
+
+  - apps.py
+
+![PEP8 Apps](documents/testing/pep8-apps.py.png)
 
   - forms.py
 
-![PEP8 Forms](documentation/testing/pep8onlinecheck-forms.jpg)
+![PEP8 Forms](documents/testing/pep8-forms.py.png)
 
   - models.py
 
-![PEP8 Models](documentation/testing/pep8onlinecheck-models.jpg)
-
-  - testforms.py
-
-![PEP8 Testforms](documentation/testing/pep8onlinecheck-testforms.jpg)
-
-  - testmodels.py
-
-![PEP8 Testmodels](documentation/testing/pep8onlinecheck-testmodels.jpg)
-
-  - testviews.py
-
-![PEP8 Testviews](documentation/testing/pep8onlinecheck-testviews.jpg)
+![PEP8 Models](documents/testing/pep8-models.py.png)
 
   - urls.py
 
-![PEP8 Urls](documentation/testing/pep8onlinecheck-urls.jpg)
+![PEP8 Urls](documents/testing/pep8-urls.py.png)
 
   - views.py
 
-![PEP8 Views](documentation/testing/pep8onlinecheck-views.jpg)
+![PEP8 Views](documents/testing/pep8-views.py.png)
 
 #### Lighthouse:
 
@@ -895,5 +887,6 @@ If you’d like to propose changes, contribute improvements, or use this project
   - [Coolors:](https://coolors.co/) Used to create the main colour palette. 
   - [Freesound:](https://freesound.org/) Used to source audio files. 
   - [W3 CSS Validator:](https://jigsaw.w3.org/css-validator/) Check your code for CSS validation.
+  - [Codewof:](https://www.codewof.co.nz/style/python3/) Check your code for Pep8/Python validation.
   - [Grammarly:](https://www.grammarly.com/) Free Grammar Check.
   - [FireShot chrome extension](https://chromewebstore.google.com/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg) To get PDF of HTML Errors
