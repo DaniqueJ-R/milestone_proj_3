@@ -39,6 +39,8 @@ Take A Breath is a minimalist, full-stack web application built to spread kindne
   - [Validator Testing](#validator-testing)
     - [HTML Validator](#w3c-html-validator)
     - [CSS Validator](#w3c-CSS-validator)
+    - [JSHint](#jshint)
+    - [Pep8 Online](#pep8-online)
   - [Browser Testing](#browser-testing)
   - [Manual Testing](#manual-testing)
     - [Functionality Testing](#functionality-testing)
@@ -52,6 +54,7 @@ Take A Breath is a minimalist, full-stack web application built to spread kindne
   - [Issues & Fixes](#issues--fixes)
   - [Remaining Bugs](#remaining-bugs)
   - [Future Improvements](#future-improvements)
+- [Demo Account](#demo-account)
 - [Deployment Guide](#deployment-guide)
   - [GitHub Pages Deployment](#1-github-pages-deployment-front-end)
   - [Heroku Deployment](#2-heroku-deployment-back-end)
@@ -175,7 +178,7 @@ Entity Relationship Diagram - Notes:
 
 Entity Relationship Diagram - Background:
 
-![ERD Background](documentation/read-me/background-model.png)
+![ERD Background](documents/read-me/background-model.png)
 
 ### Site Map
 
@@ -202,7 +205,7 @@ To achieve this, I created theme-specific CSS classes (e.g., `.theme-sea`, `.the
 
 Each theme was tested for **readability and accessibility**, with contrasting text colors against gradient backgrounds to ensure all notes remain easy to read for all visitors regardless of theme choice:
 
-### 🌌 Space / Cosmic - 
+#### 🌌 Space / Cosmic - 
 
 Deep indigos and purples with soft lavender notes.
 
@@ -211,7 +214,7 @@ Deep indigos and purples with soft lavender notes.
 * Text color: `#3730a3`
 * Buttons: `#a78bfa` (hover: `#7c3aed`)
 
-### 🌊 Ocean-
+#### 🌊 Ocean-
 
 Bright turquoise and blues for a refreshing, calm aesthetic.
 
@@ -220,7 +223,7 @@ Bright turquoise and blues for a refreshing, calm aesthetic.
 * Text color: `#1e40af`
 * Buttons: `#3b82f6` (hover: `#2563eb`)
 
-### 🌲 Forest -
+#### 🌲 Forest -
 
 Natural greens with dark accents for grounding and balance.
 
@@ -229,7 +232,7 @@ Natural greens with dark accents for grounding and balance.
 * Text color: `#065f46`
 * Buttons: `#10b981` (hover: `#059669`)
 
-### 🌅 Sunset - 
+#### 🌅 Sunset - 
 
 Warm oranges, pinks, and purples for an uplifting atmosphere.
 
@@ -305,7 +308,6 @@ Responsive nav bar for mobile and matching Sidebar for tablet and desktop. Conta
 - Atmosphere Changer
 - Audio Toggle
 - Social Media 
-
 
 ![Footer Screenshot](documents/site-shots/footer.png)
 #### Footer
@@ -430,8 +432,6 @@ PEP8 Online linter (Python validator) The code passed without any errors on all 
   - views.py
 
 ![PEP8 Views](documents/testing/pep8-views.py.png)
-
-#### Lighthouse:
 
 
 ### Browser Testing
@@ -575,7 +575,7 @@ Lighthouse Write a Note Desktop
 
 ## Bug Fixes/ General Improvements 
 
-### Issues & Fixes (READ AND UPDATE)
+### Issues & Fixes
 
 * **Installing Gunicorn, Summernote, and Heroku** – Setting up deployment required configuring Gunicorn for production, adding Summernote for rich-text editing, and ensuring Heroku could serve static files.
 
@@ -664,8 +664,20 @@ Lighthouse Write a Note Desktop
 
 ![Nav-menu Atmosphere section not opened or closed when audio is playing.](documents/site-shots/bug-navbar-atmostphere-dropdown.png)
 
+![Page loading break that shows all notes before style loads correctly](documents/site-shots/loading-break.jpg)
 
 ---
+## Demo Account
+
+You can explore the app on the deployed site using the following demo account:
+
+- **Username:** testuser  
+- **Password:** Test1234!
+
+> **Note:** This is a temporary demo account for testing purposes only.  
+> It does not have access to any real user data and may be reset periodically.
+
+------
 
 ## Deployment Guide
 

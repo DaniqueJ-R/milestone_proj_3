@@ -43,6 +43,7 @@ main {
   padding: 0.25rem;
   position: relative;
   overflow: visible;
+  align-items: center;
 }
 
 ul {
@@ -519,6 +520,10 @@ body.theme-sunset {
   #read-notes {
     padding-right: 3rem;
   }
+
+  #heading-area {
+    padding-left: 1.3rem;
+}
 }
 
 /* Medium screens and up */
