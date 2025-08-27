@@ -1,6 +1,6 @@
 # Take A Breath
 
-![Website Mockup](documents/read-me/)(UPDATE)
+![Website Mockup](documents/read-me/read-me-mockup.png)
 
 [Live Website](https://take-a-breath-a26c57655e5e.herokuapp.com/)  
 [GitHub Repository](https://github.com/DaniqueJ-R/milestone_proj_3)
@@ -167,21 +167,21 @@ Responsive breakpoints considered:
 ### Data Model
 
 This project is hosted on Heroku and the database used is Heroku PostgreSQL. 
-Cloudinary is used to store all blog images. Two custom models were created for this project; Post and Comment. With the default Django User model already included.
+Two custom models were created for this project; Notes and Background. With the default Django User model already included. As seen in the below, these were made originally with the Stickers feature to be implimented, which was changed last minute due to time contraints. 
 
-Entity Relationship Diagram - Post:
+Entity Relationship Diagram - Notes:
 
-![ERD Posts](documentation/erd-posts.jpg)(UPDATE)
+![ERD Notes](documents/read-me/notes-model.png)
 
-Entity Relationship Diagram - Comment:
+Entity Relationship Diagram - Background:
 
-![ERD Comments](documentation/erd-comments.jpg)(UPDATE)
+![ERD Background](documentation/read-me/background-model.png)
 
 ### Site Map
 
 To explain the structure of the site and how to navigate it, I created a site map using Lucidchart:
 
-![Site Map](documentation/sitemap.jpg) (UPDATE)
+![Site Map](documents/read-me/site-map.png)
 
 ---
 ## Surface
@@ -290,6 +290,10 @@ This approach ensures that while sound enhances the mindfulness experience for m
 
 ### Universal Features
 
+![Mobile Nav Menu Screenshot](documents/site-shots/nav-bar.png)
+![Desktop Sidebar Screenshot](documents/site-shots/sidebar.png)
+![Atmosphere Screenshot](documents/site-shots/atmosphere-drop-down.png)
+
 #### Navigation Menu 
 Responsive nav bar for mobile and matching Sidebar for tablet and desktop. Contains the following:
 - Site logo
@@ -302,25 +306,42 @@ Responsive nav bar for mobile and matching Sidebar for tablet and desktop. Conta
 - Audio Toggle
 - Social Media 
 
+
+![Footer Screenshot](documents/site-shots/footer.png)
 #### Footer
 Contains copyright for site including year. 
 
 #### Metadata
 Optimized meta titles and descriptions for better SEO.
 
+![Error Page Screenshot](assets/README/footer-image.png)
+
 #### Error Pages
 Errors 400, 403, 404, 405, and 500 added to fit theme of page if error occures
 
 ### Page-Specific Features
 
+![Footer Screenshot](assets/README/footer-image.png)
+
 #### Sticky notes for display
 displays handwritten notes from users in a stacked style of 5 background notes at a time. 
+
+![Footer Screenshot](assets/README/footer-image.png)
 
 #### Write a note display
 Continued stiky note design with the following: Notes area, name area (Anonymous by default) filter to manually approve notes with certain words
 
+![Footer Screenshot](assets/README/footer-image.png)
+
 #### Edit a note display
 Has same design as Write a note, with auto populated note for easy editing. Once Edited, change is seen immediatly. 
+
+![My notes  Screenshot](assets/README/footer-image.png)
+
+#### My notes display
+Showcases all the users notes, seperated into Pending and Approved noted so user is easily infomred of their notes progress. Each note comes with a Delete and Edit button
+
+![Footer Screenshot](assets/README/footer-image.png)
 
 #### Delete a note display
 Displays note and name without stikynote design. Once deleted, note is immediatly removed from rotation of displayable notes and database. 
@@ -343,51 +364,81 @@ Code has been tested using the [HTML Validator](https://validator.w3.org/) and [
 
 The W3C Markup Validator were used to validate the HTML on all pages of the project to ensure there were no syntax errors in there. To validate the HTML files, the html file from te browser was coppied for each page using the 'View Page Source' feature on Google Chome, to remove the Django Template and validate the whole page.
 
-* **Home page** - 0 Errors / 0 Warnings: (UPDATES PICS)
+The Home Page gave errors during the verification only for the Select Mood dropdown, as it was read with the Django template even as a HTML file. 
 
-![HTML home](documentation/testing/htmlchecker-index.jpg)
+* **Home page** - 36 Errors / 12 Warnings: 
 
-Index page - [View Full HTML Validation Results here.](https://github.com/mittnamnkenny/fishtales/blob/main/documentation/testing/htmlcheckerfull-index.pdf)
+![HTML home](documents/testing/html-home-error.png)
 
-* **Home page** - 0 Errors / 0 Warnings:
+Index page - [View Full HTML Validation Results here.](https://github.com/DaniqueJ-R/milestone_proj_3/tree/main/documents/testing/home-html-checker-page.pdf)
 
-![HTML Blog](documentation/testing/htmlchecker-blog.jpg)
+* **Write a Note page** - 0 Errors / 0 Warnings:
 
-Blog page - [View Full HTML Validation Results here.](https://github.com/mittnamnkenny/fishtales/blob/main/documentation/testing/htmlcheckerfull-blog.pdf)
+![HTML Write a Note](documents/testing/html-write-note-no-error.png)
 
-* **Home page** - 0 Errors / 0 Warnings:
+Write a Note page - [View Full HTML Validation Results here.](https://github.com/DaniqueJ-R/milestone_proj_3/tree/main/documents/testing/write-note-html-checker-page.pdf)
 
-![HTML Detail](documentation/testing/htmlchecker-postdetail.jpg)
+* **My Notes page** - 0 Errors / 0 Warnings:
 
-Post Detail page - [View Full HTML Validation Results here.](https://github.com/mittnamnkenny/fishtales/blob/main/documentation/testing/htmlcheckerfull-postdetail.pdf)
+![HTML My Notes](documents/testing/html-my-note-no-error.png)
 
-* **Home page** - 0 Errors / 0 Warnings:
+My Notes page - [View Full HTML Validation Results here.](https://github.com/DaniqueJ-R/milestone_proj_3/tree/main/documents/testing/my-note-html-checker-page.pdf)
 
-![HTML Add](documentation/testing/htmlchecker-postadd.jpg)
-
-Post Add page - [View Full HTML Validation Results here.](https://github.com/mittnamnkenny/fishtales/blob/main/documentation/testing/htmlcheckerfull-postadd.pdf)
-
-* **Home page** - 0 Errors / 0 Warnings:
-
-![HTML Update](documentation/testing/htmlchecker-postupdate.jpg)
-
-Post Update page - [View Full HTML Validation Results here.](https://github.com/mittnamnkenny/fishtales/blob/main/documentation/testing/htmlcheckerfull-postupdate.pdf)
-
-* **Home page** - 0 Errors / 0 Warnings:
-
-![HTML Comment](documentation/testing/htmlchecker-commentupdate.jpg)
-
-Comment Update page - [View Full HTML Validation Results here.](https://github.com/mittnamnkenny/fishtales/blob/main/documentation/testing/htmlcheckerfull-commentupdate.pdf)
 
 #### W3C CSS Validator:
 
 The W3C CSS Validator Services were used to validate the CSS giving the following results - 0 Errors / 5 warnings
 
-![CSS No errors](documents/css-no-errors.png)
+![CSS No errors](documents/testing/css-no-errors.png)
 
-![CSS warnings](documents/css-warnings.png)
+![CSS warnings](documents/testing/css-warnings.png)
 
 The warnings are due to 1) import of the Google fonts, 2) a webkit extension for Safari support of the flip-card effect used on the home page, and  3) using the root format for most colouring and text on the site (--var).
+
+
+#### JSHint:
+
+JSHint was used to validate the JavaScript with no errors highlighted.
+
+![Jshint](documentation/testing/jshint.jpg)
+
+#### PEP8 Online:
+
+PEP8 Online linter (Python validator) The code passed without any errors on all files tested:
+
+  - admin.py
+
+![PEP8 Admin](documentation/testing/pep8onlinecheck-admin.jpg)
+
+  - forms.py
+
+![PEP8 Forms](documentation/testing/pep8onlinecheck-forms.jpg)
+
+  - models.py
+
+![PEP8 Models](documentation/testing/pep8onlinecheck-models.jpg)
+
+  - testforms.py
+
+![PEP8 Testforms](documentation/testing/pep8onlinecheck-testforms.jpg)
+
+  - testmodels.py
+
+![PEP8 Testmodels](documentation/testing/pep8onlinecheck-testmodels.jpg)
+
+  - testviews.py
+
+![PEP8 Testviews](documentation/testing/pep8onlinecheck-testviews.jpg)
+
+  - urls.py
+
+![PEP8 Urls](documentation/testing/pep8onlinecheck-urls.jpg)
+
+  - views.py
+
+![PEP8 Views](documentation/testing/pep8onlinecheck-views.jpg)
+
+#### Lighthouse:
 
 
 ### Browser Testing
@@ -559,7 +610,7 @@ Lighthouse Write a Note Desktop
 
 * **Static Files Not Loading** – CSS/JS wasn’t being served correctly in Django.
 
-- *Fix:* Updated `STATICFILES_DIRS` and `STATIC_ROOT`, ran `collectstatic`, and confirmed files loaded in production.
+- *Fix:* Updated `STATICFILES_DIRS` and `STATIC_ROOT`, deleted `staticfiles` and ran `collectstatic` again, then confirmed files loaded in production.
 
 * **Login Redirect Error** – Login sent users to a missing template.
 
@@ -577,6 +628,13 @@ Lighthouse Write a Note Desktop
 
 - *Fix:* Cleared collected static files, set DEBUG to True temporarily, re-ran `collectstatic`, then redeployed.
 
+* **Database information reset** – Once site was deployed again, all previouse users and note removed without a trace.  
+
+- *Fix:* Reattached database correctly from Code Institute to Heroku and Github. 
+
+* **Duplicate Accounts with Same Email** – Users could register multiple accounts with the same email. 
+
+- *Fix:* Reattached database correctly 
 ---
 
 ### Remaining Bugs
@@ -585,18 +643,15 @@ Lighthouse Write a Note Desktop
 
 * **Dropdown Filtering Issue** – Dropdown reloads the page and adds notes correctly, but filtering still does not work reliably.
 
-* **Superuser Dashboard** – Does not display “No pending notes” when expected. Normal users see the correct state.
+* **Pending Notes Dashboard** – Does not display “No pending notes” when expected. Only shows if there are no Approved notes as well.
 
 * **Mobile Theme Dropdown** – After selecting a theme, the nav doesn’t automatically close. Left as-is for now, but may be improved later.
 
 * **Theme Change Blocked by Audio** – When music is playing, the theme selector does not appear. Requires JS adjustment to allow both at the same time.
 
-* **Page Flicker on Theme Load** – Default theme briefly loads before switching to user’s saved theme. Could be improved by applying the theme server-side on render.
-
-* **Duplicate Accounts with Same Email** – Users can currently register multiple accounts with the same email. Needs unique email validation in the model or form.
+* **Page Flicker on Theme Load** – Default theme - and all notes on homepage - briefly loads before switching to user’s saved theme and styling. Could be improved by applying the theme server-side on render.
 
 ---
-
 
 ### Future Improvements
 
@@ -610,12 +665,11 @@ Lighthouse Write a Note Desktop
 
 * **Better Theme Loading** – Instead of client-side flicker, apply theme selection on the server during template rendering for a smoother user experience.
 
-* **Audio & Theme Sync** – Enhance the UX so theme changes don’t pause or conflict with background audio.
+* **Audio Playback** – Look into having audio pause and play at same space instead of restarting. 
 
 ---
 
-(UPDATE)
-![Nav-menu area not colappsing after selecting dropdown option](assets/README/nav-bar-issue.png)
+![Nav-menu Atmosphere section not opened or closed when audio is playing.](documents/site-shots/bug-navbar-atmostphere-dropdown.png)
 
 
 ---
@@ -653,7 +707,7 @@ The live website can be found here: https://take-a-breath-a26c57655e5e.herokuapp
 
 5. Go to the **Resources** tab.
 6. In the **Add-ons** search bar, find **Heroku Postgres** and select it.
-7. Choose the plan **Hobby Dev – Free** or **Essentiial 1**(UPDATE?) and submit.
+7. Choose the plan **Essential-0** and submit.
 
 #### Configuring Environment Variables
 
@@ -814,11 +868,10 @@ If you’d like to propose changes, contribute improvements, or use this project
   - [Bootstrap:](https://getbootstrap.com/) Bootstrap CSS Framework used for styling and to build responsive web pages.
   - [Coverage:](https://coverage.readthedocs.io/en/latest/index.html) Used for measuring code coverage of Python test files. 
   - [Django:](https://www.djangoproject.com/) Main Python framework used in the development.
-  - [Django Allauth:](https://django-allauth.readthedocs.io/en/latest/index.html) Used for authentication and account registration. (UPDATE)
   - [Django Crispy Forms:](https://django-crispy-forms.readthedocs.io/en/latest/) Used to simplify the rendering of Django forms.
   - [dj_database_url:](https://pypi.org/project/dj-database-url/) Used to allow database urls to connect to the postgres database.
   - [Gunicorn:](https://gunicorn.org/) Green Unicorn, used as the Web Server to run Django on Heroku.
-  - [psycopg2:](https://pypi.org/project/psycopg2/) Used PostgreSQL database adapter. (UPDATE)
+  - [psycopg2:](https://pypi.org/project/psycopg2/) Used PostgreSQL database adapter. 
   - [Summernote:](https://github.com/summernote/django-summernote) To provide a WYSIWYG editor for customizing new blog content and add images.
   - [Black Formatter:](https://www.youtube.com/watch?v=nrQly6jybNk&t=466s) To format Django and Python documents in VSCode
 
@@ -842,3 +895,4 @@ If you’d like to propose changes, contribute improvements, or use this project
   - [Freesound:](https://freesound.org/) Used to source audio files. 
   - [W3 CSS Validator:](https://jigsaw.w3.org/css-validator/) Check your code for CSS validation.
   - [Grammarly:](https://www.grammarly.com/) Free Grammar Check.
+  - [FireShot chrome extension](https://chromewebstore.google.com/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg) To get PDF of HTML Errors
