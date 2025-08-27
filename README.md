@@ -73,35 +73,43 @@ Take A Breath is a minimalist, full-stack web application built to spread kindne
 
 ### Strategy
 
-This site is aimed at overall internet users seeking comforting and motivational quotes, and in turn would like to contribute to the positive pile of affirmations. The primary goals are to:
+This site is designed for internet users seeking comforting and motivational quotes, and we would like to contribute to the positive collection of affirmations. The primary goals are to:
 
 - Anyone is able to view notes at any time on the site
-- atmosphere of site is changeable to allow for a more calming experience
-- Logged in users are able to add, edit, and delete their own notes
+- The atmosphere of the site is changeable to allow for a more calming experience
+- Logged-in users are able to add, edit, and delete their own notes
 
 **User Stories:**
 
 - As a user, I want to be notified if my message contains harmful language and be prevented from submitting it, so the platform stays safe and positive.
 - As a user, I want to log in so that I can edit and delete my own notes, ensuring I stay in control of my content.
 - As a logged-in user, I want to be able to write and save a new note, so that I can express my thoughts and keep track of them.
-- As a user, I want to click back and next buttons to flip through quotes so I can explore multiple uplifting messages at my own pace.
+- As a user, I want to click the back and next buttons to flip through quotes so I can explore multiple uplifting messages at my own pace.
 - As a user, I want to change the site’s theme to match calming environments (space, sea, forest, etc.) so I can choose the mood that helps me feel relaxed. 
+
 - As a user, I want my quote to appear on a sticky note design so the messages feel personal, warm, and handwritten.
+
 - As a user, I want the background white noise to match the theme I select, so the visuals and audio work together to create a relaxing atmosphere.
+
 - As a user, I want new notes to stack on top of each other like real sticky notes, so the experience feels visually tactile and comforting.
+
 - As a user, I want to include my name or have it show "Anonymous" if I leave it blank, so I can choose my level of visibility.
+
 - As a user, I want to post a quote to a specific category whenever I want, so that I can share affirmations and organize them by mood.
+
 - As a user, I want to filter messages by emotional categories like stress or grief, so I can read messages that match how I feel.
+
 - As a user, I want to decorate my sticky note with cute stickers by dragging and dropping them, so I can add a personal, expressive touch.
+
 - As a user, I want to like notes that resonate with me, so I can express appreciation and help highlight notes that others may also enjoy.
 
 ### Primary Strategic Aims
 
 - A safe and supportive online space – Create a calm, minimalist environment where users can share and receive positive, anonymous notes without fear of negativity or harmful content.
 
-- Increase engagement and return visits – Encourage users to keep interacting with the platform by offering a refreshing experience each time they visit, with new random motivational notes.
+- Increase engagement and return visits – Encourage users to keep interacting with the platform by offering a refreshing experience each time they visit, with new, random motivational notes.
 
-- Provide an alternative solution for wellbeing – Offer a simple, digital alternative to social media feeds by focusing solely on kindness and positivity, helping users pause, reflect, and boost their mood.
+- Provide an alternative solution for well-being – Offer a simple, digital alternative to social media feeds by focusing solely on kindness and positivity, helping users pause, reflect, and boost their mood.
 
 ---
 
@@ -109,24 +117,37 @@ This site is aimed at overall internet users seeking comforting and motivational
 
 ### In-Scope Features
 
-- Responsive homepage with eligable affirmations
+- Responsive homepage with eligible affirmations
+
 - Navigation menu linking to all other main pages 
+
 - interactive atmosphere changer with matching white noise
+
 - Log in page with data protection
-- Sign up page for new members
-- CRUD for logged in users and their custom notes
+
+- Sign-up page for new members
+
+- CRUD for logged-in users and their custom notes
+
 - Note moderation for certain language
-- Interactive interface for all screen size
+
+- Interactive interface for all screen sizes
+
 - Social media integration
 
 ### Out-of-Scope Features
 
-- Mood filter to seperate note types
-- Report button under notes section
+- Mood filter to separate note types
+
+- Report button under the notes section
+
 - About us Page with contact form
-- Interacive stickers added to notes when written
-- Like button for each note on homepage
-- Pictures section to view photos of animals, relaxing sceens, etc
+
+- Interactive stickers added to notes when written
+
+- Like button for each note on the homepage
+
+- Pictures section to view photos of animals, relaxing scenes, etc
 
 ### Scrapped Features
 
@@ -169,9 +190,9 @@ Responsive breakpoints considered:
 
 ### Data Model
 
-This project is hosted on Heroku and the database used is Heroku PostgreSQL. 
-Two custom models were created for this project; Notes and Background. With the default Django User model already included. As seen in the below, these were made originally with the Stickers feature to be implimented, which was changed last minute due to time contraints. 
+This project is hosted on Heroku, and the database used is Heroku PostgreSQL. 
 
+Two custom models were created for this project: Notes and Background. With the default Django User model already included. As seen below, these were originally made with the Stickers feature to be implemented, which was changed last minute due to time constraints. 
 Entity Relationship Diagram - Notes:
 
 ![ERD Notes](documents/read-me/notes-model.png)
@@ -192,14 +213,17 @@ To explain the structure of the site and how to navigate it, I created a site ma
 
 ### Visual Design
 
-- Custom matching colourscheem for Sea (Blue Tones), Sunset(Orange-Purple Tones), Cosmic (purple Tones), and Forest(Green Tones) 
-- Accessible typography for overall site
-- Curved hadwritten typography for notes displayed
+- Custom matching color scheme for Sea (Blue Tones), Sunset(Orange-Purple Tones), Cosmic (Purple Tones), and Forest(Green Tones) 
+
+- Accessible typography for the overall site
+
+- Curved handwritten typography for notes displayed
+
 - Simple, welcoming layout
 
 ### Color Scheme
 
-From the beginning, I wanted the site to feel dynamic and personal, so instead of being limited to a single color palette, I designed it to adapt based on the user’s chosen theme. Users can select between **Ocean, Sunset, Forest, or Space/Cosmic**, each with its own unique gradient background, note card styling, and button colors while keeping accessibility and readability in mind. These pallets were inspired by [Coolors](https://coolors.co/), and customized to prefered shades during the styling process.
+From the beginning, I wanted the site to feel dynamic and personal, so instead of being limited to a single color palette, I designed it to adapt based on the user’s chosen theme. Users can select between **Ocean, Sunset, Forest, or Space/Cosmic**, each with its own unique gradient background, note card styling, and button colors while keeping accessibility and readability in mind. These pallets were inspired by [Coolors](https://coolors.co/), and customized to preferred shades during the styling process.
 
 To achieve this, I created theme-specific CSS classes (e.g., `.theme-sea`, `.theme-forest`, `.theme-sunset`, `.theme-space`) that apply consistent styling across the site’s elements, including the body background, note cards, and buttons. This ensures the design is cohesive within each theme while still providing variety and personalization.
 
@@ -256,7 +280,7 @@ To create a handwritten, personal touch for the notes, I used **Allison**. This 
 Since no logo was provided for this project, I explored free design resources to find one that fit the calming and uplifting theme of the site. After reviewing several options, I selected a completed logo from Creative Fabrica
 , which aligned perfectly with the project’s minimalist aesthetic and focus on positivity.
 
-The logo was chosen for its professional design quality and its ability to reflect the project’s purpose—creating a safe, welcoming space for users to pause, reflect, and share kindness. Its simple, modern style ensures accessibility and brand recognition across devices.
+The logo was chosen for its professional design quality and its ability to reflect the project’s purpose—creating a safe, welcoming space for users to pause, reflect, and share kindness. It's simple, modern style ensures accessibility and brand recognition across devices.
 
 **Audio**
 
@@ -281,10 +305,15 @@ This approach ensures that while sound enhances the mindfulness experience for m
 --- 
 
 **Summery**
+
 - All images and audio include alt tags
-- Colour themes inspured by [Coolors](https://coolors.co/)
-- Typography slected from [Google Font](https://fonts.google.com/)
+
+- Colour themes inspired by [Coolors](https://coolors.co/)
+
+- Typography selected from [Google Font](https://fonts.google.com/)
+
 - Audio embedded from source [Freesound](https://freesound.org/)
+
 - Logo sourced from free platform [Creative Fabrica](https://www.creativefabrica.com/product/take-a-deep-breath-retro-svg/)
 
 ---
@@ -298,64 +327,114 @@ This approach ensures that while sound enhances the mindfulness experience for m
 ![Atmosphere Screenshot](documents/site-shots/atmosphere-drop-down.png)
 
 #### Navigation Menu 
-Responsive nav bar for mobile and matching Sidebar for tablet and desktop. Contains the following:
+
+Responsive nav bar for mobile and a matching Sidebar for tablet and desktop. Contains the following:
+
 - Site logo
+
 - Log in / Sign up (if not logged in)
-- My Notes (only if loogged in)
+
+- My Notes (only if logged in)
+
 - Pick notes
+
 - Write Notes
+
 - Pictures (disabled)
+
 - Atmosphere Changer
+
 - Audio Toggle
+
 - Social Media 
 
+
 ![Footer Screenshot](documents/site-shots/footer.png)
+
 #### Footer
-Contains copyright for site including year. 
+
+Contains copyright for the site, including the year. 
+
+
 
 #### Metadata
+
 Optimized meta titles and descriptions for better SEO.
+
+
 
 ![Error Page Screenshot](documents/site-shots/error-page.png)
 
+
+
 #### Error Pages
-Errors 400, 403, 404, 405, and 500 added to fit theme of page if error occures
+
+Errors 400, 403, 404, 405, and 500 have been added to fit the theme of the page if an error occurs
+
+
 
 ### Page-Specific Features
 
+
+
 ![Sticky notes Screenshot](documents/site-shots/sticky-note-design.png)
 
+
+
 #### Sticky notes for display
+
 displays handwritten notes from users in a stacked style of 5 background notes at a time. 
+
+
 
 ![Footer Screenshot](documents/site-shots/write-note-design.png)
 
+
+
 #### Write a note display
-Continued stiky note design with the following: Notes area, name area (Anonymous by default) filter to manually approve notes with certain words
+
+Continued sticky note design with the following: Notes area, name area ("anonymous" by default), filter to manually approve notes with certain words
+
+
 
 ![My notes Pending/Approved Screenshot](documents/site-shots/approve-pending-notes.png)
+
 ![My notes Card Screenshot](documents/site-shots/my-notes-card.png)
 
+
+
 #### My notes display
-Showcases all the users notes, seperated into Pending and Approved noted so user is easily infomred of their notes progress. Each note comes with a Delete and Edit button
+
+Showcases all the users' notes, separated into Pending and Approved notes, so the user is easily informed of their notes' progress. Each note comes with a Delete and Edit button
+
+
 
 ![Edit A Note Screenshot](documents/site-shots/edit-note.png)
 
+
+
 #### Edit a note display
-Has same design as Write a note, with auto populated note for easy editing. Once Edited, change is seen immediatly. 
+
+Has the same design as Write a note, with an auto-populated note for easy editing. Once edited, the change is seen immediately. 
+
+
 
 ![Delete Screenshot](documents/site-shots/delete-note.png)
 
+
+
 #### Delete a note display
-Displays note and name without stikynote design. Once deleted, note is immediatly removed from rotation of displayable notes and database. 
+
+Displays note and name without the sticky note design. Once deleted, the note is immediately removed from the rotation of displayable notes and the database. 
 
 ---
+
 
 ## Testing
 
 Throughout the Build phase, Chrome Developer Tools are used to ensure all pages are developed to remain intuitive, responsive, and accessible across all device widths. The pages were designed at 1400px wide, reducing to 320px for mobile devices. These tools and others were used for the Testing phase. 
 
- Chrome Developer Tools also used for debugging of Javascript file and pointing out possibe Django errors
+Chrome Developer Tools was also used for debugging JavaScript files and pointing out possible Django errors.
 
 The following sections summarise the tests and results.
 
@@ -365,9 +444,9 @@ The following sections summarise the tests and results.
 
 Code has been tested using the [HTML Validator](https://validator.w3.org/) and [CSS Validator](https://jigsaw.w3.org/css-validator/).
 
-The W3C Markup Validator were used to validate the HTML on all pages of the project to ensure there were no syntax errors in there. To validate the HTML files, the html file from te browser was coppied for each page using the 'View Page Source' feature on Google Chome, to remove the Django Template and validate the whole page.
+The W3C Markup Validator was used to validate the HTML on all pages of the project to ensure there were no syntax errors in there. To validate the HTML files, the HTML file from the browser was copied for each page using the 'View Page Source' feature on Google Chrome, to remove the Django Template and validate the whole page.
 
-The Home Page gave errors during the verification only for the Select Mood dropdown, as it was read with the Django template even as a HTML file. 
+The Home Page gave errors during the verification only for the Select Mood dropdown, as it was read with the Django template, even as an HTML file. 
 
 * **Home page** - 36 Errors / 12 Warnings: 
 
@@ -390,7 +469,7 @@ My Notes page - [View Full HTML Validation Results here.](https://github.com/Dan
 
 #### W3C CSS Validator:
 
-The W3C CSS Validator Services were used to validate the CSS giving the following results - 0 Errors / 5 warnings
+The W3C CSS Validator Services were used to validate the CSS, giving the following results: 0 Errors / 5 warnings
 
 ![CSS No errors](documents/testing/css-no-errors.png)
 
@@ -434,7 +513,7 @@ PEP8 Online linter (Python validator) The code passed without any errors on all 
 ![PEP8 Views](documents/testing/pep8-views.py.png)
 
 
-### Browser Testing
+### Browser Testing (CONTINUE)
 
 Tested across major browsers to ensure consistency:
 - Navigation
@@ -443,7 +522,7 @@ Tested across major browsers to ensure consistency:
 - Form functionality
 - Responsiveness
 
-I have tested that this application works using Macbook Air, and Asus Tuf, using the following browsers:
+I have tested that this application works using a MacBook Air and an Asus TUF, using the following browsers:
 
   - Safari 
   - Google Chrome 
@@ -462,19 +541,19 @@ I tested each feature of the site to ensure it works as intended.
 | Home page loads | Visit `/` | Page loads with “Pick a Note” and “Write a Note” options, Sidebar with logo and links, and sticky note with text displayed automatically | ✅ Pass | Initial load shows all notes and default (space) background before updating to show correctly |
 | Filter by mood | Select "Stress" in dropdown | Nothing changes on page | ❌ Fail | Did not have time to set up JS for filter |
 | Log in | Entered different login details, both correct and incorrect | Pop-up informed what issue was denying my login, and once correct, took me to the home page with login template | ✅ Pass | No Notes |
-| Add note | Submit note form with no name | Note approved with default name anonymous | ✅ Pass | Note shows under Approved Notes on My Notes page. Pop-up informed that the note was approved immediately |
+| Add note | Submit note form with no name | Note approved with default name "anonymous" | ✅ Pass | Note shows under Approved Notes on My Notes page. Pop-up informed that the note was approved immediately |
 | Add note with expletives | Submit note form with bad word from list | Pop up informed that note needs to be manually approved | ✅ Pass | Note shows under Pending Notes on My Notes page. Works with the new word added to the list immediately. |
 | Edit note | Edit content of a pending and approved note | Updated content is saved and displayed immediately | ✅ Pass | Edit Page populated with note text already for easy alterations |
 | Delete note  | Click “Delete” on a note | Note is removed from list | ✅ Pass | Delete Page shows full note and name to confirm deletion |
 | Manually Approved notes  | Logged into Admin page and approves note manually | Note moves from “Pending” to “Approved” | ✅ Pass | User not notified of approval |
-| Mobile navigation  | Open site on different phone types (IOS, Android) | Sidebar menu collapses to top screen Nav Bar and is usable | ⚠️ Partial | Navbar works, but does not collapse once theme selected or user taps outside nav bar |
+| Mobile navigation  | Open site on different phone types (iOS, Android) | Sidebar menu collapses to top screen Nav Bar and is usable | ⚠️ Partial | Navbar works, but does not collapse once theme is selected or user taps outside nav bar |
 
 
 ---
 
 ### Responsiveness Testing
 
-Tested the site across multiple screen sizes using Chrome DevTools, personal, and friends phones and laptops.
+Tested the site across multiple screen sizes using Chrome DevTools, personal, and friends' phones and laptops.
 
 | Device             | Expected Behaviour                              | Pass/Fail |
 | ------------------ | ----------------------------------------------- | --------- |
@@ -498,20 +577,26 @@ Used [WAVE](https://wave.webaim.org/) and Lighthouse accessibility checker.
 **Issues Resolved:**
 
 - Resolved contrast issues and heading structure
+
 - Transcript for Audio
-- Missed and sort Aria lables and alts
+
+- Missed and sorted Aria labels and alts
+
 - Connecting form to Mood selection Label
 
+- Updated headers for Home and Write-a-Note pages
+
 **Issues Not Resolved:**
-- Atmosphere text, and buttons shows not to be in contrast with all backgounds, but no other test shown to give the same issue. 
-- Notes detected to be headings which are incorrect so alert has been ignored. 
-- Reminder to add transcript for audio as Alert. Transcript added but alert still shows.
+
+- Atmosphere text and buttons show to be in contrast with all backgrounds, but no other test shows the same issue. 
+
+- Reminder to add transcript for audio as Alert. Transcript added, but alert still shows.
 
 ---
 
 ### Data Management Testing
 
-Checked CRUD functionality with database.
+Checked CRUD functionality with the database.
 
 | Action               | Expected Result                               | Pass/Fail |
 | -------------------- | --------------------------------------------- | --------- |
@@ -525,12 +610,29 @@ Checked CRUD functionality with database.
 
 ### Error/Bug Testing
 
-| Test                                 | Expected Result                                  | Outcome |
-| ------------------------------------ | ------------------------------------------------ | ------- |
-| Submit form with blank fields        | Form validation prevents submission              | ✅ Works |
-| Access `/edit_note/` with invalid ID | Error handled gracefully (404)                   | ✅ Works |
-| Delete note twice                    | First deletion works, second shows error message | ✅ Works |
-
+| Test                                           | Expected Result                                    | Outcome |
+| ---------------------------------------------- | -------------------------------------------------- | ------- |
+| Submit form with blank fields                  | Form validation prevents submission                | ✅ Works |
+| Access unknown page on site                    | Error handled gracefully (400/404)                 | ✅ Works |
+| Delete note twice                              | First deletion works, second shows error message   | ✅ Works |
+| Access protected page while logged out         | Redirects to login page                            | ✅ Works |
+| Sign up with valid credentials                 | Account is created and user is logged in           | ✅ Works |
+| Sign up with pre-used email                    | Account is rejected stating correct reason         | ✅ Works |
+| Reset Password for active account              | Stated email was not in the database and should sign up | ❌ Fail |
+| Login with invalid credentials                 | Shows error, does not authenticate                 | ✅ Works |
+| Try to edit/delete another user’s note         | Access denied (403 or redirect)                    | ✅ Works |
+| Submit note with valid content                 | Note saved and visible in “My Notes”               | ✅ Works |
+| Submit note with empty content                 | JSON error response returned                       | ✅ Works |
+| Submit note with banned word                   | Note saved with pending status (requires approval) | ✅ Works |
+| Submit note without name                       | Note saved with default name “Anonymous”           | ✅ Works |
+| Edit note and save changes                     | Updated note content displayed                     | ✅ Works |
+| Delete note                                    | Redirect to “My Notes”, note is removed            | ✅ Works |
+| Request `/notes-json/` endpoint                | Returns JSON list of approved notes                | ✅ Works |
+| Access home page                               | Shows randomized but valid list of approved notes  | ✅ Works |
+| Submit note with only spaces                   | Treated as empty → rejected                        | ✅ Works |
+| Submit note at max allowed length              | Accepted and saved successfully                    | ✅ Works |
+| Submit note exceeding max allowed length       | Capped at max character count and cannot add more. | ✅ Works |
+| Attempt delete via GET request instead of POST | Action not allowed (safe handling)                 | ✅ Works |
 
 
 ### Deployment Testing
@@ -855,6 +957,7 @@ If you’d like to propose changes, contribute improvements, or use this project
 * Mentor Brian Macharia for guiding and advising throughout the project's lifecycle.
 * Rick Atherton, Elaine Broche, mittnamnkenny, and Ilyascan OIgun are sources of information for README content and layout.
 * Code Institute Slack community for peer reviewing the website.
+* Friends and family for testing and reviewing the website.
 
 ### Languages Used:
 
@@ -864,9 +967,6 @@ If you’d like to propose changes, contribute improvements, or use this project
   - JavaScript
   - Python 
   - Django
-  - Chrome DevTools
-  - Git
-  - GitHub
 
 ### Frameworks and Libraries Used:
 
